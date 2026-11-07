@@ -1,0 +1,9 @@
+{%- comment -%} Liste cachée des événements, lue par evenements.js pour la tuile « Prochaine rencontre ». {%- endcomment -%}
+{% assign mois_fr = "janv.,févr.,mars,avr.,mai,juin,juil.,août,sept.,oct.,nov.,déc." | split: "," %}
+<ul id="agenda-source" hidden>
+  {% for e in site.data.rencontres.dates.evenements %}
+  {% assign debut = e.debut | default: e.fin | append: "" %}
+  {% assign m = debut | date: "%-m" | minus: 1 %}
+  <li data-fin="{{ e.fin }}" data-texte="{{ debut | date: '%-d' }} {{ mois_fr[m] }} · {{ e.lieu }}"></li>
+  {% endfor %}
+</ul>

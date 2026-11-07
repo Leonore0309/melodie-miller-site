@@ -1,0 +1,67 @@
+# Accueil version B (inspiré de la page d'accueil de Harlan Coben) : textes raccourcis.
+# vedette = identifiant du livre mis en avant dans la moitié sombre du haut de page.
+vedette: les-disparues-de-la-crypte
+
+auteur:
+  titre: "Mélodie Miller"
+  accroche: "Des histoires pour rêver, rire, aimer… et parfois trembler."
+  texte: "Autrice de romans feel good, de comédies romantiques et de thrillers psychologiques, j'explore ce qui nous rend profondément humains : nos rêves, nos secrets, nos amours et notre capacité à nous réinventer."
+  chiffre: "Plus de 70 000 lecteurs ont déjà embarqué. Et si vous étiez les prochains ?"
+  photo: "portrait.jpg"
+  photo_alt: "Portrait souriant de Mélodie Miller"
+
+nouveaute:
+  surtitre: "Nouvelle enquête"
+  accroche: "Trois corps dans une ancienne carrière de l'Yonne, une légende viticole, des rituels enfouis. Un polar psychologique impossible à lâcher."
+  bouton: "Entrer dans l'enquête"
+  lien: "/thrillers/#les-disparues-de-la-crypte"
+
+univers:
+  lumiere:
+    titre: "Envie de lumière ?"
+    texte: "Ibiza, le Québec, la Polynésie… Amitié, amour, humour et nouveaux départs : des histoires qui font du bien."
+    bouton: "Découvrir mes romances"
+    couverture: "manon-1.jpg"
+    couverture_alt: "Couverture de Il n'est jamais trop tard pour libérer les licornes"
+  frissons:
+    titre: "Envie de frissons ?"
+    texte: "Disparitions inquiétantes, secrets enfouis, familles tourmentées… Suspense et twists impitoyables garantis."
+    bouton: "Découvrir mes thrillers"
+    couverture: "mariee-de-la-fosse.jpg"
+    couverture_alt: "Couverture de La mariée de la fosse"
+
+aussi:
+  titre: "À découvrir aussi"
+  livre: un-chum-pour-noel
+  texte: "Un mariage annulé, une librairie de rêve au Québec, un papa solo ronchon et une tempête de neige : une comédie romantique à savourer comme un chocolat chaud."
+  bouton: "Découvrir le roman"
+  lien: "/romances-feel-good/#un-chum-pour-noel"
+
+ecran:
+  surtitre: "Mes romans à l'écran"
+  titre: "Des histoires écrites en images"
+  texte: "Intrigues à suspense, personnages attachants, décors forts : mes romans sont prêts pour l'écran."
+  bouton: "Découvrir les projets"
+
+tuiles:
+  rencontres:
+    titre: "Rencontres & dédicaces"
+    vide: "Les prochaines dates arrivent bientôt"
+    image: "dedicace.jpg"
+    image_alt: "Mélodie Miller en séance de dédicace"
+    lien: "/rencontres-presse/"
+  conferences:
+    titre: "Conférences"
+    sous_titre: "Valérie Pierson / Mélodie Miller"
+    image: "atelier-kobo.jpg"
+    image_alt: "Atelier Kobo Writing Life animé par Valérie Pierson, alias Mélodie Miller"
+    lien: "/conferences/"
+
+temoignages_titre: "Les lectrices en parlent"
+
+lettre:
+  titre: "La lettre de Mélodie"
+  texte: "Les coulisses de mes romans, mes inspirations, mes voyages et parfois une recette… avec quelques surprises et des nouvelles exclusives."
+  bouton: "Je rejoins les coulisses"
+  photo: "bisou.jpg"
+  photo_alt: "Mélodie Miller envoie un baiser"

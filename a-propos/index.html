@@ -1,0 +1,25 @@
+---
+layout: default
+univers: portail
+title: "Mélodie Miller, autrice | Mon parcours"
+description: "Le parcours de Mélodie Miller : tour du monde, premiers romans feel good, thrillers psychologiques, et conférences sous le nom de Valérie Pierson."
+permalink: /a-propos/
+---
+{% assign a = site.data.a_propos %}
+<section class="container section apropos">
+  <h1>{{ a.titre }}</h1>
+  <div class="texte-photo">
+    <div class="texte-long">
+      {% for p in a.paragraphes %}{{ p | markdownify }}{% endfor %}
+    </div>
+    <div class="photos-col">
+      {% include photo.html src=a.photo alt=a.photo_alt %}
+      {% include photo.html src=a.photo2 alt=a.photo2_alt legende=a.photo2_legende %}
+    </div>
+  </div>
+  <div class="apropos-fin">
+    <h2>{{ a.fin.titre }}</h2>
+    <p>{{ a.fin.texte }}</p>
+    <p class="boutons"><a class="btn" href="{{ '/conferences/' | relative_url }}">{{ a.fin.bouton }}</a></p>
+  </div>
+</section>

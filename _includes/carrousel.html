@@ -1,0 +1,44 @@
+{%- comment -%}
+  Paramètres : livres (liste de livres), mode ("saga" = 3 livres visibles, "duo" = 2 livres),
+  resume (true = afficher l'accroche et le résumé du livre central), label (nom du carrousel)
+{%- endcomment -%}
+{% capture nl %}{% include newsletter-lien.html %}{% endcapture %}
+<div class="carrousel" data-mode="{{ include.mode | default: 'saga' }}" data-auto="4000" role="region" aria-roledescription="carrousel" aria-label="{{ include.label }}">
+  <div class="car-scene">
+    <button class="car-fleche car-prec" type="button" aria-label="Livre précédent">&#9664;</button>
+    <div class="car-piste">
+      {% for l in include.livres %}
+      <div class="car-item" id="{{ l.id }}" data-index="{{ forloop.index0 }}">
+        <div class="couv">
+          {% if l.image and l.image != "" %}
+          <img src="{{ '/assets/img/livres/' | append: l.image | relative_url }}" alt="Couverture de {{ l.titre }}" loading="lazy" draggable="false">
+          {% else %}
+          <div class="couverture-vide" role="img" aria-label="Couverture à venir de {{ l.titre }}"><span>{{ l.titre }}</span></div>
+          {% endif %}
+          {% if l.statut == 'a-paraitre' %}<span class="badge-couv badge-bientot">À paraître</span>{% endif %}
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+    <button class="car-fleche car-suiv" type="button" aria-label="Livre suivant">&#9654;</button>
+  </div>
+  <div class="car-points" aria-hidden="true">{% for l in include.livres %}<button type="button" tabindex="-1" data-index="{{ forloop.index0 }}"></button>{% endfor %}</div>
+  <div class="car-details" aria-live="polite">
+    {% for l in include.livres %}
+    <article class="car-detail{% if forloop.first %} courant{% endif %}" data-index="{{ forloop.index0 }}">
+      <h3>{{ l.titre }}</h3>
+      {% if l.tome and l.tome != "" %}<p class="tome">{{ l.tome }}</p>{% endif %}
+      {% if include.resume %}
+        {% if l.sur_titre and l.sur_titre != "" %}<p class="sur-titre">{{ l.sur_titre }}</p>{% endif %}
+        {% if l.accroche and l.accroche != "" %}<p>{{ l.accroche }}</p>{% endif %}
+        {% if l.complement and l.complement != "" %}<p class="complement">{{ l.complement }}</p>{% endif %}
+      {% endif %}
+      <p class="boutons">
+        {% for lien in l.liens %}<a class="btn" href="{{ lien.url }}" rel="noopener">{{ lien.nom }}</a>{% endfor %}
+        {% if l.extrait and l.extrait != "" %}<a class="btn btn-ghost" href="{% if l.extrait contains '://' %}{{ l.extrait }}{% else %}{{ l.extrait | relative_url }}{% endif %}">Lire les 3 premiers chapitres</a>{% endif %}
+        {% if l.liens.size == 0 %}<span class="a-venir">Lien d'achat à venir</span>{% endif %}
+      </p>
+    </article>
+    {% endfor %}
+  </div>
+</div>

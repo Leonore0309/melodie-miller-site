@@ -1,0 +1,17 @@
+titre: "On s'écrit ?"
+paragraphes:
+  - "Une question, un message après avoir terminé un roman, une proposition de rencontre ou simplement l'envie de me raconter ce que mes personnages vous ont fait vivre ? J'adore recevoir vos messages."
+  - "Écrivez-moi à l'adresse ci-dessous, ou choisissez le sujet de votre message : votre messagerie s'ouvrira avec l'objet déjà rempli."
+  - "Je lis vos courriers avec beaucoup d'attention, même si les personnages de mes romans essaient parfois de monopoliser mes journées."
+sujets:
+  - { nom: "Lecture et romans", objet: "Lecture et romans" }
+  - { nom: "Presse et librairies", objet: "Presse et librairies" }
+  - { nom: "Conférence", objet: "Conférence" }
+  - { nom: "Autre", objet: "Autre" }
+ailleurs:
+  titre: "Retrouvons-nous ailleurs"
+  texte: "Retrouvez-moi également sur Instagram, Facebook et TikTok pour suivre mon actualité, mes inspirations, les coulisses de mes romans et quelques petits morceaux de mon quotidien."
+  newsletter: "Et si vous souhaitez recevoir mes nouvelles directement dans votre boîte mail, inscrivez-vous à ma newsletter."
+  bouton_newsletter: "M'inscrire à la newsletter"
+fin: "À très bientôt, au détour d'une page ou d'un message !"
+signature: "Mélodie"

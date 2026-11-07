@@ -1,0 +1,35 @@
+heros:
+  titre: "Mélodie Miller"
+  accroche: "Des histoires pour rêver, rire, aimer… et parfois trembler."
+  paragraphes:
+    - "Bienvenue dans mon univers ! Je suis Mélodie Miller, autrice de romans feel good, de comédies romantiques et de thrillers psychologiques."
+    - "À première vue, ces univers n'ont pas grand-chose en commun. Et pourtant… Dans chacun de mes romans, j'explore ce qui nous rend profondément humains : nos rêves, nos blessures, nos secrets, nos amours et cette incroyable capacité à nous réinventer."
+    - "J'aime les personnages imparfaits, les émotions qui débordent, les voyages qui changent une vie et les intrigues qui tiennent éveillés toute la nuit."
+    - "Plus de 70 000 lecteurs ont déjà embarqué dans mes histoires. Et si vous étiez les prochains ?"
+  photo: "portrait.jpg"
+  photo_alt: "Portrait souriant de Mélodie Miller"
+
+deux_univers:
+  titre: "Deux univers, une même passion : les émotions"
+  lumiere:
+    titre: "Envie de lumière ?"
+    texte: "Direction Ibiza, le Québec ou la Polynésie ! Entre amitié, amour, humour et nouveaux départs, découvrez mes romans feel good et mes comédies romantiques. Des histoires drôles et touchantes qui font du bien."
+    bouton: "Découvrir mes romances"
+    couverture: "manon-1.jpg"
+    couverture_alt: "Couverture de Il n'est jamais trop tard pour libérer les licornes"
+  frissons:
+    titre: "Envie de frissons ?"
+    texte: "Disparitions inquiétantes, secrets enfouis, familles tourmentées et vérités dérangeantes… Mes thrillers psychologiques vous entraînent là où les apparences sont souvent trompeuses. Suspense et twists impitoyables garantis."
+    bouton: "Découvrir mes thrillers"
+    couverture: "mariee-de-la-fosse.jpg"
+    couverture_alt: "Couverture de La mariée de la fosse"
+
+en_ce_moment: "À découvrir en ce moment"
+temoignages_titre: "Les lectrices en parlent"
+
+lettre:
+  titre: "La lettre de Mélodie"
+  texte: "J'aime autant échanger avec mes lectrices qu'inventer de nouvelles histoires ! Dans ma newsletter, je vous raconte les coulisses de mes romans, mes inspirations, mes voyages, mes petites découvertes et parfois même mes recettes préférées. Je vous y réserve aussi quelques surprises et des nouvelles exclusives."
+  bouton: "Je rejoins les coulisses"
+  photo: "bisou.jpg"
+  photo_alt: "Mélodie Miller envoie un baiser"

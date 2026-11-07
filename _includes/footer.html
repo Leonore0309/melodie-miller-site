@@ -1,0 +1,17 @@
+{% capture nl %}{% include newsletter-lien.html %}{% endcapture %}
+<footer class="site-footer">
+  {% unless page.accueil %}
+  <div class="newsletter-bande"><div class="large">{% include newsletter.html %}</div></div>
+  {% endunless %}
+  <div class="container footer-bas">
+    <p><strong>{{ site.data.site.signature }}</strong></p>
+    <p>{{ site.data.site.slogan_pied }}</p>
+    <ul class="reseaux">
+      {% for r in site.data.site.reseaux %}<li><a href="{{ r.url }}" rel="noopener">{{ r.nom }}</a></li>{% endfor %}
+      <li><a href="{{ nl | strip }}" rel="noopener">Newsletter</a></li>
+      <li><a href="{{ '/contact/' | relative_url }}">Contact</a></li>
+      <li><a href="{{ '/mentions-legales/' | relative_url }}">Mentions légales</a></li>
+      <li><a href="{{ '/confidentialite/' | relative_url }}">Politique de confidentialité</a></li>
+    </ul>
+  </div>
+</footer>

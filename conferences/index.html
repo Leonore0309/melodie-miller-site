@@ -1,0 +1,51 @@
+---
+layout: default
+univers: conference
+title: "Valérie Pierson & Mélodie Miller | Conférences"
+description: "Conférences de Valérie Pierson pour les entreprises et dirigeants, et de Mélodie Miller pour les rencontres littéraires : créativité, audace, réinvention."
+permalink: /conferences/
+---
+{% assign c = site.data.conferences %}
+<section class="hero-univers">
+  <div class="container">
+    <p class="surtitre">{{ c.entete }}</p>
+    <h1>{{ c.titre }}</h1>
+    <p class="accroche accroche-large">{{ c.sous_titre }}</p>
+  </div>
+</section>
+
+<section class="container section">
+  <div class="texte-photo">
+    <div class="texte-long">
+      {% for p in c.intro %}<p>{{ p }}</p>{% endfor %}
+    </div>
+    {% include photo.html src=c.photo alt=c.photo_alt legende=c.photo_legende %}
+  </div>
+</section>
+
+<section class="container section">
+  <h2>{{ c.entreprises.titre }}</h2>
+  {% for p in c.entreprises.paragraphes %}<p>{{ p }}</p>{% endfor %}
+  <h3>{{ c.entreprises.themes_titre }}</h3>
+  <ul class="themes">{% for t in c.entreprises.themes %}<li>{{ t }}</li>{% endfor %}</ul>
+</section>
+
+<section class="container section">
+  <h2>{{ c.litterature.titre }}</h2>
+  {% for p in c.litterature.paragraphes %}<p>{{ p }}</p>{% endfor %}
+</section>
+
+<section class="container section">
+  <h2>{{ c.rencontres.titre }}</h2>
+  <ul class="agenda">
+    {% for e in c.rencontres.liste %}
+    <li><span class="agenda-date">{{ e.quand }}</span><span class="agenda-titre">{{ e.sujet }}</span><span class="agenda-lieu">{{ e.lieu }}</span></li>
+    {% endfor %}
+  </ul>
+</section>
+
+<section class="container section cta">
+  <h2>{{ c.cta.titre }}</h2>
+  <p>{{ c.cta.texte }}</p>
+  <p class="boutons"><a class="btn" href="mailto:{{ site.data.site.email }}?subject={{ 'Conférence' | url_encode }}">{{ c.cta.bouton }}</a></p>
+</section>

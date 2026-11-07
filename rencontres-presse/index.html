@@ -1,0 +1,43 @@
+---
+layout: default
+univers: portail
+title: "Rencontres & presse | Mélodie Miller"
+description: "Dédicaces, salons du livre et rencontres avec Mélodie Miller. Revue de presse et contact pour journalistes, libraires et organisateurs."
+permalink: /rencontres-presse/
+---
+{% assign r = site.data.rencontres %}
+<section class="container section">
+  <h1>{{ r.titre }}</h1>
+  <div class="texte-photo">
+    <div class="texte-long">
+      {% for p in r.paragraphes %}<p>{{ p }}</p>{% endfor %}
+    </div>
+    {% include photo.html src=r.photo alt=r.photo_alt legende=r.photo_legende %}
+  </div>
+</section>
+
+<section class="container section" id="dates">
+  <h2>{{ r.dates.titre }}</h2>
+  <p>{{ r.dates.texte }}</p>
+  {% include evenements.html %}
+</section>
+
+<section class="container section" id="presse">
+  <h2>{{ r.presse.titre }}</h2>
+  <p>{{ r.presse.texte }}</p>
+  {% if r.presse.articles.size > 0 %}
+  <ul class="presse">
+    {% for a in r.presse.articles %}
+    <li><strong>{{ a.media }}</strong> · {{ a.sujet }} <span class="presse-date">{{ a.date }}</span>{% if a.lien and a.lien != "" %} <a href="{{ a.lien }}" rel="noopener">Lire</a>{% endif %}</li>
+    {% endfor %}
+  </ul>
+  {% else %}
+  <p class="provisoire">{{ r.presse.vide }}</p>
+  {% endif %}
+</section>
+
+<section class="container section">
+  <h2>{{ r.pros.titre }}</h2>
+  <p>{{ r.pros.texte }}</p>
+  <p class="boutons"><a class="btn" href="{{ '/contact/' | relative_url }}">{{ r.pros.bouton }}</a></p>
+</section>

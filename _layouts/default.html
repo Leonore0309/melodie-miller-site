@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+{% seo %}
+{% if site.noindex %}<meta name="robots" content="noindex, nofollow">{% endif %}
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Dancing+Script:wght@600&family=Inter:wght@400;500;600&family=Lora:ital,wght@0,400;0,500;1,400&family=Playfair+Display:ital,wght@0,500;1,500;1,600&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap">
+<link rel="stylesheet" href="{{ '/assets/css/base.css' | relative_url }}">
+<link rel="stylesheet" href="{{ '/assets/css/portail.css' | relative_url }}">
+<link rel="stylesheet" href="{{ '/assets/css/univers-conference.css' | relative_url }}">
+<link rel="stylesheet" href="{{ '/assets/css/univers-thriller.css' | relative_url }}">
+<link rel="stylesheet" href="{{ '/assets/css/univers-feelgood.css' | relative_url }}">
+<link rel="stylesheet" href="{{ '/assets/css/carrousel.css' | relative_url }}">
+<link rel="stylesheet" href="{{ '/assets/css/accueil-b.css' | relative_url }}">
+{% if site.maquette %}
+<link rel="stylesheet" href="{{ '/assets/css/variantes.css' | relative_url }}">
+<script src="{{ '/assets/js/variantes.js' | relative_url }}"></script>
+{% endif %}
+</head>
+<body data-univers="{{ page.univers | default: 'portail' }}"{% if page.accueil %} data-accueil="{{ page.accueil }}"{% endif %}>
+<a class="skip" href="#main">Aller au contenu</a>
+{% include header.html %}
+<main id="main">
+{{ content }}
+</main>
+{% include footer.html %}
+<script src="{{ '/assets/js/menu.js' | relative_url }}" defer></script>
+<script src="{{ '/assets/js/evenements.js' | relative_url }}" defer></script>
+<script src="{{ '/assets/js/carrousel.js' | relative_url }}" defer></script>
+<script src="{{ '/assets/js/animations.js' | relative_url }}" defer></script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<section class="nouveautes" aria-labelledby="titre-nouveautes">
+  <div class="container">
+    <h2 id="titre-nouveautes">{{ site.data.accueil.en_ce_moment }}</h2>
+    <div class="nouveautes-liste">
+      {% for n in site.data.nouveautes.nouveautes %}
+      {% assign l = site.data.livres.livres | where: "id", n.livre | first %}
+      <article class="nouveaute">
+        <div class="couv">
+          {% if l.image and l.image != "" %}
+          <img src="{{ '/assets/img/livres/' | append: l.image | relative_url }}" alt="Couverture de {{ l.titre }}">
+          {% else %}
+          <div class="couverture-vide" role="img" aria-label="Couverture à venir de {{ l.titre }}"><span>{{ l.titre }}</span></div>
+          {% endif %}
+        </div>
+        <div class="nouveaute-texte">
+          <p class="badge">{{ n.badge }}</p>
+          <h3>{{ l.titre }}</h3>
+          {% for p in n.texte %}<p>{{ p }}</p>{% endfor %}
+          <p class="boutons"><a class="btn" href="{{ n.lien | relative_url }}">{{ n.bouton }}</a></p>
+        </div>
+      </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>

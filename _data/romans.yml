@@ -1,0 +1,56 @@
+sas:
+  titre: "À chaque humeur, son histoire"
+  lignes:
+    - "Que choisirez-vous aujourd'hui ?"
+    - "Soleil, amitié, amour et humour teintés d'une bonne dose d'optimisme ?"
+    - "Ou huis clos, secrets, compte à rebours et enquêtes bien ficelées ?"
+    - "J'écris la lumière et l'ombre. Embarquez avec moi."
+  feelgood:
+    titre: "Feel good & romances"
+    texte: "Des histoires d'amour et d'amitié, des fêlures, des voyages, des secondes chances et des personnages impossibles à oublier. Si vous aimez rire et pleurer, c'est ici."
+    bouton: "Entrer dans mon univers feel good"
+    couverture: "manon-1.jpg"
+    couverture_alt: "Couverture de Il n'est jamais trop tard pour libérer les licornes"
+  thriller:
+    titre: "Thrillers psychologiques"
+    texte: "Des disparitions, des blessures anciennes et des secrets inavouables. Si vous préférez trembler et frissonner, c'est par là."
+    bouton: "Découvrir mes thrillers"
+    couverture: "mariee-de-la-fosse.jpg"
+    couverture_alt: "Couverture de La mariée de la fosse"
+
+feelgood:
+  titre: "Des héroïnes tendres et drôles"
+  accroche: "Cassandre, Manon, Charlotte, Adèle… 15, 30, 45 ans."
+  paragraphes:
+    - "Mes personnages sont comme vous, comme moi, comme beaucoup d'entre nous. Tendrement imparfaites, joyeusement mélancoliques, résolument optimistes et parfois très, très maladroites."
+    - "Elles aiment, elles désaiment, elles essaient, elles se trompent, elles recommencent."
+    - "Elles pleurent, elles rient, elles aiment, un peu, beaucoup, passionnément."
+    - "Comme vous, comme moi."
+  manon:
+    titre: "La saga Manon"
+    accroche: "Et si votre moi de 10 ans vous demandait où sont passés vos rêves ?"
+    paragraphes:
+      - "De Paris à Ibiza, Buenos Aires et Tahiti, la saga Manon est un voyage. Envolez-vous aux côtés de Manon, l'hypersensible, Mattéo, le pianiste charmeur et Claire, Jeanne, Arturo, Enrique, leurs amis inoubliables."
+      - "Six tomes pour grandir, aimer, réparer et oser. Six tomes qui traitent de l'amour, du couple, des relations familiales, du mariage, du désir ou non d'enfant et de la vie, avec ses joies et ses tristesses."
+      - "Une lecture feel good réconfortante comme un doudou."
+    bouton: "Découvrir la saga Manon"
+  comedies:
+    titre: "Mes comédies romantiques"
+  cassandre:
+    titre: "Les amours de Cassandre"
+    accroche: "Cassandre avait décidé de passer un été tranquille, au grand dam de ses meilleures amies, mais Hugo s'en est mêlé et voilà qu'elle risque de rencontrer l'amour et perdre son pari !"
+    texte: "Une saga romantique pour ados à savourer pour vivre ou revivre ses 15 ans avec humour et émotions !"
+    bouton: "Découvrir la série"
+
+thriller:
+  titre: "Plongez dans mon côté sombre"
+  accroche: "Anna, Mathilde, Marjorie, Eloïse… mes héroïnes vont tout risquer pour traquer la vérité."
+  paragraphes:
+    - "J'ai toujours été fascinée par ce que les êtres humains dissimulent : les secrets de famille, les souvenirs déformés, les blessures de l'enfance et les mensonges que l'on finit par croire soi-même."
+    - "Passionnée de psychologie, mes thrillers sont addictifs. Ils naissent souvent d'un lieu, d'une image ou d'une question qui m'obsède. Pourquoi et comment devient-on criminel ?"
+  enquetes: "Les enquêtes d'Anna Blanchard et Julien Vautrin"
+  autres: "Mes autres thrillers"
+
+formats:
+  titre: "À lire, à écouter, à emporter partout"
+  texte: "Mes livres sont disponibles, selon les titres, en broché, en ebook ou en livre audio. Choisissez votre format préféré et laissez-vous emporter."

@@ -1,0 +1,10 @@
+/* Conférences : corporate luxe, blanc, bleu marine, filet or */
+[data-univers="conference"] h1,
+[data-univers="conference"] h2 { font-weight: 700; letter-spacing: -.01em; }
+[data-univers="conference"] .hero-univers { border-bottom: 3px solid var(--conf-gold); }
+[data-univers="conference"] .surtitre { color: var(--conf-gold); font-size: .95rem; }
+[data-univers="conference"] h2::after { content: ""; display: block; width: 3rem; height: 3px; background: var(--conf-gold); margin-top: .5rem; }
+[data-univers="conference"] .themes { border-left: 3px solid var(--conf-gold); padding-left: 1.4rem; list-style: none; }
+[data-univers="conference"] .cta { background: var(--conf-soft); padding: 2rem; margin-block: 2rem; }
+[data-univers="conference"] .photo img { border-radius: 0; }
+[data-univers="conference"] .photo figcaption { color: var(--conf-fg); }

@@ -1,0 +1,47 @@
+/* Carrousels de couvertures (sagas Manon et Cassandre, duo des comédies).
+   Sans JavaScript : liste horizontale défilante, tous les détails visibles. */
+.bloc { overflow-x: clip; background: var(--soft); border-radius: 24px; padding: 2rem 2rem 2.2rem; box-shadow: 0 10px 30px rgb(74 44 51 / .10); }
+.bloc > h2 { margin-bottom: .3em; }
+@media (max-width: 640px) { .bloc { padding: 1.4rem 1rem 1.6rem; border-radius: 18px; } }
+
+.carrousel { --w: min(300px, 62vw); margin-top: 1.5rem; }
+.car-scene { position: relative; }
+.carrousel.actif .car-scene { overflow-x: clip; }
+.car-piste { display: flex; gap: 1rem; overflow-x: auto; padding-bottom: 1rem; }
+.car-item { flex: none; }
+.car-item .couv { width: 200px; }
+.car-item .couv img { width: 100%; height: 280px; object-fit: contain; object-position: center bottom; box-shadow: none; mix-blend-mode: multiply; }
+.car-item .couverture-vide { height: 280px; aspect-ratio: auto; }
+.car-fleche { display: none; }
+.car-detail { text-align: center; margin-top: 1rem; }
+
+/* Mode actif (JavaScript) : les livres sont superposés et positionnés par script */
+.carrousel.actif .car-piste { display: block; position: relative; overflow: visible; height: calc(var(--w) * 1.45); padding: 0; touch-action: pan-y; user-select: none; }
+.carrousel.actif .car-item { position: absolute; left: 50%; bottom: 0; width: var(--w); transform-origin: center bottom; transition: transform .55s cubic-bezier(.4, .1, .2, 1), opacity .45s; cursor: pointer; }
+.carrousel.actif .car-item .couv { width: 100%; }
+.carrousel.actif .car-item .couv img { height: calc(var(--w) * 1.4); }
+.carrousel.actif .car-item .couverture-vide { height: calc(var(--w) * 1.4); }
+.carrousel.actif .car-item.centre { cursor: default; }
+.carrousel.actif .car-item .badge-couv { left: 0; }
+.carrousel.actif .car-fleche { display: grid; place-items: center; position: absolute; top: 45%; z-index: 6; width: 3rem; height: 3rem; border-radius: 50%; border: 0; background: var(--accent); color: var(--accent-fg); font-size: 1.1rem; cursor: pointer; box-shadow: 0 4px 12px rgb(0 0 0 / .25); transition: transform .2s; }
+.carrousel.actif .car-fleche:hover { transform: scale(1.1); }
+.carrousel.actif .car-prec { left: 0; }
+.carrousel.actif .car-suiv { right: 0; }
+.carrousel.actif .car-detail { display: none; }
+.carrousel.actif .car-detail.courant { display: block; animation: car-apparition .5s ease; }
+.carrousel .car-detail h3 { margin-bottom: .2em; }
+.carrousel .car-detail .tome { font-family: var(--texte); font-size: .8rem; text-transform: uppercase; letter-spacing: .06em; opacity: .8; }
+.carrousel .car-detail .boutons { justify-content: center; }
+.carrousel .car-detail p { max-width: 62ch; margin-inline: auto; }
+.car-points { display: none; }
+.carrousel.actif .car-points { display: flex; justify-content: center; gap: .45rem; margin-top: .8rem; }
+.car-points button { width: .6rem; height: .6rem; padding: 0; border-radius: 50%; border: 0; background: color-mix(in srgb, var(--fg) 30%, transparent); cursor: pointer; }
+.car-points button[aria-current="true"] { background: var(--fg); transform: scale(1.3); }
+@keyframes car-apparition { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+@media (prefers-reduced-motion: reduce) {
+  .carrousel.actif .car-item { transition: none; }
+  .carrousel.actif .car-detail.courant { animation: none; }
+}
+@media (max-width: 640px) {
+  .carrousel.actif .car-fleche { width: 2.4rem; height: 2.4rem; }
+}

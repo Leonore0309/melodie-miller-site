@@ -1,0 +1,32 @@
+---
+layout: default
+univers: portail
+title: "Mes romans | Mélodie Miller"
+description: "Romans feel good et comédies romantiques, ou thrillers psychologiques : à chaque humeur, son histoire."
+permalink: /mes-romans/
+---
+{% assign s = site.data.romans.sas %}
+<section class="container section sas">
+  <h1>{{ s.titre }}</h1>
+  <div class="sas-intro">
+    {% for l in s.lignes %}<p>{{ l }}</p>{% endfor %}
+  </div>
+  <div class="duo">
+    <article class="carte-univers carte-grande" data-univers="feelgood">
+      <img src="{{ '/assets/img/livres/' | append: s.feelgood.couverture | relative_url }}" alt="{{ s.feelgood.couverture_alt }}">
+      <div>
+        <h2>{{ s.feelgood.titre }}</h2>
+        <p>{{ s.feelgood.texte }}</p>
+        <p class="boutons"><a class="btn" href="{{ '/romances-feel-good/' | relative_url }}">{{ s.feelgood.bouton }}</a></p>
+      </div>
+    </article>
+    <article class="carte-univers carte-grande" data-univers="thriller">
+      <img src="{{ '/assets/img/livres/' | append: s.thriller.couverture | relative_url }}" alt="{{ s.thriller.couverture_alt }}">
+      <div>
+        <h2>{{ s.thriller.titre }}</h2>
+        <p>{{ s.thriller.texte }}</p>
+        <p class="boutons"><a class="btn" href="{{ '/thrillers/' | relative_url }}">{{ s.thriller.bouton }}</a></p>
+      </div>
+    </article>
+  </div>
+</section>

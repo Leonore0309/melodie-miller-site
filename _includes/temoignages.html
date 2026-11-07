@@ -1,0 +1,14 @@
+{%- comment -%} Paramètres : univers (accueil, thriller, feelgood), titre {%- endcomment -%}
+{% assign liste = site.data.temoignages.temoignages | where: "univers", include.univers %}
+{% if liste.size > 0 %}
+<section class="temoignages">
+  <div class="container">
+    <h2>{{ include.titre | default: "Ils en parlent" }}</h2>
+    <div class="temoignages-liste">
+      {% for t in liste %}
+      <blockquote><p>« {{ t.texte }} »</p><footer>{{ t.auteur }}</footer></blockquote>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endif %}

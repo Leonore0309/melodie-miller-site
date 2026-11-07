@@ -1,0 +1,19 @@
+nom: "Mélodie Miller"
+accroche: "Des histoires pour rêver, rire, aimer… et parfois trembler."
+signature: "Mélodie Miller, autrice de romances feel good, comédies romantiques et thrillers psychologiques"
+slogan_pied: "Des histoires pour rêver, aimer, rire et frissonner"
+email: "melodie.miller.autrice@gmail.com"
+reseaux:
+  - nom: "Instagram"
+    url: "https://www.instagram.com/melodie.miller.autrice/"
+  - nom: "Facebook"
+    url: "https://www.facebook.com/melodiemillerautrice/"
+  - nom: "TikTok"
+    url: "https://www.tiktok.com/@melodiemillerbooks"
+newsletter:
+  titre: "Un peu de lecture, beaucoup d'émotions… et parfois une recette de gâteau !"
+  texte: "Rejoignez les coulisses de mon univers : les prochains romans, des confidences d'autrice, des surprises et quelques gourmandises à partager."
+  bouton: "Je m'inscris"
+  # Collez ici l'adresse du formulaire d'inscription de votre outil d'emailing (Brevo, MailerLite...).
+  # Tant qu'elle est vide, le bouton ouvre un email.
+  formulaire_url: ""

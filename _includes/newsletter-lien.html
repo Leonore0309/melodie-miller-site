@@ -1,0 +1,1 @@
+{%- if site.data.site.newsletter.formulaire_url and site.data.site.newsletter.formulaire_url != "" -%}{{ site.data.site.newsletter.formulaire_url }}{%- else -%}mailto:{{ site.data.site.email }}?subject={{ 'Newsletter' | url_encode }}{%- endif -%}

@@ -1,0 +1,47 @@
+---
+layout: default
+univers: thriller
+title: "Mes romans à l'écran | Mélodie Miller"
+description: "Adaptations audiovisuelles : les enquêtes d'Anna Blanchard et Julien Vautrin, Un chum pour Noël, la saga Manon. Droits gérés par Literary Image."
+permalink: /a-l-ecran/
+---
+{% assign e = site.data.ecran %}
+{% assign tous = site.data.livres.livres %}
+<section class="hero-univers ecran-hero">
+  <div class="container">
+    <p class="surtitre">Cinéma &amp; télévision</p>
+    <h1>{{ e.titre }}</h1>
+    <p class="accroche accroche-large">{{ e.intro }}</p>
+    {% if e.provisoire %}<p class="provisoire">Textes proposés, à valider. Aucune adaptation n'est annoncée.</p>{% endif %}
+  </div>
+</section>
+
+{% for p in e.projets %}
+<section class="container section projet" id="{{ p.id }}">
+  <div class="projet-grille{% cycle '', ' inverse' %}" data-univers="{{ p.univers }}">
+    <div class="projet-affiches">
+      {% for id in p.livres %}
+      {% assign l = tous | where: "id", id | first %}
+      <a href="{{ p.lien | relative_url }}"><img src="{{ '/assets/img/livres/' | append: l.image | relative_url }}" alt="Couverture de {{ l.titre }}" loading="lazy"></a>
+      {% endfor %}
+    </div>
+    <div class="projet-texte">
+      <p class="surtitre">{{ p.format }}</p>
+      <h2>{{ p.titre }}</h2>
+      <p>{{ p.pitch }}</p>
+      <ul class="projet-points">{% for pt in p.points %}<li>{{ pt }}</li>{% endfor %}</ul>
+      <p class="boutons"><a class="btn" href="{{ p.lien | relative_url }}">{{ p.bouton }}</a></p>
+    </div>
+  </div>
+</section>
+{% endfor %}
+
+<section class="container section droits">
+  <h2>{{ e.droits.titre }}</h2>
+  <p>{{ e.droits.texte }}</p>
+  <p><strong>{{ e.droits.societe }}</strong>, {{ e.droits.contact_nom }}<br><a href="mailto:{{ e.droits.email }}">{{ e.droits.email }}</a></p>
+  <p class="boutons">
+    <a class="btn" href="mailto:{{ e.droits.email }}?subject={{ 'Adaptation audiovisuelle' | url_encode }}">{{ e.droits.bouton }}</a>
+    <a class="btn btn-ghost" href="{{ '/contact/' | relative_url }}">Contacter Mélodie</a>
+  </p>
+</section>

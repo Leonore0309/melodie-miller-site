@@ -1,0 +1,14 @@
+/* Feel good : fond sable, boutons rose poudré, touches turquoise */
+[data-univers="feelgood"] h1,
+[data-univers="feelgood"] h2 { font-style: italic; font-weight: 500; text-transform: none; letter-spacing: normal; }
+[data-univers="feelgood"] h3 { font-weight: 600; font-size: 1.5rem; text-transform: none; letter-spacing: normal; }
+[data-univers="feelgood"] .surtitre { font-family: var(--fg-script); font-size: 1.7rem; text-transform: none; letter-spacing: 0; color: #8a4a5a; }
+[data-univers="feelgood"] .hero-univers { background: radial-gradient(ellipse at top, var(--fg-soft), var(--fg-bg) 75%); }
+[data-univers="feelgood"] .accroche { font-family: var(--fg-titre); font-style: italic; }
+[data-univers="feelgood"] .btn { box-shadow: inset 0 0 0 1px rgb(74 44 51 / .18); }
+[data-univers="feelgood"] .btn:hover { box-shadow: inset 0 0 0 1px rgb(74 44 51 / .18), 0 6px 14px rgb(74 44 51 / .2); }
+[data-univers="feelgood"] .btn-ghost { color: var(--fg-fg); border-color: var(--fg-fg); box-shadow: none; }
+[data-univers="feelgood"] h2::after { content: "♥"; color: var(--fg-turquoise); font-size: .6em; margin-left: .5em; font-style: normal; }
+[data-univers="feelgood"] .temoignages { background: var(--fg-soft); }
+[data-univers="feelgood"] .badge-couv { background: var(--fg-turquoise); color: #10363c; border-radius: 4px; }
+[data-univers="feelgood"] .sommaire a:hover, [data-univers="feelgood"] .sommaire a.actif { background: var(--fg-accent); color: var(--fg-accent-fg); border-color: var(--fg-accent); }

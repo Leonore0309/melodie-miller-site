@@ -1,0 +1,30 @@
+# univers : accueil, thriller ou feelgood
+
+temoignages:
+  - texte: "Mélodie Miller a une plume si personnelle, j'en suis tombée amoureuse."
+    auteur: "Fabienne, lectrice Amazon"
+    univers: accueil
+  - texte: "Mélodie, une prodige des mots !"
+    auteur: "Maité, lectrice Amazon"
+    univers: accueil
+  - texte: "Coup de cœur, la plume de Mélodie Miller est fluide, percutante et addictive !"
+    auteur: "Laetitia, lectrice Kobo"
+    univers: accueil
+  - texte: "Un coup de cœur : palpitant, lu en deux jours."
+    auteur: "Sonia, Librairie Plumes et Jeux, à propos du Serment"
+    univers: thriller
+  - texte: "Un thriller d'anticipation tendu, qui fait réfléchir sur l'écologie et la politique."
+    auteur: "Anne-Sophie, autrice et comédienne, à propos de Nuit"
+    univers: thriller
+  - texte: "Un futur plausible, des personnages travaillés."
+    auteur: "Galitt, directrice du Jane Goodall Institute France, à propos de Nuit"
+    univers: thriller
+  - texte: "Une saga drôle et émouvante, qui aborde aussi le développement personnel."
+    auteur: "Carole Grouesy, directrice de la rédaction, ATTITUDE Luxe"
+    univers: feelgood
+  - texte: "Une plume chantante, des personnages attachants."
+    auteur: "Pascale, lectrice"
+    univers: feelgood
+  - texte: "De la joie et de l'humour : on en oublie le temps."
+    auteur: "Pascale, lectrice, à propos de Où vont les rêves au petit matin ?"
+    univers: feelgood

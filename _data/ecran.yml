@@ -1,0 +1,39 @@
+# « Mes romans à l'écran » : vitrine pour producteurs et diffuseurs.
+# Aucune adaptation n'est annoncée : ce sont des pistes d'adaptation. Textes proposés, à valider par Mélodie.
+provisoire: true
+titre: "Mes romans à l'écran"
+intro: "Des intrigues à suspense, des personnages attachants et des décors forts : j'écris en images. Voici les univers qui se prêtent le mieux à une adaptation."
+
+projets:
+  - id: enquetes
+    format: "Série policière"
+    titre: "Les enquêtes d'Anna Blanchard & Julien Vautrin"
+    univers: thriller
+    pitch: "En Bourgogne, une journaliste en quête de vérité et un gendarme têtu rouvrent les cold cases de l'Yonne : deux mariées noyées à trente ans d'écart, trois corps dans une ancienne carrière, un enfant disparu dans la foule. Un duo, un territoire, une tension qui monte de tome en tome."
+    points:
+      - "Format : série policière, un tome = une enquête"
+      - "Ton : thriller psychologique ancré dans un territoire"
+      - "Trois tomes écrits : La mariée de la fosse, Les disparues de la crypte, L'Enfant du canal (à paraître)"
+    livres: [la-mariee-de-la-fosse, les-disparues-de-la-crypte]
+    lien: "/thrillers/#enquetes"
+    bouton: "Découvrir les enquêtes"
+  - id: comedie
+    format: "Téléfilm de Noël et série feel good"
+    titre: "Comédies romantiques"
+    univers: feelgood
+    pitch: "Un mariage annulé, une librairie de rêve à Mont-Tremblant, un papa solo ronchon et une tempête de neige : Un chum pour Noël est taillé pour le téléfilm de Noël. La saga Manon, de Paris à Tahiti, offre une série feel good sur l'amour, le couple et la famille."
+    points:
+      - "Format : téléfilm de Noël (Un chum pour Noël), série (saga Manon)"
+      - "Ton : drôle, tendre et réconfortant"
+      - "Décors : Québec enneigé, Ibiza, Buenos Aires, Tahiti"
+    livres: [un-chum-pour-noel, manon-1]
+    lien: "/romances-feel-good/"
+    bouton: "Découvrir les romances"
+
+droits:
+  titre: "Droits audiovisuels"
+  texte: "Les droits audiovisuels de mes romans sont gérés par Literary Image."
+  societe: "Literary Image"
+  contact_nom: "Elisabeth Haik"
+  email: "contact@literary-image.com"
+  bouton: "Écrire à Literary Image"

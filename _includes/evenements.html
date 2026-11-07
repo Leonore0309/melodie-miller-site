@@ -1,0 +1,28 @@
+{%- comment -%}
+  Agenda : la prochaine date en vedette, les suivantes en tuiles calendrier.
+  Les dates passées sont masquées au build ET à l'affichage (evenements.js).
+{%- endcomment -%}
+{% assign aujourdhui = 'now' | date: "%Y-%m-%d" %}
+{% assign mois_fr = "JANV,FÉVR,MARS,AVR,MAI,JUIN,JUIL,AOÛT,SEPT,OCT,NOV,DÉC" | split: "," %}
+{% assign a_venir = "" | split: "" %}
+{% for e in site.data.rencontres.dates.evenements %}
+  {% assign fin = e.fin | append: "" %}
+  {% if fin >= aujourdhui %}{% assign a_venir = a_venir | push: e %}{% endif %}
+{% endfor %}
+<ul class="agenda-evts" id="agenda">
+  {% for e in a_venir %}
+  {% assign debut = e.debut | default: e.fin | append: "" %}
+  {% assign j1 = debut | date: "%-d" %}
+  {% assign j2 = e.fin | append: "" | date: "%-d" %}
+  {% assign m = debut | date: "%-m" | minus: 1 %}
+  <li class="evt{% if forloop.first %} vedette{% endif %}" data-debut="{{ debut }}" data-fin="{{ e.fin }}">
+    <div class="evt-cal"><span class="evt-jour">{{ j1 }}{% if j1 != j2 %}-{{ j2 }}{% endif %}</span><span class="evt-mois">{{ mois_fr[m] }}</span></div>
+    <div class="evt-corps">
+      <span class="evt-compte" hidden></span>
+      <h3 class="evt-titre">{% if e.lien and e.lien != "" %}<a href="{{ e.lien }}" rel="noopener">{{ e.titre }}</a>{% else %}{{ e.titre }}{% endif %}</h3>
+      <span class="evt-lieu">{{ e.quand }} · {{ e.lieu }}</span>
+    </div>
+  </li>
+  {% endfor %}
+</ul>
+<p class="agenda-vide" id="agenda-vide"{% if a_venir.size > 0 %} hidden{% endif %}>{{ site.data.rencontres.dates.vide }}</p>

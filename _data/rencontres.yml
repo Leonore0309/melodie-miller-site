@@ -1,0 +1,32 @@
+titre: "Les histoires sont encore plus belles quand on les partage"
+photo: "dedicace.jpg"
+photo_alt: "Mélodie Miller dédicace ses livres à la Librairie du Marché de Fontainebleau"
+photo_legende: "Séance de dédicace, Librairie du Marché"
+paragraphes:
+  - "L'écriture est une activité solitaire."
+  - "Quel bonheur alors de vous rencontrer, chers lecteurs et lectrices. En lisant mes romans, c'est vous qui leur donnez vie !"
+  - "Dans les salons du livre, les librairies ou lors de rencontres littéraires, j'adore découvrir vos réactions, entendre vos théories sur mes intrigues et savoir quels personnages vous ont le plus touchés ou tenus éveillés."
+
+dates:
+  titre: "Où me rencontrer ?"
+  texte: "Retrouvez ici mes prochaines séances de dédicaces, mes participations à des salons et mes rencontres avec les lecteurs."
+  vide: "Les prochaines dates seront annoncées bientôt."
+  # debut = premier jour, fin = dernier jour (AAAA-MM-JJ). Une fois la date de fin passée, l'événement disparaît tout seul.
+  evenements:
+    - { quand: "21 novembre 2026", debut: "2026-11-21", fin: "2026-11-21", titre: "Dédicace à l'Espace Culturel Leclerc", lieu: "77 Varennes sur Seine", lien: "" }
+    - { quand: "28 novembre 2026", debut: "2026-11-28", fin: "2026-11-28", titre: "Salon du livre de Darois", lieu: "21 Darois", lien: "" }
+    - { quand: "20-21 mars 2027", debut: "2027-03-20", fin: "2027-03-21", titre: "Salon Pile à Lire", lieu: "76 Rouen", lien: "" }
+    - { quand: "7-8 mai 2027", debut: "2027-05-07", fin: "2027-05-08", titre: "Salon du Polar", lieu: "77 Varennes sur Seine", lien: "" }
+    - { quand: "29-30 mai 2027", debut: "2027-05-29", fin: "2027-05-30", titre: "Salon L'Escargot Noir", lieu: "89 Sens", lien: "" }
+
+presse:
+  titre: "Dans les médias"
+  texte: "Chroniques littéraires, podcasts, interviews, rencontres avec des libraires et articles de presse… Découvrez les médias qui ont parlé de mes romans et de mon parcours."
+  provisoire: true   # À fournir : une ligne par référence vérifiée (média, sujet, date, lien)
+  vide: "Les références presse seront ajoutées ici."
+  articles: []
+
+pros:
+  titre: "Journalistes, libraires, organisateurs"
+  texte: "Vous souhaitez organiser une rencontre, une séance de dédicaces, une intervention ou une interview ? Je serai ravie d'étudier votre proposition."
+  bouton: "Me contacter"

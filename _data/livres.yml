@@ -1,0 +1,214 @@
+# Un bloc par livre. "id" unique, sans espace ni accent : il sert d'ancre (/page/#id) et aux Nouveautés.
+# univers : thriller ou feelgood
+# groupe : manon, comedies, cassandre, enquetes, autres-thrillers
+# statut : paru ou a-paraitre
+# image : fichier dans assets/img/livres/ (vide = cadre « couverture à venir »)
+# extrait : adresse de la page d'extrait du site (/extraits/xxx/) ou lien externe. Vide = pas de bouton.
+
+livres:
+  # ---------- Saga Manon ----------
+  - id: manon-1
+    titre: "Il n'est jamais trop tard pour libérer les licornes"
+    univers: feelgood
+    groupe: manon
+    tome: "Tome 1"
+    statut: paru
+    image: "manon-1.jpg"
+    accroche: ""
+    liens:
+      - { nom: "Amazon", url: "https://amzn.eu/d/co0aLGe" }
+      - { nom: "Audio", url: "https://www.kobo.com/fr/fr/audiobook/il-n-est-jamais-trop-tard-pour-liberer-les-licornes-1" }
+    extrait: ""
+  - id: manon-2
+    titre: "Là où ronronnent les pumas"
+    univers: feelgood
+    groupe: manon
+    tome: "Tome 2"
+    statut: paru
+    image: "manon-2.jpg"
+    accroche: ""
+    liens:
+      - { nom: "Amazon", url: "https://amzn.eu/d/dRfFv1e" }
+    extrait: ""
+  - id: manon-3
+    titre: "Ce que murmurent les étoiles"
+    univers: feelgood
+    groupe: manon
+    tome: "Tome 3"
+    statut: paru
+    image: "manon-3.jpg"
+    accroche: ""
+    liens:
+      - { nom: "Amazon", url: "https://amzn.eu/d/7nCvnzW" }
+    extrait: ""
+  - id: manon-3-5
+    titre: "Le père Noël danse aussi à Ibiza"
+    univers: feelgood
+    groupe: manon
+    tome: "Épisode 3,5"
+    statut: paru
+    image: "manon-3-5.jpg"
+    accroche: ""
+    liens:
+      - { nom: "Amazon", url: "https://amzn.eu/d/3TEMQeo" }
+    extrait: ""
+  - id: manon-4
+    titre: "La tendresse des fées"
+    univers: feelgood
+    groupe: manon
+    tome: "Tome 4"
+    statut: paru
+    image: "manon-4.jpg"
+    accroche: ""
+    liens:
+      - { nom: "Amazon", url: "https://amzn.eu/d/6q3gVcS" }
+    extrait: ""
+  - id: manon-5
+    titre: "Un arc-en-ciel n'arrive jamais seul"
+    univers: feelgood
+    groupe: manon
+    tome: "Tome 5"
+    statut: paru
+    image: "manon-5.jpg"
+    accroche: ""
+    liens:
+      - { nom: "Amazon", url: "https://amzn.eu/d/2Z6oWqg" }
+    extrait: ""
+  - id: manon-6
+    titre: "Et un jour une sirène"
+    univers: feelgood
+    groupe: manon
+    tome: "Tome 6"
+    statut: paru
+    image: ""   # À fournir : assets/img/livres/manon-6.jpg
+    accroche: ""
+    liens: []   # À fournir : lien Amazon
+    extrait: ""
+
+  # ---------- Comédies romantiques ----------
+  - id: un-chum-pour-noel
+    titre: "Un chum pour Noël"
+    univers: feelgood
+    groupe: comedies
+    tome: ""
+    statut: paru
+    image: "un-chum-pour-noel.jpg"
+    accroche: "Bienvenue à Mont-Tremblant, au Québec, où les paysages enneigés, une librairie de rêve et un auteur de polar surprenant peuvent réparer les cœurs brisés. Après l'annulation de son mariage, Adèle va découvrir qu'un nouveau départ peut parfois se cacher derrière une catastrophe."
+    complement: "Une romance de Noël très drôle et réconfortante."
+    liens: []   # À fournir : Amazon.fr et Amazon.ca
+    extrait: ""
+  - id: ou-vont-les-reves
+    titre: "Où vont les rêves au petit matin ?"
+    univers: feelgood
+    groupe: comedies
+    tome: ""
+    statut: paru
+    image: "ou-vont-les-reves.jpg"
+    sur_titre: "Et si votre meilleur ami était l'homme de votre vie ?"
+    accroche: "Entre éclats de rire et émotions, voyages et souvenirs, Charlotte et Antoine, meilleurs amis depuis vingt-cinq ans, nous embarquent en Thaïlande, dans un tourbillon de sentiments où l'amitié, l'amour et la quête de soi s'entrelacent."
+    complement: "Une comédie romantique feel good sur la reconstruction après un divorce, la résilience et la magie des secondes chances."
+    liens:
+      - { nom: "Amazon", url: "https://amzn.eu/d/alCKuwF" }
+      - { nom: "Ebook Kobo", url: "https://www.kobo.com/fr/fr/ebook/ou-vont-les-reves-au-petit-matin" }
+    extrait: ""
+
+  # ---------- Cassandre ----------
+  - id: cassandre-1
+    titre: "Les amours de Cassandre"
+    univers: feelgood
+    groupe: cassandre
+    tome: "Tome 1"
+    statut: paru
+    image: "cassandre-1.jpg"
+    accroche: ""
+    liens:
+      - { nom: "Amazon", url: "https://amzn.eu/d/4XlirKo" }
+    extrait: ""
+  - id: cassandre-2
+    titre: "Cassandre in love à Paris"
+    univers: feelgood
+    groupe: cassandre
+    tome: "Tome 2"
+    statut: paru
+    image: "cassandre-2.jpg"
+    accroche: ""
+    liens:
+      - { nom: "Amazon", url: "https://amzn.eu/d/1bOmtcF" }
+    extrait: ""
+  - id: cassandre-3
+    titre: "Amour et hot chocolate"
+    univers: feelgood
+    groupe: cassandre
+    tome: "Tome 3"
+    statut: paru
+    image: "cassandre-3.jpg"
+    accroche: ""
+    liens:
+      - { nom: "Amazon", url: "https://amzn.eu/d/9qhjw8z" }
+    extrait: ""
+
+  # ---------- Enquêtes d'Anna Blanchard et Julien Vautrin ----------
+  - id: la-mariee-de-la-fosse
+    titre: "La mariée de la fosse"
+    univers: thriller
+    groupe: enquetes
+    tome: "Tome 1"
+    statut: paru
+    image: "mariee-de-la-fosse.jpg"
+    accroche: "À Tonnerre, dans l'Yonne, deux mariées sont retrouvées noyées à trente ans d'intervalle. Le début d'un cold case très intrigant et la première enquête de la journaliste Anna Blanchard et du gendarme, Julien Vautrin."
+    complement: "Un thriller psychologique ancré en Bourgogne."
+    liens:
+      - { nom: "Amazon", url: "https://amzn.eu/d/b43BVK3" }
+    extrait: "https://bit.ly/3HXf9B7"
+    bouton_ancre: "Découvrir le tome 1"
+  - id: les-disparues-de-la-crypte
+    titre: "Les disparues de la crypte"
+    univers: thriller
+    groupe: enquetes
+    tome: "Tome 2"
+    statut: paru
+    image: "les-disparues-de-la-crypte.jpg"
+    accroche: "Dans l'ancienne carrière d'Aubigny, trois corps sont découverts. Rituels ancestraux, secrets de famille, œuvres d'art et blessures psychologiques s'entremêlent dans une enquête où Anna Blanchard et Julien Vautrin devront se méfier de tout et tout le monde."
+    complement: ""
+    liens:
+      - { nom: "Amazon", url: "https://www.amazon.fr/disparues-crypte-haletante-psychologique-traumatisme/dp/B0H1CMNFGN" }
+    extrait: ""
+  - id: l-enfant-du-canal
+    titre: "L'Enfant du canal"
+    univers: thriller
+    groupe: enquetes
+    tome: "Tome 3"
+    statut: a-paraitre
+    image: ""   # À fournir
+    accroche: "Un enfant disparaît au milieu de la foule, à la Foire de Sens. Alors que les recherches s'organisent, le passé semble refaire surface le long des canaux de l'Yonne. Un compte à rebours impossible à lâcher et la troisième enquête d'Anna Blanchard et Julien Vautrin."
+    complement: ""
+    liens: []
+    extrait: ""
+
+  # ---------- Autres thrillers ----------
+  - id: le-serment
+    titre: "Le Serment"
+    univers: thriller
+    groupe: autres-thrillers
+    tome: ""
+    statut: paru
+    image: "le-serment.jpg"
+    sur_titre: "Peut-on réellement guérir de traumatismes que l'on n'a pas vécus soi-même ?"
+    accroche: "Suivez Marjorie et Eloïse dans un roman haletant à double temporalité, où la mémoire des ancêtres détient les clés de la survie."
+    complement: "Un thriller psychogénéalogique passionnant sur les transmissions transgénérationnelles."
+    liens:
+      - { nom: "Amazon", url: "https://amzn.eu/d/h5GLT6R" }
+    extrait: ""
+  - id: nuit
+    titre: "Nuit"
+    univers: thriller
+    groupe: autres-thrillers
+    tome: ""
+    statut: paru
+    image: "nuit.jpg"
+    sur_titre: "2035. Blackout. Le monde bascule dans l'obscurité. Quand les repères disparaissent, que reste-t-il de notre humanité ?"
+    accroche: "Dans ce thriller d'anticipation où la survie, la peur et les liens familiaux sont mis à l'épreuve, Mathilde va tout faire pour protéger son fils, aveugle de naissance."
+    complement: ""
+    liens:
+      - { nom: "Amazon", url: "https://amzn.eu/d/bGideJV" }
+    extrait: ""

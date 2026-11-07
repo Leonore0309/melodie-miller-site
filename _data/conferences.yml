@@ -1,0 +1,33 @@
+entete: "Valérie Pierson / Mélodie Miller"
+titre: "Deux parcours, une même conviction : oser écrire sa propre histoire"
+sous_titre: "Valérie Pierson dans le monde de l'entreprise. Mélodie Miller dans celui des livres."
+photo: "atelier-kobo.jpg"
+photo_alt: "Atelier Kobo Writing Life animé par Valérie Pierson, alias Mélodie Miller"
+photo_legende: "Atelier Kobo Writing Life"
+intro:
+  - "Pendant trente ans, j'ai évolué dans l'univers du luxe, occupant des fonctions de direction au sein de grandes maisons internationales. Puis, j'ai choisi de réaliser mon rêve d'enfant : faire le tour du monde et devenir romancière."
+  - "Aujourd'hui, je partage ces expériences lors de conférences, avec une conviction : la créativité, l'audace et la capacité à se réinventer sont à la portée de chacun."
+entreprises:
+  titre: "Valérie Pierson — Entreprises et dirigeants"
+  paragraphes:
+    - "Ancienne dirigeante et entrepreneure, diplômée de l'ESCP, j'interviens auprès des entreprises, clubs de dirigeants et réseaux professionnels pour partager une expérience vécue du changement, de la prise de décision et de la créativité."
+    - "Mon approche associe expériences de terrain, anecdotes, réflexions et humour. L'objectif : donner envie de passer de « un jour, peut-être » à « pourquoi pas maintenant ? »."
+  themes_titre: "Mes thèmes d'intervention"
+  themes:
+    - "Oser se réinventer"
+    - "Libérer sa créativité"
+    - "Développer son audace et sa capacité à saisir les opportunités"
+litterature:
+  titre: "Mélodie Miller — Littérature et édition"
+  paragraphes:
+    - "En tant qu'autrice indépendante, j'interviens également lors de rencontres professionnelles et littéraires autour de l'écriture, la créativité, l'autoédition et la relation avec les lecteurs."
+    - "Deux univers, une même envie de partager ce que les histoires nous apprennent : inventer, transmettre et oser."
+rencontres:
+  titre: "Quelques rencontres"
+  liste:
+    - { quand: "Avril 2026", lieu: "Congrès des passionnés d'écriture, Paris", sujet: "Atelier Kobo « Auto-édition : rêve ou stratégie ? »" }
+    - { quand: "Novembre 2026", lieu: "Dîner-Conférence du Cercle Villeneuve, Nantes", sujet: "« Réinventer sa vie »" }
+cta:
+  titre: "Organisons une rencontre"
+  texte: "Vous préparez un événement d'entreprise, une rencontre littéraire ou une conférence ? Échangeons sur votre public et les objectifs de votre événement pour imaginer une intervention qui lui ressemble."
+  bouton: "Parlons de votre événement"

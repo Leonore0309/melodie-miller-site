@@ -1,0 +1,15 @@
+/* Thrillers : vert d'eau, titres Bebas Neue façon affiche */
+[data-univers="thriller"] h1,
+[data-univers="thriller"] h2,
+[data-univers="thriller"] h3 { text-transform: uppercase; letter-spacing: .04em; font-weight: 400; }
+[data-univers="thriller"] h1 { font-size: clamp(3rem, 9vw, 5.5rem); line-height: 1; }
+[data-univers="thriller"] h2 { font-size: clamp(2.2rem, 5vw, 3.2rem); }
+[data-univers="thriller"] h3 { font-size: 2rem; }
+[data-univers="thriller"] .hero-univers { background: linear-gradient(180deg, var(--thr-soft), var(--thr-bg)); padding-block: 4.5rem 2.5rem; }
+[data-univers="thriller"] .hero-univers h1 { text-shadow: 0 2px 20px rgb(0 0 0 / .6); }
+[data-univers="thriller"] .accroche { font-family: var(--thr-texte); font-style: italic; }
+[data-univers="thriller"] .livre-grand { border: 1px solid color-mix(in srgb, var(--thr-accent) 35%, transparent); }
+[data-univers="thriller"] .livre-grand .couv img { box-shadow: 0 8px 22px rgb(0 0 0 / .65); }
+[data-univers="thriller"] blockquote p { font-family: var(--thr-texte); }
+[data-univers="thriller"] .site-footer, [data-univers="thriller"] .site-header { border-color: color-mix(in srgb, var(--thr-accent) 30%, transparent); }
+[data-univers="thriller"] .extrait-texte { font-size: 1.2rem; }

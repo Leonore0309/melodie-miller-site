@@ -1,0 +1,18 @@
+# Les nouveautés affichées sur l'accueil, dans cet ordre.
+# livre = l'identifiant d'un livre de livres.yml. lien = page et ancre où mène le bouton.
+
+nouveautes:
+  - livre: un-chum-pour-noel
+    badge: "Nouveauté"
+    texte:
+      - "Un mariage annulé, une librairie de rêve, au Québec, un papa solo très ronchon et une grosse tempête de neige !"
+      - "Venez rencontrer Adèle et Etienne dans Un chum pour Noël, une comédie romantique drôle, tendre et réconfortante, à savourer comme un chocolat chaud sous la neige."
+    bouton: "Découvrir le roman"
+    lien: "/romances-feel-good/#un-chum-pour-noel"
+  - livre: les-disparues-de-la-crypte
+    badge: "Nouveauté"
+    texte:
+      - "Trois corps découverts dans une ancienne carrière de l'Yonne, une mystérieuse légende viticole, des rituels enfouis depuis des années et un duo d'enquêteurs inoubliable."
+      - "Les disparues de la crypte, un polar psychologique impossible à lâcher, le tome 2 des enquêtes d'Anna Blanchard et Julien Vautrin."
+    bouton: "Entrer dans l'enquête"
+    lien: "/thrillers/#les-disparues-de-la-crypte"

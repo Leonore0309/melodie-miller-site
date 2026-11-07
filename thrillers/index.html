@@ -1,0 +1,41 @@
+---
+layout: default
+univers: thriller
+title: "Thrillers psychologiques | Mélodie Miller"
+description: "Les enquêtes d'Anna Blanchard et Julien Vautrin, Le Serment, Nuit : les thrillers psychologiques de Mélodie Miller."
+permalink: /thrillers/
+---
+{% assign r = site.data.romans %}
+{% assign tous = site.data.livres.livres | where: "univers", "thriller" %}
+{% assign enquetes = tous | where: "groupe", "enquetes" %}
+{% assign autres = tous | where: "groupe", "autres-thrillers" %}
+<nav class="sommaire" aria-label="Rubriques de la page"><div class="container"><a href="#enquetes">Enquêtes</a><a href="#autres-thrillers">Autres thrillers</a><a href="#formats">Formats</a></div></nav>
+<section class="hero-univers">
+  <div class="container">
+    <p class="surtitre">Thrillers psychologiques</p>
+    <h1>{{ r.thriller.titre }}</h1>
+    <p class="accroche">{{ r.thriller.accroche }}</p>
+    <div class="texte-flux">{% for p in r.thriller.paragraphes %}<p>{{ p }}</p>{% endfor %}</div>
+  </div>
+</section>
+
+<section class="container section" id="enquetes">
+  <h2>{{ r.thriller.enquetes }}</h2>
+  <div class="liste-grands">
+    {% for l in enquetes %}{% include carte-livre.html livre=l %}{% endfor %}
+  </div>
+</section>
+
+<section class="container section" id="autres-thrillers">
+  <h2>{{ r.thriller.autres }}</h2>
+  <div class="liste-grands">
+    {% for l in autres %}{% include carte-livre.html livre=l %}{% endfor %}
+  </div>
+</section>
+
+<section class="container section formats" id="formats">
+  <h2>{{ r.formats.titre }}</h2>
+  <p>{{ r.formats.texte }}</p>
+</section>
+
+{% include temoignages.html univers="thriller" %}

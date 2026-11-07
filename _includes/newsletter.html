@@ -1,0 +1,6 @@
+{% capture nl %}{% include newsletter-lien.html %}{% endcapture %}
+<section class="newsletter">
+  <h2>{{ site.data.site.newsletter.titre }}</h2>
+  <p>{{ site.data.site.newsletter.texte }}</p>
+  <a class="btn" href="{{ nl | strip }}" rel="noopener">{{ site.data.site.newsletter.bouton }}</a>
+</section>

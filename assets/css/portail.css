@@ -1,0 +1,68 @@
+/* Accueil et pages communes */
+
+/* Bandeau d'accueil : photo à côté du texte */
+.hero-accueil { position: relative; padding-block: 3.5rem 2rem; }
+.hero-grille { display: grid; grid-template-columns: 1.15fr .85fr; gap: 3rem; align-items: center; }
+.hero-texte .accroche { font-size: 1.6rem; font-style: italic; }
+@media (max-width: 800px) {
+  .hero-grille { grid-template-columns: 1fr; gap: 1.5rem; }
+  .hero-photo { order: -1; max-width: 360px; }
+}
+
+/* Deux grandes cartes : lumière / frissons, et page Mes romans */
+.duo { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+@media (max-width: 860px) { .duo { grid-template-columns: 1fr; } }
+.carte-univers { display: grid; grid-template-columns: 38% 1fr; gap: 1.5rem; align-items: center; padding: 1.5rem; border-radius: 14px; border: 3px solid var(--accent); }
+.carte-univers > div { min-width: 0; }
+.carte-univers img { box-shadow: 0 10px 26px rgb(0 0 0 / .3); transition: transform .3s; }
+.carte-univers:hover img { transform: translateY(-6px) rotate(-1deg); }
+.carte-univers h2, .carte-univers h3 { font-size: clamp(1.6rem, 2.3vw, 2.1rem); overflow-wrap: break-word; hyphens: manual; }
+.carte-univers[data-univers="thriller"] { border-color: var(--thr-accent); }
+.carte-univers[data-univers="feelgood"] { border-color: var(--fg-turquoise); background: var(--fg-bg); }
+.carte-grande { grid-template-columns: 42% 1fr; padding: 2rem; }
+.carte-grande h2 { font-size: clamp(1.5rem, 2.2vw, 1.9rem); }
+.carte-grande[data-univers="thriller"] h2 { font-size: clamp(1.7rem, 2.6vw, 2.2rem); letter-spacing: .02em; }
+@media (max-width: 520px) { .carte-univers, .carte-grande { grid-template-columns: 1fr; } .carte-univers img { max-width: 220px; } }
+
+/* Mes romans : sas */
+.sas h1 { text-align: center; }
+.sas-intro { text-align: center; max-width: 60ch; margin: 0 auto 2.5rem; font-family: var(--titre); font-size: 1.55rem; line-height: 1.4; }
+
+/* Nouveautés */
+.nouveautes { margin-top: 2rem; padding-block: 3rem; background: var(--soft); }
+.nouveautes-liste { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 460px), 1fr)); gap: 2rem; }
+.nouveaute { display: flex; gap: 1.5rem; align-items: flex-start; }
+.nouveaute .couv { width: 160px; flex: none; }
+.nouveaute-texte { min-width: 0; }
+.nouveaute-texte h3 { font-size: 1.8rem; }
+.badge { display: inline-block; background: var(--portail-fg); color: var(--portail-bg); padding: .15rem .7rem; font-size: .8rem; font-weight: 600; text-transform: uppercase; letter-spacing: .06em; border-radius: 3px; }
+@media (max-width: 520px) {
+  .nouveaute { flex-direction: column; align-items: center; text-align: center; }
+  .nouveaute .boutons { justify-content: center; }
+}
+
+/* Lettre de Mélodie */
+.lettre-grille { display: grid; grid-template-columns: 1.2fr .8fr; gap: 3rem; align-items: center; }
+@media (max-width: 800px) { .lettre-grille { grid-template-columns: 1fr; } }
+
+/* Agenda dynamique : prochaine date en vedette, tuiles calendrier */
+.agenda-evts { list-style: none; padding: 0; margin: 1.5rem 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 1rem; }
+.evt { display: flex; gap: .9rem; align-items: center; background: var(--soft); padding: 1rem; border-radius: 10px; transition: transform .25s, box-shadow .25s; }
+.evt[hidden] { display: none; }
+.evt:hover { transform: translateY(-4px); box-shadow: 0 10px 22px rgb(0 0 0 / .15); }
+.evt-cal { flex: none; width: 4.4rem; text-align: center; background: var(--bg); color: var(--fg); border-radius: 8px; border-top: 6px solid var(--accent); padding: .3rem .2rem .4rem; box-shadow: 0 3px 8px rgb(0 0 0 / .15); }
+.evt-jour { display: block; font-family: var(--titre); font-weight: 700; font-size: 1.7rem; line-height: 1.05; }
+.evt-mois { display: block; font-size: .72rem; font-weight: 600; letter-spacing: .08em; }
+.evt-corps { min-width: 0; }
+.evt-titre { font-size: 1.05rem; margin: 0 0 .2em; font-family: var(--texte); font-weight: 600; line-height: 1.25; }
+.evt-lieu { font-size: .85rem; opacity: .85; }
+.evt-compte { display: inline-block; background: var(--accent); color: var(--accent-fg); font-size: .72rem; font-weight: 600; text-transform: uppercase; letter-spacing: .05em; padding: .15rem .6rem; border-radius: 999px; margin-bottom: .4rem; }
+.evt.vedette { grid-column: 1 / -1; background: var(--fg); color: var(--bg); padding: 1.6rem 2rem; gap: 1.8rem; }
+.evt.vedette .evt-cal { width: 6.4rem; }
+.evt.vedette .evt-jour { font-size: 3.1rem; }
+.evt.vedette .evt-mois { font-size: .9rem; }
+.evt.vedette .evt-titre { font-size: clamp(1.4rem, 3vw, 2rem); font-family: var(--titre); }
+.evt.vedette .evt-lieu { font-size: 1rem; }
+.evt.vedette .evt-compte { background: var(--bg); color: var(--fg); font-size: .8rem; }
+.agenda-vide { font-style: italic; }
+@media (max-width: 520px) { .evt.vedette { padding: 1.2rem; gap: 1rem; } .evt.vedette .evt-cal { width: 4.8rem; } .evt.vedette .evt-jour { font-size: 2.2rem; } }
