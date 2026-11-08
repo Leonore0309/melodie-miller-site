@@ -1,0 +1,49 @@
+---
+layout: default
+univers: thriller
+title: "Livres audio | Mélodie Miller"
+description: "Les livres audio de Mélodie Miller, lus par Léonore Vanier : saga Manon, Un chum pour Noël, La mariée de la fosse, Les disparues de la crypte."
+permalink: /en-audio/
+---
+{% assign a = site.data.audio %}
+{% assign romances = a.livres | where: "univers", "feelgood" %}
+{% assign thrillers = a.livres | where: "univers", "thriller" %}
+<section class="audio-hero">
+  <div class="container">
+    <div class="onde onde-grande" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+    <p class="surtitre">Livres audio</p>
+    <h1>{{ a.titre }}</h1>
+    <p class="accroche accroche-large">{{ a.accroche }}</p>
+    {% for p in a.intro %}<p>{{ p }}</p>{% endfor %}
+  </div>
+</section>
+
+<!-- Mise en page choisie par le panneau Variantes : pochettes (défaut), playlist, salles -->
+<div class="audio-corps">
+  <section class="audio-groupe audio-romances" data-univers="feelgood" aria-label="Romances en audio">
+    <div class="container">
+      <h2>Romances</h2>
+      <div class="audio-liste">{% for l in romances %}{% include pochette-audio.html l=l %}{% endfor %}</div>
+    </div>
+  </section>
+  <section class="audio-groupe audio-thrillers" data-univers="thriller" aria-label="Thrillers en audio">
+    <div class="container">
+      <h2>Thrillers</h2>
+      <div class="audio-liste">{% for l in thrillers %}{% include pochette-audio.html l=l %}{% endfor %}</div>
+    </div>
+  </section>
+</div>
+
+<section class="container section voix">
+  <div class="voix-grille">
+    <div>
+      <h2>{{ a.voix.titre }}</h2>
+      {% for p in a.voix.texte %}<p>{{ p }}</p>{% endfor %}
+      <p class="boutons"><a class="btn" href="{{ a.voix.lien }}" rel="noopener">{{ a.voix.lien_texte }}</a></p>
+    </div>
+    <div class="voix-photos">
+      {% include photo.html src=a.voix.photo alt=a.voix.photo_alt legende=a.voix.photo_legende %}
+      {% include photo.html src=a.voix.photo2 alt=a.voix.photo2_alt legende=a.voix.photo2_legende %}
+    </div>
+  </div>
+</section>

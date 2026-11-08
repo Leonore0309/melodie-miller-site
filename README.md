@@ -13,7 +13,7 @@ Le `Gemfile` utilise `jekyll` seul (pas `github-pages`) pour éviter la compilat
 ## Maquette à envoyer à un autre ordinateur
 `python outils/maquette.py` construit le site et crée `dist/maquette-melodie-miller.zip`. Il suffit de décompresser et de double-cliquer sur `index.html`. Le script réécrit les adresses pour qu'elles marchent sans serveur, puis vérifie tous les liens.
 
-Le panneau « Variantes » (bas de page à droite) permet de passer de l'accueil A à l'accueil B (`/version-b/`) et de comparer 3 largeurs de texte (`?texte=colonnes|large|grand`). Pour le retirer : `maquette: false` dans `_config.yml`, puis figer le choix dans `.texte-flux` (`assets/css/base.css`). Une fois l'accueil retenu, remplacer `index.html` par la version choisie et supprimer l'autre.
+Le panneau « Variantes » n'apparaît que sur la page En audio et compare 3 mises en page (`?audio=pochettes|playlist|salles`). L'accueil retenu est la version A ; la version B (`/version-b/`) reste en ligne par lien direct, non indexée. Pour le retirer : `maquette: false` dans `_config.yml`, puis figer le choix dans `.texte-flux` (`assets/css/base.css`). Une fois l'accueil retenu, remplacer `index.html` par la version choisie et supprimer l'autre.
 
 ## Où est quoi
 | Pour modifier… | Fichier |
@@ -23,6 +23,8 @@ Le panneau « Variantes » (bas de page à droite) permet de passer de l'accueil
 | Textes de l'accueil A | `_data/accueil.yml` |
 | Accueil B (façon Coben, textes courts) | `_data/accueil_b.yml` |
 | Mes romans à l'écran (adaptations, droits) | `_data/ecran.yml` |
+| Page En audio (livres audio, voix, liens Audible) | `_data/audio.yml` |
+| Coupures de presse | `_data/rencontres.yml` (section `presse`), images dans `assets/img/presse/` |
 | Textes des pages romans | `_data/romans.yml` |
 | À propos | `_data/a_propos.yml` |
 | Rencontres, dates, presse | `_data/rencontres.yml` |
@@ -45,6 +47,8 @@ Le panneau « Variantes » (bas de page à droite) permet de passer de l'accueil
 - **Mélodie** : lui transférer le dépôt ou l'ajouter comme collaboratrice, puis connecter https://app.pagescms.org. Le fichier `.pages.yml` définit les formulaires (toutes ses clés ont été vérifiées contre `_data`, mais le test réel n'est possible qu'une fois le dépôt en ligne).
 - Passer `maquette: false` avant la mise en ligne.
 - Mentions légales et confidentialité : textes provisoires à compléter.
+
+Un bouton dont le lien est vide n'est pas affiché (Kobo, précommande, Audible…). Les articles de presse sont des reproductions : vérifier les droits de reproduction avant la mise en ligne réelle.
 
 ## À fournir
 Couvertures : *Un chum pour Noël*, *Les disparues de la crypte*, *L'Enfant du canal*, Manon T6 · liens d'achat : *Un chum pour Noël* (Amazon.fr et .ca), Manon T6 · outil newsletter et lien d'inscription · références presse · accord des deux autres personnes sur la photo de l'atelier Kobo · extraits d'autres livres.

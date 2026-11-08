@@ -7,6 +7,14 @@ media:
     label: Couvertures de livres
     input: assets/img/livres
     output: /assets/img/livres
+  - name: audio
+    label: Visuels des livres audio
+    input: assets/img/audio
+    output: /assets/img/audio
+  - name: presse
+    label: Coupures de presse
+    input: assets/img/presse
+    output: /assets/img/presse
 
 content:
   - name: livres
@@ -117,9 +125,12 @@ content:
             list: true
             fields:
               - { name: media, label: Média, type: string }
-              - { name: sujet, label: Sujet, type: string }
-              - { name: date, label: Date, type: string }
-              - { name: lien, label: Lien, type: string }
+              - { name: date, label: "Date (ex. 6 juin 2026)", type: string }
+              - { name: titre, label: "Titre de l'article", type: string }
+              - { name: citation, label: "Citation courte", type: text }
+              - { name: image, label: "Vignette (nom du fichier dans presse)", type: string }
+              - { name: image_complete, label: "Coupure en grand (nom du fichier dans presse)", type: string }
+              - { name: lien, label: "Version web (facultatif)", type: string }
       - name: pros
         label: "Journalistes, libraires, organisateurs"
         type: object
@@ -450,7 +461,8 @@ content:
     fields:
       - { name: provisoire, label: "Afficher « textes proposés, à valider »", type: boolean }
       - { name: titre, label: Titre, type: string }
-      - { name: intro, label: Introduction, type: text }
+      - { name: intro, label: "Introduction (1re phrase)", type: text }
+      - { name: intro_suite, label: "Introduction (suite)", type: text, list: true }
       - name: projets
         label: Projets
         type: object
@@ -466,7 +478,8 @@ content:
               values:
                 - { value: thriller, label: Thriller }
                 - { value: feelgood, label: "Feel good" }
-          - { name: pitch, label: Pitch, type: text }
+          - { name: pitch, label: "Accroche", type: text }
+          - { name: paragraphes, label: Paragraphes, type: text, list: true }
           - { name: points, label: "Points clés", type: string, list: true }
           - { name: livres, label: "Livres (identifiants)", type: string, list: true }
           - { name: lien, label: Lien, type: string }
@@ -481,6 +494,56 @@ content:
           - { name: contact_nom, label: Contact, type: string }
           - { name: email, label: Email, type: string }
           - { name: bouton, label: Bouton, type: string }
+
+  - name: audio
+    label: Page En audio
+    type: file
+    path: _data/audio.yml
+    fields:
+      - { name: titre, label: Titre, type: string }
+      - { name: accroche, label: Accroche, type: string }
+      - { name: intro, label: Introduction, type: text, list: true }
+      - name: livres
+        label: "Livres audio"
+        type: object
+        list: true
+        fields:
+          - { name: id, label: Identifiant, type: string }
+          - name: univers
+            label: Univers
+            type: select
+            options:
+              values:
+                - { value: feelgood, label: "Romances" }
+                - { value: thriller, label: Thrillers }
+          - { name: genre, label: "Titre du groupe", type: string }
+          - { name: titre, label: Titre, type: string }
+          - { name: tome, label: "Série et tome", type: string }
+          - { name: visuel, label: "Visuel audio (nom du fichier)", type: string }
+          - name: statut
+            label: Statut
+            type: select
+            options:
+              values:
+                - { value: disponible, label: Disponible }
+                - { value: bientot, label: "Bientôt" }
+                - { value: a-venir, label: "À venir" }
+          - { name: message, label: "Message (ex. Disponible dès décembre 2026)", type: string }
+          - { name: url, label: "Lien d'écoute Audible (vide = bouton « Me prévenir »)", type: string }
+      - name: voix
+        label: "Collaboration mère-fille"
+        type: object
+        fields:
+          - { name: titre, label: Titre, type: string }
+          - { name: texte, label: Texte, type: text, list: true }
+          - { name: photo, label: "Photo 1 (nom du fichier)", type: string }
+          - { name: photo_alt, label: "Description photo 1", type: string }
+          - { name: photo_legende, label: "Légende photo 1", type: string }
+          - { name: lien, label: "Lien profil audio", type: string }
+          - { name: lien_texte, label: "Texte du lien", type: string }
+          - { name: photo2, label: "Photo 2 (nom du fichier)", type: string }
+          - { name: photo2_alt, label: "Description photo 2", type: string }
+          - { name: photo2_legende, label: "Légende photo 2", type: string }
 
   - name: temoignages
     label: Témoignages

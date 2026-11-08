@@ -23,7 +23,11 @@ Chaque fois que vous cliquez sur **Enregistrer**, le site se met à jour tout se
 Menu **Rencontres et dédicaces** > Prochaines dates > Ajouter. Renseignez la date affichée, le **premier jour** et le **dernier jour** (AAAA-MM-JJ), le titre et le lieu. La prochaine date s'affiche en grand avec « Dans X jours ». Une fois le dernier jour passé, l'événement disparaît tout seul.
 
 ## Ajouter un article de presse
-Menu **Rencontres et dédicaces** > Presse > Articles > Ajouter (média, sujet, date, lien).
+1. Menu **Coupures de presse** (médias) : envoyez la photo ou le scan de l'article, en petit (vignette) et en grand.
+2. Menu **Rencontres et dédicaces** > Presse > Articles > Ajouter : média, date, titre, citation, noms des deux fichiers, et lien web si l'article existe en ligne.
+
+## Ajouter un lien de livre (Kobo, Amazon, Audible…)
+Menu **Livres** > le livre > Boutons d'achat. Un bouton dont l'adresse est vide n'apparaît pas : collez simplement le lien quand vous l'avez.
 
 ## Publier les 3 premiers chapitres
 1. Menu **Extraits**, bouton « Ajouter ». Dans « Identifiant du livre », écrivez celui du livre. Collez le texte des chapitres.

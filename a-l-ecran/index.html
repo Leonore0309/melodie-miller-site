@@ -12,7 +12,7 @@ permalink: /a-l-ecran/
     <p class="surtitre">Cinéma &amp; télévision</p>
     <h1>{{ e.titre }}</h1>
     <p class="accroche accroche-large">{{ e.intro }}</p>
-    {% if e.provisoire %}<p class="provisoire">Textes proposés, à valider. Aucune adaptation n'est annoncée.</p>{% endif %}
+    {% for p in e.intro_suite %}<p>{{ p }}</p>{% endfor %}
   </div>
 </section>
 
@@ -28,7 +28,8 @@ permalink: /a-l-ecran/
     <div class="projet-texte">
       <p class="surtitre">{{ p.format }}</p>
       <h2>{{ p.titre }}</h2>
-      <p>{{ p.pitch }}</p>
+      <p class="pitch">{{ p.pitch }}</p>
+      {% for para in p.paragraphes %}<p>{{ para }}</p>{% endfor %}
       <ul class="projet-points">{% for pt in p.points %}<li>{{ pt }}</li>{% endfor %}</ul>
       <p class="boutons"><a class="btn" href="{{ p.lien | relative_url }}">{{ p.bouton }}</a></p>
     </div>

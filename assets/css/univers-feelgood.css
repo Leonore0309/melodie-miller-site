@@ -8,7 +8,15 @@
 [data-univers="feelgood"] .btn { box-shadow: inset 0 0 0 1px rgb(74 44 51 / .18); }
 [data-univers="feelgood"] .btn:hover { box-shadow: inset 0 0 0 1px rgb(74 44 51 / .18), 0 6px 14px rgb(74 44 51 / .2); }
 [data-univers="feelgood"] .btn-ghost { color: var(--fg-fg); border-color: var(--fg-fg); box-shadow: none; }
-[data-univers="feelgood"] h2::after { content: "♥"; color: var(--fg-turquoise); font-size: .6em; margin-left: .5em; font-style: normal; }
+/* Un seul petit cœur : sur « Les lectrices en parlent » */
+[data-univers="feelgood"] .temoignages h2::after { content: "♥"; color: var(--fg-turquoise); font-size: .6em; margin-left: .5em; font-style: normal; }
+
+/* Page Feel good : échelle typographique de l'accueil (titres moins grands, texte à 17 px) */
+body[data-univers="feelgood"] h1 { font-size: clamp(2rem, 4.5vw, 3rem); }
+body[data-univers="feelgood"] h2 { font-size: clamp(1.5rem, 3vw, 2.1rem); }
+body[data-univers="feelgood"] .accroche, body[data-univers="feelgood"] .accroche-large { font-size: 1.2rem; }
+body[data-univers="feelgood"] .texte-flux { font-size: 1.0625rem; }
+body[data-univers="feelgood"] .car-detail h3 { font-size: 1.35rem; }
 [data-univers="feelgood"] .temoignages { background: var(--fg-soft); }
 [data-univers="feelgood"] .badge-couv { background: var(--fg-turquoise); color: #10363c; border-radius: 4px; }
 [data-univers="feelgood"] .sommaire a:hover, [data-univers="feelgood"] .sommaire a.actif { background: var(--fg-accent); color: var(--fg-accent-fg); border-color: var(--fg-accent); }

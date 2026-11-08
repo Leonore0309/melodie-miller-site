@@ -25,6 +25,7 @@
   <div class="car-points" aria-hidden="true">{% for l in include.livres %}<button type="button" tabindex="-1" data-index="{{ forloop.index0 }}"></button>{% endfor %}</div>
   <div class="car-details" aria-live="polite">
     {% for l in include.livres %}
+    {% assign utiles = l.liens | where_exp: "x", "x.url and x.url != ''" %}
     <article class="car-detail{% if forloop.first %} courant{% endif %}" data-index="{{ forloop.index0 }}">
       <h3>{{ l.titre }}</h3>
       {% if l.tome and l.tome != "" %}<p class="tome">{{ l.tome }}</p>{% endif %}
@@ -34,9 +35,9 @@
         {% if l.complement and l.complement != "" %}<p class="complement">{{ l.complement }}</p>{% endif %}
       {% endif %}
       <p class="boutons">
-        {% for lien in l.liens %}<a class="btn" href="{{ lien.url }}" rel="noopener">{{ lien.nom }}</a>{% endfor %}
+        {% for lien in l.liens %}{% if lien.url and lien.url != "" %}<a class="btn" href="{{ lien.url }}" rel="noopener">{{ lien.nom }}</a>{% endif %}{% endfor %}
         {% if l.extrait and l.extrait != "" %}<a class="btn btn-ghost" href="{% if l.extrait contains '://' %}{{ l.extrait }}{% else %}{{ l.extrait | relative_url }}{% endif %}">Lire les 3 premiers chapitres</a>{% endif %}
-        {% if l.liens.size == 0 %}<span class="a-venir">Lien d'achat à venir</span>{% endif %}
+        {% if utiles.size == 0 %}<span class="a-venir">Lien d'achat à venir</span>{% endif %}
       </p>
     </article>
     {% endfor %}

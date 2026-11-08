@@ -1,19 +1,26 @@
 # « Mes romans à l'écran » : vitrine pour producteurs et diffuseurs.
-# Aucune adaptation n'est annoncée : ce sont des pistes d'adaptation. Textes proposés, à valider par Mélodie.
-provisoire: true
+# Aucune adaptation n'est annoncée : ce sont des pistes d'adaptation. Textes validés par Mélodie.
+provisoire: false
 titre: "Mes romans à l'écran"
-intro: "Des intrigues à suspense, des personnages attachants et des décors forts : j'écris en images. Voici les univers qui se prêtent le mieux à une adaptation."
+intro: "Des intrigues à suspense, des personnages attachants et des décors forts : j'écris en images."
+intro_suite:
+  - "Des mystères enfouis en Bourgogne aux aventures lumineuses à Ibiza, mes histoires possèdent un univers visuel et émotionnel qui ne demande qu'à prendre vie à l'écran."
+  - "Voici les romans qui se prêtent le mieux à une adaptation."
 
 projets:
   - id: enquetes
     format: "Série policière"
     titre: "Les enquêtes d'Anna Blanchard & Julien Vautrin"
     univers: thriller
-    pitch: "En Bourgogne, une journaliste en quête de vérité et un gendarme têtu rouvrent les cold cases de l'Yonne : deux mariées noyées à trente ans d'écart, trois corps dans une ancienne carrière, un enfant disparu dans la foule. Un duo, un territoire, une tension qui monte de tome en tome."
+    pitch: "Deux tempéraments explosifs et déterminés. Des secrets enfouis. Une Bourgogne belle et inquiétante."
+    paragraphes:
+      - "Anna Blanchard, journaliste intuitive et Julien Vautrin, brigadier-chef de gendarmerie méthodique, n'ont pas la même façon de traquer la vérité. Elle bouscule les règles, il tente de les faire respecter. Entre confrontations, complicité et attirance grandissante, leur relation évolue au fil des enquêtes."
+      - "Une mariée retrouvée noyée dans la mystérieuse fosse Dionne, trois corps découverts dans une carrière près de Chablis, un enfant qui disparaît à la foire de Sens... Chaque affaire révèle les secrets d'un territoire dans des enquêtes au suspense implacable."
+      - "Un duo singulier, des lieux chargés de mystère et des intrigues psychologiques inédites."
     points:
-      - "Format : série policière, un tome = une enquête"
-      - "Ton : thriller psychologique ancré dans un territoire"
-      - "Trois tomes écrits : La mariée de la fosse, Les disparues de la crypte, L'Enfant du canal (à paraître)"
+      - "Format : série policière, une enquête indépendante par saison, avec une évolution des personnages sur l'ensemble de la série."
+      - "Ton : polar psychologique, suspense, secrets de famille, tension sentimentale et ancrage régional fort."
+      - "Œuvres : La mariée de la fosse (tome 1), Les disparues de la crypte (tome 2), L'Enfant du canal (tome 3, en cours d'écriture)."
     livres: [la-mariee-de-la-fosse, les-disparues-de-la-crypte]
     lien: "/thrillers/#enquetes"
     bouton: "Découvrir les enquêtes"

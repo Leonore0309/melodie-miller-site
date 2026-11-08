@@ -22,9 +22,38 @@ dates:
 presse:
   titre: "Dans les médias"
   texte: "Chroniques littéraires, podcasts, interviews, rencontres avec des libraires et articles de presse… Découvrez les médias qui ont parlé de mes romans et de mon parcours."
-  provisoire: true   # À fournir : une ligne par référence vérifiée (média, sujet, date, lien)
+  provisoire: false
   vide: "Les références presse seront ajoutées ici."
-  articles: []
+  # image = vignette, image_complete = coupure en grand (bouton « Voir l'article »), lien = version web (facultatif)
+  articles:
+    - media: "La République de Seine-et-Marne"
+      date: "5 septembre 2026"
+      titre: "Cette autrice à succès de Seine-et-Marne présente Les disparues de la crypte, un polar psychologique"
+      citation: "Dans la partie abandonnée de la carrière d'Aubigny, trois corps de…"
+      image: "republique-77-2026-vignette.jpg"
+      image_complete: "republique-77-2026.jpg"
+      lien: ""
+    - media: "L'Yonne Républicaine, Yonne Mag"
+      date: "6 juin 2026"
+      titre: "« Je crois beaucoup en l'âme des lieux »"
+      citation: "Invitée du dernier salon du polar de Sens, Mélodie Miller est de retour dans l'Yonne avec Les Disparues de la crypte."
+      image: "yonne-mag-2026-vignette.jpg"
+      image_complete: "yonne-mag-2026.jpg"
+      lien: ""
+    - media: "L'Yonne Républicaine"
+      date: "2025"
+      titre: "La Fosse Dionne au cœur d'un polar"
+      citation: "Je suis restée en arrêt devant cet endroit. J'ai été fascinée."
+      image: "fosse-dionne-vignette.jpg"
+      image_complete: "fosse-dionne.jpg"
+      lien: ""
+    - media: "La République de Seine-et-Marne"
+      date: "2025"
+      titre: "Le public s'arrache déjà le dernier thriller de l'autrice à succès Mélodie Miller"
+      citation: "Un voyage autour du monde de 15 mois. Cette aventure a débouché sur la publication d'un premier guide de voyage."
+      image: "republique-77-succes-vignette.jpg"
+      image_complete: "republique-77-succes.jpg"
+      lien: ""
 
 pros:
   titre: "Journalistes, libraires, organisateurs"

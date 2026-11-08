@@ -26,7 +26,7 @@
 
 /* Mes romans : sas */
 .sas h1 { text-align: center; }
-.sas-intro { text-align: center; max-width: 60ch; margin: 0 auto 2.5rem; font-family: var(--titre); font-size: 1.55rem; line-height: 1.4; }
+.sas-intro { text-align: center; max-width: 60ch; margin: 0 auto 2.5rem; font-family: var(--texte); font-size: 1.0625rem; line-height: 1.65; }
 
 /* Nouveautés */
 .nouveautes { margin-top: 2rem; padding-block: 3rem; background: var(--soft); }
