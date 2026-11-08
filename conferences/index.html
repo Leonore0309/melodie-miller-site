@@ -37,9 +37,17 @@ permalink: /conferences/
 
 <section class="container section">
   <h2>{{ c.rencontres.titre }}</h2>
-  <ul class="agenda">
-    {% for e in c.rencontres.liste %}
-    <li><span class="agenda-date">{{ e.quand }}</span><span class="agenda-titre">{{ e.sujet }}</span><span class="agenda-lieu">{{ e.lieu }}</span></li>
+  {% assign liste = c.rencontres.liste | reverse %}
+  <ul class="agenda-evts conf-evts">
+    {% for e in liste %}
+    {% assign q = e.quand | split: " " %}
+    <li class="evt">
+      <div class="evt-cal"><span class="evt-jour">{{ q[0] | slice: 0, 3 | upcase }}</span><span class="evt-mois">{{ q[1] }}</span></div>
+      <div class="evt-corps">
+        <h3 class="evt-titre">{{ e.sujet }}</h3>
+        <span class="evt-lieu">{{ e.lieu }}</span>
+      </div>
+    </li>
     {% endfor %}
   </ul>
 </section>

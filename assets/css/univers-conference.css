@@ -8,3 +8,10 @@
 [data-univers="conference"] .cta { background: var(--conf-soft); padding: 2rem; margin-block: 2rem; }
 [data-univers="conference"] .photo img { border-radius: 0; }
 [data-univers="conference"] .photo figcaption { color: var(--conf-fg); }
+
+/* « Quelques rencontres » : tuiles calendrier marine et or */
+.conf-evts { grid-template-columns: repeat(auto-fill, minmax(min(100%, 380px), 1fr)); }
+[data-univers="conference"] .conf-evts .evt { background: var(--conf-soft); padding: 1.3rem 1.5rem; gap: 1.3rem; border-left: 4px solid var(--conf-gold); border-radius: 4px; }
+[data-univers="conference"] .conf-evts .evt-cal { width: 5.4rem; border-top-color: var(--conf-gold); background: #fff; color: var(--conf-fg); }
+[data-univers="conference"] .conf-evts .evt-jour { font-size: 1.8rem; letter-spacing: .04em; }
+[data-univers="conference"] .conf-evts .evt-titre { font-family: var(--conf-titre); font-size: 1.45rem; font-weight: 700; }

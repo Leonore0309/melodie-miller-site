@@ -1,8 +1,8 @@
 {% capture nl %}{% include newsletter-lien.html %}{% endcapture %}
+{% unless page.accueil %}
+<section class="newsletter-bande" aria-label="Newsletter"><div class="large">{% include newsletter.html %}</div></section>
+{% endunless %}
 <footer class="site-footer">
-  {% unless page.accueil %}
-  <div class="newsletter-bande"><div class="large">{% include newsletter.html %}</div></div>
-  {% endunless %}
   <div class="container footer-bas">
     <p><strong>{{ site.data.site.signature }}</strong></p>
     <p>{{ site.data.site.slogan_pied }}</p>
