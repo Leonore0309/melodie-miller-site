@@ -5,7 +5,7 @@
       {% for n in site.data.nouveautes.nouveautes %}
       {% assign l = site.data.livres.livres | where: "id", n.livre | first %}
       {% capture nl %}{% include newsletter-lien.html %}{% endcapture %}
-      <article class="nouveaute">
+      <article class="nouveaute{% if n.style == 'noel' %} nouveaute-noel{% endif %}">
         <div class="couv">
           {% if l.image and l.image != "" %}
           <img src="{{ '/assets/img/livres/' | append: l.image | relative_url }}" alt="Couverture de {{ l.titre }}">
@@ -14,7 +14,7 @@
           {% endif %}
         </div>
         <div class="nouveaute-texte">
-          <p class="badge{% if n.badge_style == 'bientot' %} badge-bientot{% endif %}">{{ n.badge }}</p>
+          <p class="badge{% if n.badge_style == 'bientot' %} badge-bientot{% endif %}">{% if n.style == 'noel' %}<span aria-hidden="true">❄ </span>{% endif %}{{ n.badge }}</p>
           <h3>{{ l.titre }}</h3>
           <div class="nouv-complet">{% for p in n.texte %}<p>{{ p }}</p>{% endfor %}</div>
           <p class="nouv-court">{{ n.texte_court | default: n.texte.first }}</p>

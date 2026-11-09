@@ -43,5 +43,5 @@
   .carrousel.actif .car-detail.courant { animation: none; }
 }
 @media (max-width: 640px) {
-  .carrousel.actif .car-fleche { width: 2.4rem; height: 2.4rem; }
+  .carrousel.actif .car-fleche { width: 2.75rem; height: 2.75rem; }
 }

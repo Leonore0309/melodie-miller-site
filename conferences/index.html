@@ -4,6 +4,7 @@ univers: conference
 title: "Valérie Pierson & Mélodie Miller | Conférences"
 description: "Conférences de Valérie Pierson pour les entreprises et dirigeants, et de Mélodie Miller pour les rencontres littéraires : créativité, audace, réinvention."
 permalink: /conferences/
+polices: conference
 ---
 {% assign c = site.data.conferences %}
 <section class="hero-univers">
@@ -37,19 +38,26 @@ permalink: /conferences/
 
 <section class="container section">
   <h2>{{ c.rencontres.titre }}</h2>
-  {% assign liste = c.rencontres.liste | reverse %}
-  <ul class="agenda-evts conf-evts">
-    {% for e in liste %}
-    {% assign q = e.quand | split: " " %}
-    <li class="evt">
-      <div class="evt-cal"><span class="evt-jour">{{ q[0] | slice: 0, 3 | upcase }}</span><span class="evt-mois">{{ q[1] }}</span></div>
-      <div class="evt-corps">
-        <h3 class="evt-titre">{{ e.sujet }}</h3>
-        <span class="evt-lieu">{{ e.lieu }}</span>
-      </div>
-    </li>
-    {% endfor %}
-  </ul>
+  {% assign aujourdhui = 'now' | date: "%Y-%m-%d" %}
+  {% assign tri = c.rencontres.liste | sort: "date" %}
+  {% assign avenir = "" | split: "" %}
+  {% assign passees = "" | split: "" %}
+  {% for e in tri %}
+    {% assign d = e.date | append: "" %}
+    {% if d >= aujourdhui %}{% assign avenir = avenir | push: e %}{% else %}{% assign passees = passees | unshift: e %}{% endif %}
+  {% endfor %}
+  <div class="conf-groupe" id="conf-avenir-groupe"{% if avenir.size == 0 %} hidden{% endif %}>
+    <h3 class="conf-sous-titre">{{ c.rencontres.a_venir }}</h3>
+    <ul class="agenda-evts conf-evts" id="conf-avenir">
+      {% for e in avenir %}{% include conf-rencontre.html e=e %}{% endfor %}
+    </ul>
+  </div>
+  <div class="conf-groupe conf-passees" id="conf-passees-groupe"{% if passees.size == 0 %} hidden{% endif %}>
+    <h3 class="conf-sous-titre"><em>{{ c.rencontres.passees }}</em></h3>
+    <ul class="agenda-evts conf-evts" id="conf-passees">
+      {% for e in passees %}{% include conf-rencontre.html e=e %}{% endfor %}
+    </ul>
+  </div>
 </section>
 
 <section class="container section cta">

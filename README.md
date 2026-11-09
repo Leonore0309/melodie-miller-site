@@ -13,7 +13,7 @@ Le `Gemfile` utilise `jekyll` seul (pas `github-pages`) pour éviter la compilat
 ## Maquette à envoyer à un autre ordinateur
 `python outils/maquette.py` construit le site et crée `dist/maquette-melodie-miller.zip`. Il suffit de décompresser et de double-cliquer sur `index.html`. Le script réécrit les adresses pour qu'elles marchent sans serveur, puis vérifie tous les liens.
 
-Le panneau « Variantes » n'apparaît que sur la page En audio et compare 3 mises en page (`?audio=pochettes|playlist|salles`). L'accueil retenu est la version A ; la version B (`/version-b/`) reste en ligne par lien direct, non indexée. Pour le retirer : `maquette: false` dans `_config.yml`, puis figer le choix dans `.texte-flux` (`assets/css/base.css`). Une fois l'accueil retenu, remplacer `index.html` par la version choisie et supprimer l'autre.
+Le panneau « Variantes » (réglage maquette: true) propose : textes des nouveautés sur l'accueil (?nouv=complet|court), mise en page de En audio (?audio=playlist|salles), prix et agences sur À propos (?apropos=encart|bande). Une fois les choix faits : maquette: false dans _config.yml, puis supprimer les variantes non retenues (CSS html[data-…] et HTML correspondant).
 
 ## Où est quoi
 | Pour modifier… | Fichier |
@@ -21,7 +21,6 @@ Le panneau « Variantes » n'apparaît que sur la page En audio et compare 3 mis
 | Livres (titre, couverture, liens, extrait, statut) | `_data/livres.yml` |
 | Nouveautés de l'accueil | `_data/nouveautes.yml` |
 | Textes de l'accueil A | `_data/accueil.yml` |
-| Accueil B (façon Coben, textes courts) | `_data/accueil_b.yml` |
 | Mes romans à l'écran (adaptations, droits) | `_data/ecran.yml` |
 | Page En audio (livres audio, voix, liens Audible) | `_data/audio.yml` |
 | Coupures de presse | `_data/rencontres.yml` (section `presse`), images dans `assets/img/presse/` |
@@ -32,14 +31,18 @@ Le panneau « Variantes » n'apparaît que sur la page En audio et compare 3 mis
 | Contact | `_data/contact.yml` |
 | Témoignages | `_data/temoignages.yml` |
 | Email, réseaux, newsletter | `_data/site.yml` |
-| Les 3 premiers chapitres | `_extraits/*.md` |
+| Les 3 premiers chapitres | PDF dans `assets/chapitres/`, champ `extrait` du livre (ou pages `_extraits/*.md`) |
 | Couleurs et polices | `assets/css/base.css` (variables en haut) |
 | Photos et couvertures | `assets/img/photos/`, `assets/img/livres/` |
 
 - Un livre « à paraître » (`statut: a-paraitre`) reçoit un badge et un bouton « Être informé de sa sortie ».
 - Les dates passées de `rencontres.yml` disparaissent seules (au build et à l'affichage). La prochaine date est mise en vedette avec un compte à rebours (`debut` et `fin` au format AAAA-MM-JJ).
 - Carrousels de couvertures (Manon, Cassandre, comédies) : `_includes/carrousel.html` + `assets/js/carrousel.js`. Défilement toutes les 4 s, pause au survol, désactivé si le visiteur demande moins d'animations.
-- Extrait : mettre `/extraits/<nom-du-fichier>/` (page du site) ou un lien externe dans le champ `extrait` du livre.
+- Premiers chapitres : champ `extrait` du livre = `/assets/chapitres/<id>.pdf`, `/extraits/<nom>/` ou un lien externe. Vide : le bouton « Lire les 3 premiers chapitres » mène à la newsletter. `extrait_libelle` change le texte du bouton.
+- Bouton « Audio - me prévenir » : `audio_bientot: true` sur le livre (à retirer quand le lien Audible existe).
+- Style de Noël : `style: noel` dans `livres.yml` et `nouveautes.yml` (badge rouge, boutons dorés), à vider après les fêtes.
+- Conférences : chaque rencontre a une `date` (AAAA-MM-JJ) ; « À venir » en premier, puis « Passées » atténuées.
+- Chargement par page (performances) : réglages `carrousel`, `audio`, `ecran`, `presse`, `polices` dans l'en-tête de chaque page (voir `_layouts/default.html`).
 
 ## À faire plus tard
 - **Mise en ligne** : créer un dépôt GitHub, pousser ce dossier, activer Settings > Pages (branche main).
@@ -51,4 +54,4 @@ Le panneau « Variantes » n'apparaît que sur la page En audio et compare 3 mis
 Un bouton dont le lien est vide n'est pas affiché (Kobo, précommande, Audible…). Les articles de presse sont des reproductions : vérifier les droits de reproduction avant la mise en ligne réelle.
 
 ## À fournir
-Couvertures : *Un chum pour Noël*, *Les disparues de la crypte*, *L'Enfant du canal*, Manon T6 · liens d'achat : *Un chum pour Noël* (Amazon.fr et .ca), Manon T6 · outil newsletter et lien d'inscription · références presse · accord des deux autres personnes sur la photo de l'atelier Kobo · extraits d'autres livres.
+Couvertures : *Un chum pour Noël*, *Les disparues de la crypte*, *L'Enfant du canal*, Manon T6 · liens d'achat : *Un chum pour Noël* sur Amazon.ca (facultatif), Manon T6 · outil newsletter et lien d'inscription · références presse · accord des deux autres personnes sur la photo de l'atelier Kobo · extraits d'autres livres.

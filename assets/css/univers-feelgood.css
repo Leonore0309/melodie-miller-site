@@ -17,6 +17,10 @@ body[data-univers="feelgood"] h2 { font-size: clamp(1.5rem, 3vw, 2.1rem); }
 body[data-univers="feelgood"] .accroche, body[data-univers="feelgood"] .accroche-large { font-size: 1.2rem; }
 body[data-univers="feelgood"] .texte-flux { font-size: 1.0625rem; }
 body[data-univers="feelgood"] .car-detail h3 { font-size: 1.35rem; }
+/* La phrase d'accroche de la saga Manon tient sur une seule ligne dès que la largeur le permet */
+@media (min-width: 700px) {
+  body[data-univers="feelgood"] .accroche-ligne { white-space: nowrap; font-size: clamp(1.1rem, 2.5vw, 2rem); }
+}
 [data-univers="feelgood"] .temoignages { background: var(--fg-soft); }
 [data-univers="feelgood"] .badge-couv { background: var(--fg-turquoise); color: #10363c; border-radius: 4px; }
 [data-univers="feelgood"] .sommaire a:hover, [data-univers="feelgood"] .sommaire a.actif { background: var(--fg-accent); color: var(--fg-accent-fg); border-color: var(--fg-accent); }

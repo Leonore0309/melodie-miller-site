@@ -3,6 +3,7 @@
 
 nouveautes:
   - livre: un-chum-pour-noel
+    style: noel          # rouge et doré. À vider après les fêtes.
     badge: "Nouveauté"
     texte:
       - "Un mariage annulé, une librairie de rêve, au Québec, un papa solo très ronchon et une grosse tempête de neige !"

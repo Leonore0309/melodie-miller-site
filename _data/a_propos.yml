@@ -12,6 +12,27 @@ paragraphes:
   - "Je regarde des comédies romantiques, je lis de la poésie et je dévore des thrillers et des polars. Je suis notamment fan de Stephen King, Harlan Coben, Olivier Norek, Camilla Läckberg, Lisa Regan et Dennis Lehane. Et j'adore le podcast *L'Heure du crime* !"
   - "Aujourd'hui, je suis autrice indépendante à plein temps, je vis de ma plume, je produis mes livres audio et j'accompagne d'autres passionnés d'écriture."
   - "Derrière mon nom de plume se trouve aussi Valérie Pierson, ancienne dirigeante dans le luxe. Je partage ce parcours lors de conférences dédiées à la créativité, l'audace et à la réinvention."
+distinctions:
+  titre: "Distinctions et agences"
+  instagram:
+    nom: "Instagram"
+    texte: "@melodie.miller.autrice"
+    url: "https://www.instagram.com/melodie.miller.autrice/"
+  prix:
+    emoji: "🥈"
+    texte: "2ᵉ place, Prix Entraide A&E 2026, pour La mariée de la fosse"
+    url: "https://www.instagram.com/entraide.a.e/"
+  agences:
+    - emoji: "🎬"
+      role: "Droits audiovisuels"
+      nom: "Literary Image"
+      site: "https://literary-image.com"
+      instagram: "https://www.instagram.com/literaryimage/"
+    - emoji: "🌏"
+      role: "Rights"
+      nom: "Montse Cortázar Literary Agency"
+      site: "https://www.montsecortazar.com/"
+      instagram: "https://www.instagram.com/montsecortazarliteraryagency/"
 fin:
   titre: "Et vous, quels rêves avez-vous laissés de côté ?"
   texte: "Si mes romans pouvaient vous transmettre une seule chose, ce serait celle-ci : il n'est jamais trop tard pour oser, pour aimer, pour se réinventer. Et surtout, il n'est jamais trop tard pour libérer ses licornes."

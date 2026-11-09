@@ -1,0 +1,9 @@
+{%- comment -%} Une tuile « rencontre » de la page Conférences. Paramètre : e (une rencontre de conferences.yml) {%- endcomment -%}
+{% assign q = include.e.quand | split: " " %}
+<li class="evt" data-fin="{{ include.e.date }}">
+  <div class="evt-cal"><span class="evt-jour">{{ q[0] | slice: 0, 3 | upcase }}</span><span class="evt-mois">{{ q[1] }}</span></div>
+  <div class="evt-corps">
+    <h3 class="evt-titre">{{ include.e.sujet }}</h3>
+    <span class="evt-lieu">{{ include.e.lieu }}</span>
+  </div>
+</li>

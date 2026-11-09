@@ -15,6 +15,10 @@ media:
     label: Coupures de presse
     input: assets/img/presse
     output: /assets/img/presse
+  - name: chapitres
+    label: "Premiers chapitres (PDF)"
+    input: assets/chapitres
+    output: /assets/chapitres
 
 content:
   - name: livres
@@ -65,7 +69,11 @@ content:
             fields:
               - { name: nom, label: "Texte du bouton", type: string }
               - { name: url, label: Adresse, type: string }
-          - { name: extrait, label: "Extrait (adresse de la page d'extrait ou lien externe)", type: string }
+          - { name: extrait, label: "Premiers chapitres : PDF (déposé dans « Premiers chapitres »), page d'extrait ou lien. Vide = le bouton mène à la newsletter", type: string }
+          - { name: extrait_libelle, label: "Texte du bouton des chapitres (vide = « Lire les 3 premiers chapitres »)", type: string }
+          - { name: audio_bientot, label: "Bouton « Audio - me prévenir » (à décocher quand le lien Audible existe)", type: boolean }
+          - { name: style, label: "Style festif (noel = rouge et doré, à vider après les fêtes)", type: string }
+          - { name: distinction, label: "Mention sous le titre (prix…)", type: string }
 
   - name: nouveautes
     label: Nouveautés (accueil)
@@ -78,6 +86,7 @@ content:
         list: true
         fields:
           - { name: livre, label: "Identifiant du livre (voir « Livres »)", type: string }
+          - { name: style, label: "Style festif (noel = rouge et doré, à vider après les fêtes)", type: string }
           - { name: badge, label: "Étiquette (ex. Nouveauté)", type: string }
           - { name: texte, label: "Texte complet (un paragraphe par ligne)", type: string, list: true }
           - { name: texte_court, label: "Version courte (une phrase)", type: text }
@@ -181,12 +190,15 @@ content:
         type: object
         fields:
           - { name: titre, label: Titre, type: string }
+          - { name: a_venir, label: "Intitulé des rencontres à venir", type: string }
+          - { name: passees, label: "Intitulé des rencontres passées", type: string }
           - name: liste
-            label: Rencontres
+            label: "Rencontres (classées « À venir » / « Passées » selon leur date)"
             type: object
             list: true
             fields:
-              - { name: quand, label: Date, type: string }
+              - { name: date, label: "Date exacte AAAA-MM-JJ (dernier jour du mois si inconnue)", type: string }
+              - { name: quand, label: "Date affichée (ex. Avril 2026)", type: string }
               - { name: lieu, label: Lieu, type: string }
               - { name: sujet, label: Sujet, type: string }
       - name: cta
@@ -258,6 +270,35 @@ content:
       - { name: photo2_alt, label: "Description de la photo 2", type: string }
       - { name: photo2_legende, label: "Légende de la photo 2", type: string }
       - { name: paragraphes, label: "Paragraphes (*mot* pour l'italique)", type: text, list: true }
+      - name: distinctions
+        label: "Distinctions, agences et Instagram"
+        type: object
+        fields:
+          - { name: titre, label: Titre, type: string }
+          - name: instagram
+            label: "Compte Instagram"
+            type: object
+            fields:
+              - { name: nom, label: Nom, type: string }
+              - { name: texte, label: "Texte du bouton", type: string }
+              - { name: url, label: Adresse, type: string }
+          - name: prix
+            label: Prix
+            type: object
+            fields:
+              - { name: emoji, label: Emoji, type: string }
+              - { name: texte, label: Texte, type: string }
+              - { name: url, label: "Adresse (facultatif)", type: string }
+          - name: agences
+            label: Agences
+            type: object
+            list: true
+            fields:
+              - { name: emoji, label: Emoji, type: string }
+              - { name: role, label: "Rôle (ex. Droits audiovisuels)", type: string }
+              - { name: nom, label: "Nom de l'agence", type: string }
+              - { name: site, label: "Site web", type: string }
+              - { name: instagram, label: "Instagram", type: string }
       - name: fin
         label: "Fin de page"
         type: object
@@ -284,6 +325,8 @@ content:
               - { name: titre, label: Titre, type: string }
               - { name: texte, label: Texte, type: text }
               - { name: bouton, label: Bouton, type: string }
+              - { name: couverture, label: "Couverture (nom du fichier)", type: string }
+              - { name: couverture_alt, label: "Description de la couverture", type: string }
           - name: thriller
             label: "Carte thriller"
             type: object
@@ -291,6 +334,8 @@ content:
               - { name: titre, label: Titre, type: string }
               - { name: texte, label: Texte, type: text }
               - { name: bouton, label: Bouton, type: string }
+              - { name: couverture, label: "Couverture (nom du fichier)", type: string }
+              - { name: couverture_alt, label: "Description de la couverture", type: string }
       - name: feelgood
         label: "Page feel good"
         type: object
@@ -360,102 +405,6 @@ content:
           - { name: bouton_newsletter, label: "Bouton newsletter", type: string }
       - { name: fin, label: "Phrase finale", type: string }
       - { name: signature, label: Signature, type: string }
-
-  - name: accueil_b
-    label: Accueil version B
-    type: file
-    path: _data/accueil_b.yml
-    fields:
-      - { name: vedette, label: "Livre en vedette (identifiant)", type: string }
-      - name: auteur
-        label: "Moitié autrice"
-        type: object
-        fields:
-          - { name: titre, label: Titre, type: string }
-          - { name: accroche, label: Accroche, type: string }
-          - { name: texte, label: Texte, type: text }
-          - { name: chiffre, label: "Phrase des lecteurs", type: text }
-          - { name: photo, label: "Photo (nom du fichier)", type: string }
-          - { name: photo_alt, label: "Description de la photo", type: string }
-      - name: nouveaute
-        label: "Moitié nouveauté"
-        type: object
-        fields:
-          - { name: surtitre, label: "Petit titre", type: string }
-          - { name: accroche, label: Accroche, type: text }
-          - { name: bouton, label: Bouton, type: string }
-          - { name: lien, label: Lien, type: string }
-      - name: univers
-        label: "Deux univers"
-        type: object
-        fields:
-          - name: lumiere
-            label: "Envie de lumière"
-            type: object
-            fields:
-              - { name: titre, label: Titre, type: string }
-              - { name: texte, label: Texte, type: text }
-              - { name: bouton, label: Bouton, type: string }
-              - { name: couverture, label: "Couverture (nom du fichier)", type: string }
-              - { name: couverture_alt, label: "Description de la couverture", type: string }
-          - name: frissons
-            label: "Envie de frissons"
-            type: object
-            fields:
-              - { name: titre, label: Titre, type: string }
-              - { name: texte, label: Texte, type: text }
-              - { name: bouton, label: Bouton, type: string }
-              - { name: couverture, label: "Couverture (nom du fichier)", type: string }
-              - { name: couverture_alt, label: "Description de la couverture", type: string }
-      - name: aussi
-        label: "À découvrir aussi"
-        type: object
-        fields:
-          - { name: titre, label: Titre, type: string }
-          - { name: livre, label: "Livre (identifiant)", type: string }
-          - { name: texte, label: Texte, type: text }
-          - { name: bouton, label: Bouton, type: string }
-          - { name: lien, label: Lien, type: string }
-      - name: ecran
-        label: "Bande à l'écran"
-        type: object
-        fields:
-          - { name: surtitre, label: "Petit titre", type: string }
-          - { name: titre, label: Titre, type: string }
-          - { name: texte, label: Texte, type: text }
-          - { name: bouton, label: Bouton, type: string }
-      - name: tuiles
-        label: "Tuiles-images"
-        type: object
-        fields:
-          - name: rencontres
-            label: Rencontres
-            type: object
-            fields:
-              - { name: titre, label: Titre, type: string }
-              - { name: vide, label: "Texte s'il n'y a aucune date", type: string }
-              - { name: image, label: "Image (nom du fichier)", type: string }
-              - { name: image_alt, label: "Description de l'image", type: string }
-              - { name: lien, label: Lien, type: string }
-          - name: conferences
-            label: Conférences
-            type: object
-            fields:
-              - { name: titre, label: Titre, type: string }
-              - { name: sous_titre, label: "Sous-titre", type: string }
-              - { name: image, label: "Image (nom du fichier)", type: string }
-              - { name: image_alt, label: "Description de l'image", type: string }
-              - { name: lien, label: Lien, type: string }
-      - { name: temoignages_titre, label: "Titre des témoignages", type: string }
-      - name: lettre
-        label: "La lettre de Mélodie"
-        type: object
-        fields:
-          - { name: titre, label: Titre, type: string }
-          - { name: texte, label: Texte, type: text }
-          - { name: bouton, label: Bouton, type: string }
-          - { name: photo, label: "Photo (nom du fichier)", type: string }
-          - { name: photo_alt, label: "Description de la photo", type: string }
 
   - name: ecran
     label: Mes romans à l'écran

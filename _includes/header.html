@@ -4,6 +4,7 @@
     <button class="menu-toggle" aria-expanded="false" aria-controls="menu">Menu</button>
     <nav id="menu" class="menu" aria-label="Navigation principale">
       <a href="{{ '/' | relative_url }}">Accueil</a>
+      <a href="{{ '/a-propos/' | relative_url }}">À propos</a>
       <div class="menu-groupe">
         <a href="{{ '/mes-romans/' | relative_url }}" aria-haspopup="true">Mes romans <span class="caret" aria-hidden="true">▾</span></a>
         <div class="sous-menu">
@@ -11,11 +12,10 @@
           <a href="{{ '/thrillers/' | relative_url }}">Thrillers</a>
         </div>
       </div>
-      <a href="{{ '/a-propos/' | relative_url }}">À propos</a>
-      <a href="{{ '/rencontres-presse/' | relative_url }}">Rencontres &amp; presse</a>
-      <a href="{{ '/conferences/' | relative_url }}">Conférences</a>
       <a href="{{ '/en-audio/' | relative_url }}">En audio</a>
       <a href="{{ '/a-l-ecran/' | relative_url }}">À l'écran</a>
+      <a href="{{ '/rencontres-presse/' | relative_url }}">Rencontres &amp; presse</a>
+      <a href="{{ '/conferences/' | relative_url }}">Conférences</a>
       <a href="{{ '/contact/' | relative_url }}">Contact</a>
     </nav>
   </div>

@@ -4,7 +4,12 @@
 # statut : paru ou a-paraitre
 # image : fichier dans assets/img/livres/ (vide = cadre « couverture à venir »)
 # liens : un bouton par lien. Un bouton dont l'adresse (url) est vide n'est pas affiché : collez-la plus tard.
-# extrait : adresse de la page d'extrait du site (/extraits/xxx/) ou lien externe. Vide = pas de bouton.
+# extrait : PDF déposé dans assets/chapitres/ (/assets/chapitres/mon-livre.pdf), page d'extrait du site (/extraits/xxx/) ou lien externe.
+#   Vide = le bouton « Lire les 3 premiers chapitres » mène à la newsletter en attendant.
+# extrait_libelle : texte du bouton si ce n'est pas « Lire les 3 premiers chapitres » (facultatif).
+# audio_bientot : true = bouton « Audio - me prévenir » (newsletter). À retirer quand le lien Audible existe.
+# style : noel = badge et boutons rouge et doré (à vider après les fêtes).
+# distinction : petite mention sous le titre (prix, etc.).
 
 livres:
   # ---------- Saga Manon ----------
@@ -19,7 +24,8 @@ livres:
     liens:
       - { nom: "Amazon", url: "https://amzn.eu/d/co0aLGe" }
       - { nom: "Audible", url: "https://www.audible.fr/pd/Il-nest-jamais-trop-tard-pour-liberer-les-licornes-Livre-Audio/B0FH2BVS5N" }
-    extrait: ""
+    extrait: "/assets/chapitres/manon-1.pdf"
+    extrait_libelle: "Lire les premiers chapitres"
   - id: manon-2
     titre: "Là où ronronnent les pumas"
     univers: feelgood
@@ -97,9 +103,10 @@ livres:
     image: "un-chum-pour-noel.jpg"
     accroche: "Bienvenue à Mont-Tremblant, au Québec, où les paysages enneigés, une librairie de rêve et un auteur de polar surprenant peuvent réparer les cœurs brisés. Après l'annulation de son mariage, Adèle va découvrir qu'un nouveau départ peut parfois se cacher derrière une catastrophe."
     complement: "Une romance de Noël très drôle et réconfortante."
+    style: noel
+    audio_bientot: true
     liens:
-      - { nom: "Amazon.fr", url: "" }   # À fournir
-      - { nom: "Amazon.ca", url: "" }   # À fournir
+      - { nom: "Amazon", url: "https://www.amazon.fr/dp/B0H7X4YPTZ" }
     extrait: ""
   - id: ou-vont-les-reves
     titre: "Où vont les rêves au petit matin ?"
@@ -160,13 +167,13 @@ livres:
     statut: paru
     image: "mariee-de-la-fosse.jpg"
     accroche: "À Tonnerre, dans l'Yonne, deux mariées sont retrouvées noyées à trente ans d'intervalle. Le début d'un cold case époustouflant et la première enquête de la journaliste Anna Blanchard et du gendarme, Julien Vautrin."
+    distinction: "🥈 2ᵉ place, Prix Entraide A&E 2026"
     complement: "Chapitres courts, plume fluide, vous allez adorer !"
     liens:
       - { nom: "Amazon", url: "https://amzn.eu/d/b43BVK3" }
       - { nom: "Kobo", url: "" }   # À fournir
       - { nom: "Écouter l'extrait", url: "https://www.audible.fr/pd/La-mariee-de-la-fosse-Un-thriller-psychologique-inspire-de-faits-reels-Livre-Audio/B0GRX36BLP" }
-    extrait: "https://bit.ly/3HXf9B7"
-    bouton_ancre: "Découvrir le tome 1"
+    extrait: "/assets/chapitres/la-mariee-de-la-fosse.pdf"
   - id: les-disparues-de-la-crypte
     titre: "Les disparues de la crypte"
     univers: thriller
@@ -190,6 +197,7 @@ livres:
     image: "l-enfant-du-canal.jpg"
     accroche: "Un enfant disparaît au milieu de la foule, à la Foire de Sens. Alors que les recherches s'organisent, le passé semble refaire surface le long des canaux de l'Yonne. Un compte à rebours impossible à lâcher et la troisième enquête d'Anna Blanchard et Julien Vautrin."
     complement: "Sortie avril 2027."
+    audio_bientot: true
     liens:
       - { nom: "Précommander sur Amazon", url: "" }   # À fournir
     extrait: ""
@@ -208,7 +216,7 @@ livres:
     liens:
       - { nom: "Amazon", url: "https://amzn.eu/d/h5GLT6R" }
       - { nom: "Kobo", url: "" }   # À fournir
-    extrait: ""
+    extrait: "/assets/chapitres/le-serment.pdf"
   - id: nuit
     titre: "Nuit"
     univers: thriller
@@ -222,4 +230,4 @@ livres:
     liens:
       - { nom: "Amazon", url: "https://amzn.eu/d/bGideJV" }
       - { nom: "Kobo", url: "" }   # À fournir
-    extrait: ""
+    extrait: "/assets/chapitres/nuit.pdf"

@@ -15,3 +15,14 @@
 [data-univers="conference"] .conf-evts .evt-cal { width: 5.4rem; border-top-color: var(--conf-gold); background: #fff; color: var(--conf-fg); }
 [data-univers="conference"] .conf-evts .evt-jour { font-size: 1.8rem; letter-spacing: .04em; }
 [data-univers="conference"] .conf-evts .evt-titre { font-family: var(--conf-titre); font-size: 1.45rem; font-weight: 700; }
+.conf-sous-titre { font-family: var(--conf-texte); font-size: 1rem; font-weight: 600; text-transform: uppercase; letter-spacing: .1em; color: var(--conf-gold); margin: 1.5rem 0 0; }
+.conf-sous-titre em { font-style: italic; text-transform: none; letter-spacing: .02em; font-size: 1.15rem; color: inherit; }
+.conf-groupe[hidden] { display: none; }
+
+/* Rencontres passées : plus petites et atténuées */
+[data-univers="conference"] .conf-passees .conf-evts { margin-top: .8rem; grid-template-columns: repeat(auto-fill, minmax(min(100%, 320px), 1fr)); }
+[data-univers="conference"] .conf-passees .evt { opacity: .62; padding: .8rem 1.1rem; gap: 1rem; border-left-color: color-mix(in srgb, var(--conf-fg) 35%, transparent); filter: grayscale(.6); }
+[data-univers="conference"] .conf-passees .evt:hover { transform: none; box-shadow: none; }
+[data-univers="conference"] .conf-passees .evt-cal { width: 4.2rem; border-top-color: color-mix(in srgb, var(--conf-fg) 40%, transparent); }
+[data-univers="conference"] .conf-passees .evt-jour { font-size: 1.4rem; }
+[data-univers="conference"] .conf-passees .evt-titre { font-size: 1.15rem; }

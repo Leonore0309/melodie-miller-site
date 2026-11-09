@@ -5,9 +5,19 @@
   // En-tête plus fin au défilement
   var entete = document.querySelector('.site-header');
   if (entete) {
-    var maj = function () { entete.classList.toggle('reduit', window.scrollY > 40); };
+    var racine = document.documentElement;
+    var maj = function () {
+      var r = window.scrollY > 40;
+      entete.classList.toggle('reduit', r);
+      racine.classList.toggle('entete-reduit', r); // le sommaire rétrécit en même temps
+    };
     window.addEventListener('scroll', maj, { passive: true });
     maj();
+    // Le sommaire collant se cale sur la hauteur réelle du bandeau, pendant toute l'animation
+    var caler = function () { racine.style.setProperty('--h-header', entete.offsetHeight + 'px'); };
+    caler();
+    if ('ResizeObserver' in window) new ResizeObserver(caler).observe(entete);
+    else window.addEventListener('resize', caler);
   }
 
   // Apparition en fondu : uniquement pour ce qui est sous l'écran au chargement
@@ -17,7 +27,7 @@
         if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }
       });
     }, { threshold: 0.12 });
-    var cibles = document.querySelectorAll('main .section, main .bloc, main .temoignages, main .nouveautes, main .livre-grand, main .bande, main .tuile-img, main .affiche, main .evt');
+    var cibles = document.querySelectorAll('main .section, main .bloc, main .temoignages, main .nouveautes, main .livre-grand, main .evt');
     Array.prototype.forEach.call(cibles, function (el) {
       if (el.closest('.apparait')) return;
       if (el.getBoundingClientRect().top > window.innerHeight * 0.9) {

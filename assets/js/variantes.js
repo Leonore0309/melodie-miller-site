@@ -1,12 +1,15 @@
 /* Maquette : panneau « Variantes ».
    - Accueil : texte des nouveautés (?nouv=complet | court)
-   - En audio : 3 mises en page (?audio=pochettes | playlist | salles) */
+   - En audio : 2 mises en page (?audio=playlist | salles)
+   - À propos : prix et agences (?apropos=encart | bande) */
 (function () {
   var html = document.documentElement;
   var params = new URLSearchParams(window.location.search);
   var REGLAGES = [
-    { cle: 'audio', attr: 'data-audio', titre: 'Mise en page audio', defaut: 'pochettes', page: '.audio-corps',
-      choix: [['pochettes', 'Pochettes + ondes'], ['playlist', 'Playlist'], ['salles', 'Deux salles']] },
+    { cle: 'audio', attr: 'data-audio', titre: 'Mise en page audio', defaut: 'playlist', page: '.audio-corps',
+      choix: [['playlist', 'Playlist'], ['salles', 'Deux salles']] },
+    { cle: 'apropos', attr: 'data-apropos', titre: 'Prix et agences', defaut: 'encart', page: '.apropos',
+      choix: [['encart', 'Encart sous la photo'], ['bande', 'Bandeau après la bio']] },
     { cle: 'nouv', attr: 'data-nouv', titre: 'Textes des nouveautés', defaut: 'complet', page: '.nouveautes',
       choix: [['complet', 'Complets'], ['court', 'Une phrase']] }
   ];

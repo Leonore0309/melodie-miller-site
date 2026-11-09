@@ -145,6 +145,21 @@ blockquote footer { font-size: .85rem; opacity: .85; }
 .photos-col { display: grid; gap: 1.5rem; }
 .texte-long p { max-width: 68ch; }
 @media (max-width: 800px) { .texte-photo { grid-template-columns: 1fr; } }
+/* Icônes de réseaux et bloc « distinctions et agences » */
+.icone { flex: none; vertical-align: -.125em; }
+.reseau { display: inline-flex; align-items: center; gap: .3rem; }
+.dist-liste { list-style: none; margin: 0 0 1rem; padding: 0; display: grid; gap: .7rem; }
+.dist-liste li { display: flex; gap: .6rem; align-items: baseline; font-size: .95rem; line-height: 1.4; }
+.dist-emoji { font-size: 1.25rem; }
+.dist-insta { display: inline-flex; vertical-align: middle; margin-left: .3rem; font-size: 1.15rem; }
+.dist-reseau { margin: 0; }
+.dist-reseau .btn { gap: .5rem; }
+.distinctions-encart { background: var(--soft); padding: 1.1rem 1.2rem; border-radius: 8px; }
+.distinctions-bande { display: none; margin-top: 2rem; padding: 1.5rem 2rem; background: var(--soft); border-radius: 10px; }
+.distinctions-bande .dist-liste { grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.2rem; }
+.distinctions-bande .dist-liste li { flex-direction: column; gap: .2rem; align-items: flex-start; }
+html[data-apropos="bande"] .distinctions-encart { display: none; }
+html[data-apropos="bande"] .distinctions-bande { display: block; }
 .apropos-fin { margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid color-mix(in srgb, var(--fg) 20%, transparent); }
 .hero-univers { padding-block: 3.5rem 1.5rem; }
 .surtitre { text-transform: uppercase; letter-spacing: .12em; font-size: .85rem; font-weight: 600; color: var(--accent); }
@@ -153,16 +168,14 @@ blockquote footer { font-size: .85rem; opacity: .85; }
 
 /* Sommaire collant des pages longues */
 .sommaire { position: sticky; top: var(--h-header); z-index: 40; background: color-mix(in srgb, var(--bg) 92%, transparent); -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px); border-bottom: 1px solid color-mix(in srgb, var(--fg) 12%, transparent); }
-.sommaire .container { display: flex; gap: .5rem; flex-wrap: wrap; padding-block: .5rem; }
-.sommaire a { text-decoration: none; font-size: .85rem; font-weight: 600; padding: .25rem .8rem; border: 1px solid color-mix(in srgb, var(--fg) 30%, transparent); border-radius: 999px; transition: background .2s, color .2s; }
+.sommaire .container { display: flex; gap: .5rem; flex-wrap: wrap; padding-block: .5rem; transition: padding .3s; }
+.sommaire a { text-decoration: none; font-size: .85rem; font-weight: 600; padding: .25rem .8rem; border: 1px solid color-mix(in srgb, var(--fg) 30%, transparent); border-radius: 999px; transition: background .2s, color .2s, font-size .3s, padding .3s; }
+/* Quand le bandeau rétrécit, le sommaire rétrécit aussi (classe posée par animations.js) */
+html.entete-reduit .sommaire .container { padding-block: .25rem; }
+html.entete-reduit .sommaire a { font-size: .78rem; padding: .15rem .7rem; }
 .sommaire a:hover, .sommaire a.actif { background: var(--fg); color: var(--bg); }
 
-/* Liste simple (conférences) */
-.agenda { list-style: none; padding: 0; margin: 1rem 0; border-top: 1px solid color-mix(in srgb, var(--fg) 20%, transparent); }
-.agenda li { display: grid; grid-template-columns: 11rem 1fr auto; gap: 1rem; padding: .8rem 0; border-bottom: 1px solid color-mix(in srgb, var(--fg) 20%, transparent); }
-.agenda-date { font-weight: 600; }
-.agenda-lieu { opacity: .85; }
-@media (max-width: 640px) { .agenda li { grid-template-columns: 1fr; gap: .1rem; } }
+/* Thèmes d'intervention (conférences) */
 .themes li { margin-bottom: .3rem; }
 
 /* Contact */
@@ -185,6 +198,19 @@ blockquote footer { font-size: .85rem; opacity: .85; }
 .footer-bas p { margin: 0 0 .2em; }
 .reseaux { list-style: none; display: flex; flex-wrap: wrap; justify-content: center; gap: .2rem .9rem; padding: 0; margin: .4rem 0 0; font-size: .78rem; opacity: .85; }
 
+/* Mobile : zones tactiles d'au moins 44 px (liens du pied de page, sommaire, icônes, flèches) */
+@media (max-width: 800px) {
+  .reseaux { gap: 0 .6rem; font-size: .85rem; }
+  .reseaux a { display: inline-flex; align-items: center; min-height: 44px; padding-inline: .3rem; }
+  .sommaire .container { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; }
+  .sommaire .container::-webkit-scrollbar { display: none; }
+  .sommaire a { padding-block: .5rem; flex: none; white-space: nowrap; }
+  html.entete-reduit .sommaire a { padding-block: .4rem; }
+  .lien-chapitres a { display: inline-block; padding: .75rem .6rem; }
+  .dist-insta { padding: .6rem; margin: -.6rem 0; }
+  .menu a { display: inline-block; padding-block: .35rem; }
+}
+
 /* Page d'extrait */
 .container-lecture { width: min(680px, 100% - 2.5rem); margin: 2rem auto; padding: 1.5rem; }
 .extrait-sous { color: var(--accent); text-transform: uppercase; letter-spacing: .1em; font-size: .9rem; }
@@ -199,7 +225,7 @@ blockquote footer { font-size: .85rem; opacity: .85; }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .apparait { opacity: 1; transform: none; transition: none; }
-  .btn, .couv img, .photo, .site-header, .header-inner { transition: none; }
+  .btn, .couv img, .photo, .site-header, .header-inner, .sommaire .container, .sommaire a { transition: none; }
 }
 
 /* Presse : cartes avec vignette et coupure en grand */

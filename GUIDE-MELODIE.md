@@ -30,9 +30,21 @@ Menu **Rencontres et dédicaces** > Prochaines dates > Ajouter. Renseignez la da
 Menu **Livres** > le livre > Boutons d'achat. Un bouton dont l'adresse est vide n'apparaît pas : collez simplement le lien quand vous l'avez.
 
 ## Publier les 3 premiers chapitres
-1. Menu **Extraits**, bouton « Ajouter ». Dans « Identifiant du livre », écrivez celui du livre. Collez le texte des chapitres.
-2. Notez le nom du fichier (par exemple `mon-livre`), puis dans **Livres**, sur ce livre, mettez dans « Extrait » : `/extraits/mon-livre/`
-Le bouton « Lire les 3 premiers chapitres » apparaît tout seul.
+1. Menu **Premiers chapitres (PDF)** (médias) : envoyez le PDF du livre.
+2. Menu **Livres** > le livre > « Premiers chapitres » : choisissez ce PDF.
+Le bouton « Lire les 3 premiers chapitres » ouvre alors le PDF dans un nouvel onglet. Tant que ce champ est vide, le bouton mène à l'inscription à la newsletter. Si le PDF contient plus de trois chapitres, changez le texte du bouton dans « Texte du bouton des chapitres ».
+
+## Bouton « Audio - me prévenir »
+Menu **Livres** > le livre : cochez ou décochez « Bouton Audio - me prévenir ». Quand le livre audio est en ligne, décochez et ajoutez le lien Audible dans les boutons d'achat.
+
+## Style de Noël (rouge et doré)
+Menu **Livres** > *Un chum pour Noël* et menu **Nouveautés (accueil)** : le champ « Style festif » contient « noel ». Après les fêtes, videz ce champ pour retrouver les couleurs habituelles.
+
+## Rencontres de la page Conférences
+Menu **Conférences** > Quelques rencontres > Rencontres > Ajouter : la **date exacte** (AAAA-MM-JJ, ou le dernier jour du mois si elle n'est pas fixée), la date affichée (ex. « Mars 2027 »), le lieu et le sujet. Les rencontres à venir apparaissent d'abord ; une fois la date passée, elles passent seules dans « Passées ».
+
+## Prix, agences et Instagram (page À propos)
+Menu **À propos** > Distinctions, agences et Instagram.
 
 ## Changer une photo
 Dans le menu **Photos**, envoyez la nouvelle image, puis écrivez son nom de fichier dans la page concernée (accueil, à propos, rencontres, conférences).

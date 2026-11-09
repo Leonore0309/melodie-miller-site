@@ -4,6 +4,8 @@ univers: feelgood
 title: "Romans feel good et comédies romantiques | Mélodie Miller"
 description: "Saga Manon, saga Cassandre, Un chum pour Noël, Où vont les rêves au petit matin ? : les romans feel good de Mélodie Miller."
 permalink: /romances-feel-good/
+carrousel: true
+polices: feelgood
 ---
 {% assign r = site.data.romans %}
 {% assign tous = site.data.livres.livres | where: "univers", "feelgood" %}
@@ -23,7 +25,7 @@ permalink: /romances-feel-good/
 <section class="container section" id="saga-manon">
   <div class="bloc">
     <h2>{{ r.feelgood.manon.titre }}</h2>
-    <p class="accroche accroche-large">{{ r.feelgood.manon.accroche }}</p>
+    <p class="accroche accroche-large accroche-ligne">{{ r.feelgood.manon.accroche }}</p>
     <div class="texte-flux">{% for p in r.feelgood.manon.paragraphes %}<p>{{ p }}</p>{% endfor %}</div>
     {% include carrousel.html livres=manon mode="saga" label="Les tomes de la saga Manon" %}
   </div>

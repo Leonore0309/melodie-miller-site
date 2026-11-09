@@ -1,5 +1,6 @@
 /* Agenda : masque les dates passées, met la prochaine en vedette avec un compte à rebours,
-   et alimente les tuiles « Prochaine rencontre ». Fonctionne même si le site n'a pas été reconstruit. */
+   et, sur la page Conférences, range les rencontres passées sous « Passées ».
+   Fonctionne même si le site n'a pas été reconstruit. */
 (function () {
   var d = new Date();
   var pad = function (x) { return ('0' + x).slice(-2); };
@@ -31,16 +32,14 @@
     if (vide && !a_venir.length) vide.hidden = false;
   }
 
-  // Tuiles « Prochaine rencontre » (source cachée générée au build)
-  var source = document.querySelectorAll('#agenda-source li');
-  var cibles = document.querySelectorAll('[data-prochaine]');
-  if (source.length && cibles.length) {
-    var prochain = null;
-    Array.prototype.forEach.call(source, function (li) {
-      if (!prochain && li.getAttribute('data-fin') >= aujourdhui) prochain = li;
+  // Page Conférences : une rencontre devenue passée passe de « À venir » à « Passées »
+  var avenir = document.getElementById('conf-avenir');
+  var passees = document.getElementById('conf-passees');
+  if (avenir && passees) {
+    Array.prototype.slice.call(avenir.querySelectorAll('.evt')).forEach(function (li) {
+      if (li.getAttribute('data-fin') < aujourdhui) passees.insertBefore(li, passees.firstChild);
     });
-    Array.prototype.forEach.call(cibles, function (c) {
-      c.textContent = prochain ? prochain.getAttribute('data-texte') : c.getAttribute('data-vide');
-    });
+    document.getElementById('conf-avenir-groupe').hidden = !avenir.children.length;
+    document.getElementById('conf-passees-groupe').hidden = !passees.children.length;
   }
 })();

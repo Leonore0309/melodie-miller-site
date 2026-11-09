@@ -1,5 +1,5 @@
-/* Page « En audio » : ambiance studio, ondes animées, pochettes carrées.
-   3 mises en page (panneau Variantes) : html[data-audio] = pochettes (défaut) | playlist | salles */
+/* Page « En audio » : ambiance studio, ondes animées, playlist.
+   2 mises en page (panneau Variantes) : html[data-audio] = playlist (défaut) | salles */
 
 .audio-hero { position: relative; overflow: hidden; background: radial-gradient(ellipse at 50% 0%, #1b3a3d, #070f10 70%); padding-block: 3.5rem 2.5rem; }
 .audio-hero h1 { text-transform: uppercase; letter-spacing: .04em; font-weight: 400; }
@@ -24,46 +24,32 @@
 /* Groupes : chacun avec le fond, la police et la forme de son genre */
 .audio-groupe { background: var(--bg); color: var(--fg); padding-block: 2.5rem; }
 .audio-groupe h2 { margin-bottom: 1rem; }
-.audio-liste { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 240px), 1fr)); gap: 2rem 1.5rem; }
 .audio-groupe[data-univers="feelgood"] h2 { font-style: italic; font-weight: 500; text-transform: none; letter-spacing: normal; }
 
-/* Pochette : le « disque » sort de la pochette au survol */
-.pochette { display: grid; gap: .9rem; align-content: start; }
-.pochette-visuel { position: relative; aspect-ratio: 1; }
-.pochette-visuel img { position: relative; z-index: 2; width: 100%; height: 100%; object-fit: cover; box-shadow: 0 10px 26px rgb(0 0 0 / .35); transition: transform .4s; border-radius: 4px; }
-.disque { position: absolute; z-index: 1; top: 6%; left: 6%; width: 88%; aspect-ratio: 1; border-radius: 50%; background: radial-gradient(circle, #222 0 14%, #111 15% 38%, #2a2a2a 39% 40%, #111 41%); box-shadow: 0 6px 14px rgb(0 0 0 / .4); transition: transform .5s cubic-bezier(.3, .1, .2, 1); }
-.pochette:hover .disque, .pochette:focus-within .disque { transform: translateX(32%); animation: tourne 6s linear infinite; }
-.pochette:hover .pochette-visuel img { transform: translateX(-10%) rotate(-2deg); }
-@keyframes tourne { to { transform: translateX(32%) rotate(360deg); } }
+/* Playlist : une ligne par livre audio (mise en page de base) */
+.audio-liste { display: grid; grid-template-columns: 1fr; gap: .8rem; }
+.pochette { display: grid; grid-template-columns: 84px 1fr; align-items: center; gap: 1rem; padding: .7rem; background: color-mix(in srgb, var(--fg) 8%, transparent); border-radius: 6px; }
+.pochette-visuel { width: 84px; aspect-ratio: 1; }
+.pochette-visuel img { width: 100%; height: 100%; object-fit: cover; box-shadow: 0 6px 16px rgb(0 0 0 / .35); border-radius: 4px; }
+.pochette-texte { display: grid; grid-template-columns: 1fr auto; gap: .2rem 1rem; align-items: center; }
+.pochette-tome, .pochette h3, .pochette-message, .pochette .onde { grid-column: 1; }
 .pochette-tome { font-size: .78rem; text-transform: uppercase; letter-spacing: .06em; opacity: .8; margin: 0; }
 .pochette h3 { font-size: 1.3rem; margin: 0; }
-.pochette .onde { height: 26px; color: var(--accent); }
+.pochette .onde { height: 26px; width: 160px; color: var(--accent); }
 .pochette-message { font-weight: 600; margin: 0; }
+.pochette .boutons { grid-column: 2; grid-row: 1 / span 3; }
 .audio-groupe[data-univers="thriller"] .pochette h3 { text-transform: uppercase; letter-spacing: .03em; font-weight: 400; font-size: 1.6rem; }
 .audio-groupe[data-univers="feelgood"] .pochette h3 { font-style: italic; text-transform: none; letter-spacing: normal; font-weight: 600; }
-@media (prefers-reduced-motion: reduce) { .pochette:hover .disque { animation: none; } }
-
-/* Mise en page 2 : playlist */
-html[data-audio="playlist"] .audio-liste { grid-template-columns: 1fr; gap: .8rem; }
-html[data-audio="playlist"] .pochette { grid-template-columns: 84px 1fr; align-items: center; gap: 1rem; padding: .7rem; background: color-mix(in srgb, var(--fg) 8%, transparent); border-radius: 6px; }
-html[data-audio="playlist"] .pochette-visuel { width: 84px; }
-html[data-audio="playlist"] .disque { display: none; }
-html[data-audio="playlist"] .pochette-texte { display: grid; grid-template-columns: 1fr auto; gap: .2rem 1rem; align-items: center; }
-html[data-audio="playlist"] .pochette-tome, html[data-audio="playlist"] .pochette h3, html[data-audio="playlist"] .pochette-message { grid-column: 1; }
-html[data-audio="playlist"] .pochette .onde { grid-column: 1; width: 160px; }
-html[data-audio="playlist"] .pochette .boutons { grid-column: 2; grid-row: 1 / span 3; }
 @media (max-width: 640px) {
-  html[data-audio="playlist"] .pochette-texte { grid-template-columns: 1fr; }
-  html[data-audio="playlist"] .pochette .boutons { grid-column: 1; grid-row: auto; }
+  .pochette-texte { grid-template-columns: 1fr; }
+  .pochette .boutons { grid-column: 1; grid-row: auto; }
 }
 
-/* Mise en page 3 : deux salles côte à côte */
+/* Variante « deux salles » : romances et thrillers côte à côte (panneau Variantes) */
 html[data-audio="salles"] .audio-corps { display: grid; grid-template-columns: 1fr 1fr; }
 html[data-audio="salles"] .audio-groupe { padding-block: 3rem; }
 html[data-audio="salles"] .audio-groupe .container { width: min(560px, 100% - 2.5rem); }
-html[data-audio="salles"] .audio-liste { grid-template-columns: repeat(auto-fill, minmax(min(100%, 200px), 1fr)); }
 @media (max-width: 900px) { html[data-audio="salles"] .audio-corps { grid-template-columns: 1fr; } }
-
 /* Voix : collaboration mère-fille */
 .voix-grille { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; }
 .voix-photos { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; }

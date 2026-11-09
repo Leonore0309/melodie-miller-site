@@ -76,3 +76,14 @@ html[data-nouv="court"] .nouv-court { display: block; }
 .agenda-vide { font-style: italic; }
 @media (max-width: 520px) { .evt.vedette { padding: 1.2rem; gap: 1rem; } .evt.vedette .evt-cal { width: 4.8rem; } .evt.vedette .evt-jour { font-size: 2.2rem; } }
 .nouveaute-texte .badge { align-self: flex-start; }
+
+/* Style festif (champ « style: noel ») : badge rouge, boutons dorés */
+.nouveaute-noel .badge { background: #b3202a; color: #fff; }
+.livre-noel .btn:not(.btn-ghost), .nouveaute-noel .btn { background: #c9a24a; border-color: #c9a24a; color: #2a1a0a; box-shadow: none; }
+.livre-noel .btn:not(.btn-ghost):hover, .nouveaute-noel .btn:hover { background: #b8902f; border-color: #b8902f; }
+.livre-noel .badge-couv { background: #b3202a; color: #fff; }
+
+/* Mention de prix et petit lien « premiers chapitres » (vignettes de saga) */
+.distinction { font-weight: 600; font-size: .95rem; margin: -.2rem 0 .6rem; }
+.lien-chapitres { margin: .5rem 0 0; font-size: .85rem; text-align: center; }
+.lien-chapitres a { text-underline-offset: 3px; }

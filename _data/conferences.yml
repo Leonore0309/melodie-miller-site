@@ -24,9 +24,13 @@ litterature:
     - "Deux univers, une même envie de partager ce que les histoires nous apprennent : inventer, transmettre et oser."
 rencontres:
   titre: "Quelques rencontres"
+  a_venir: "À venir"
+  passees: "Passées"
+  # date : AAAA-MM-JJ, sert à classer « À venir » / « Passées » (seuls le mois et l'année s'affichent).
+  # Rencontre pas encore datée précisément : mettez le dernier jour du mois.
   liste:
-    - { quand: "Avril 2026", lieu: "Congrès des passionnés d'écriture, Paris", sujet: "Atelier Kobo « Auto-édition : rêve ou stratégie ? »" }
-    - { quand: "Novembre 2026", lieu: "Dîner-Conférence du Cercle Villeneuve, Nantes", sujet: "« Réinventer sa vie »" }
+    - { date: "2026-04-01", quand: "Avril 2026", lieu: "Congrès des passionnés d'écriture, Paris", sujet: "Atelier Kobo « Auto-édition : rêve ou stratégie ? »" }
+    - { date: "2026-11-30", quand: "Novembre 2026", lieu: "Dîner-Conférence du Cercle Villeneuve, Nantes", sujet: "« Réinventer sa vie »" }
 cta:
   titre: "Organisons une rencontre"
   texte: "Vous préparez un événement d'entreprise, une rencontre littéraire ou une conférence ? Échangeons sur votre public et les objectifs de votre événement pour imaginer une intervention qui lui ressemble."

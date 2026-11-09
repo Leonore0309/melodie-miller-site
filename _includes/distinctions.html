@@ -1,0 +1,12 @@
+{%- comment -%} Prix, agences et Instagram (page À propos). Affiché deux fois (encart / bandeau), le panneau Variantes en montre une. {%- endcomment -%}
+{% assign d = site.data.a_propos.distinctions %}
+<ul class="dist-liste">
+  <li><span class="dist-emoji" aria-hidden="true">{{ d.prix.emoji }}</span>
+    <span>{% if d.prix.url and d.prix.url != "" %}<a href="{{ d.prix.url }}" target="_blank" rel="noopener">{{ d.prix.texte }}</a>{% else %}{{ d.prix.texte }}{% endif %}</span></li>
+  {% for a in d.agences %}
+  <li><span class="dist-emoji" aria-hidden="true">{{ a.emoji }}</span>
+    <span>{{ a.role }} : <a href="{{ a.site }}" target="_blank" rel="noopener"><strong>{{ a.nom }}</strong></a>{% if a.instagram and a.instagram != "" %}
+      <a class="dist-insta" href="{{ a.instagram }}" target="_blank" rel="noopener" aria-label="Instagram de {{ a.nom }} (nouvel onglet)">{% include icone.html nom="instagram" %}</a>{% endif %}</span></li>
+  {% endfor %}
+</ul>
+<p class="dist-reseau"><a class="btn btn-ghost" href="{{ d.instagram.url }}" target="_blank" rel="noopener">{% include icone.html nom="instagram" %}<span>{{ d.instagram.texte }}</span></a></p>

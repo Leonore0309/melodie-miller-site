@@ -4,6 +4,7 @@ univers: thriller
 title: "Livres audio | Mélodie Miller"
 description: "Les livres audio de Mélodie Miller, lus par Léonore Vanier : saga Manon, Un chum pour Noël, La mariée de la fosse, Les disparues de la crypte."
 permalink: /en-audio/
+audio: true
 ---
 {% assign a = site.data.audio %}
 {% assign romances = a.livres | where: "univers", "feelgood" %}
@@ -18,7 +19,7 @@ permalink: /en-audio/
   </div>
 </section>
 
-<!-- Mise en page choisie par le panneau Variantes : pochettes (défaut), playlist, salles -->
+<!-- Playlist par défaut ; le panneau Variantes propose aussi « deux salles » -->
 <div class="audio-corps">
   <section class="audio-groupe audio-romances" data-univers="feelgood" aria-label="Romances en audio">
     <div class="container">

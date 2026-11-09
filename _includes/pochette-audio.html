@@ -3,7 +3,6 @@
 {% assign l = include.l %}
 <article class="pochette" data-univers="{{ l.univers }}">
   <div class="pochette-visuel">
-    <span class="disque" aria-hidden="true"></span>
     <img src="{{ '/assets/img/audio/' | append: l.visuel | relative_url }}" alt="Version audio de {{ l.titre }}" loading="lazy">
   </div>
   <div class="pochette-texte">
