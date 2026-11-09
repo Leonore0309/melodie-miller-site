@@ -30,11 +30,20 @@
 
 /* Nouveautés */
 .nouveautes { margin-top: 2rem; padding-block: 3rem; background: var(--soft); }
-.nouveautes-liste { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 460px), 1fr)); gap: 2rem; }
+.nouveautes-liste { display: grid; grid-template-columns: 1fr; gap: 2rem; }
+@media (min-width: 960px) { .nouveautes-liste { grid-template-columns: repeat(3, 1fr); gap: 1.4rem; } }
 .nouveaute { display: flex; gap: 1.5rem; align-items: flex-start; }
-.nouveaute .couv { width: 160px; flex: none; }
+.nouveaute .couv { width: 110px; flex: none; }
 .nouveaute-texte { min-width: 0; }
-.nouveaute-texte h3 { font-size: 1.8rem; }
+.nouveaute-texte { display: flex; flex-direction: column; align-self: stretch; }
+.nouveaute-texte h3 { font-size: 1.35rem; }
+.nouveaute-texte p { font-size: .95rem; margin-bottom: .7em; }
+.nouveaute-texte .boutons { margin-top: auto; padding-top: .4rem; }
+.nouveaute .btn { padding: .5rem 1rem; font-size: .88rem; }
+.nouv-court { display: none; }
+html[data-nouv="court"] .nouv-complet { display: none; }
+html[data-nouv="court"] .nouv-court { display: block; }
+.badge.badge-bientot { background: #b94a33; color: #fff; }
 .badge { display: inline-block; background: var(--portail-fg); color: var(--portail-bg); padding: .15rem .7rem; font-size: .8rem; font-weight: 600; text-transform: uppercase; letter-spacing: .06em; border-radius: 3px; }
 @media (max-width: 520px) {
   .nouveaute { flex-direction: column; align-items: center; text-align: center; }
@@ -66,3 +75,4 @@
 .evt.vedette .evt-compte { background: var(--bg); color: var(--fg); font-size: .8rem; }
 .agenda-vide { font-style: italic; }
 @media (max-width: 520px) { .evt.vedette { padding: 1.2rem; gap: 1rem; } .evt.vedette .evt-cal { width: 4.8rem; } .evt.vedette .evt-jour { font-size: 2.2rem; } }
+.nouveaute-texte .badge { align-self: flex-start; }

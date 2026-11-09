@@ -79,7 +79,9 @@ content:
         fields:
           - { name: livre, label: "Identifiant du livre (voir « Livres »)", type: string }
           - { name: badge, label: "Étiquette (ex. Nouveauté)", type: string }
-          - { name: texte, label: "Texte (un paragraphe par ligne)", type: string, list: true }
+          - { name: texte, label: "Texte complet (un paragraphe par ligne)", type: string, list: true }
+          - { name: texte_court, label: "Version courte (une phrase)", type: text }
+          - { name: badge_style, label: "Style de l'étiquette (bientot = corail)", type: string }
           - { name: bouton, label: "Texte du bouton", type: string }
           - { name: lien, label: "Lien (ex. /thrillers/#mon-livre)", type: string }
 
@@ -325,6 +327,7 @@ content:
           - { name: accroche, label: Accroche, type: string }
           - { name: paragraphes, label: Paragraphes, type: text, list: true }
           - { name: enquetes, label: "Titre des enquêtes", type: string }
+          - { name: enquetes_note, label: "Phrase sous le titre des enquêtes", type: text }
           - { name: autres, label: "Titre des autres thrillers", type: string }
       - name: formats
         label: "Formats (broché, ebook, audio)"

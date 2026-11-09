@@ -7,6 +7,7 @@ nouveautes:
     texte:
       - "Un mariage annulé, une librairie de rêve, au Québec, un papa solo très ronchon et une grosse tempête de neige !"
       - "Venez rencontrer Adèle et Etienne dans Un chum pour Noël, une comédie romantique drôle, tendre et réconfortante, à savourer comme un chocolat chaud sous la neige."
+    texte_court: "Un mariage annulé, une librairie de rêve, au Québec, un papa solo très ronchon et une grosse tempête de neige !"
     bouton: "Partir au Québec"
     lien: "/romances-feel-good/#un-chum-pour-noel"
   - livre: les-disparues-de-la-crypte
@@ -14,5 +15,15 @@ nouveautes:
     texte:
       - "Trois corps découverts dans une carrière souterraine, une légende viticole, un tueur dans l'ombre et un duo d'enquêteurs inoubliable."
       - "Les disparues de la crypte, un polar psychologique impossible à lâcher, le tome 2 des enquêtes d'Anna Blanchard et Julien Vautrin."
+    texte_court: "Trois corps découverts dans une carrière souterraine, une légende viticole, un tueur dans l'ombre et un duo d'enquêteurs inoubliable."
     bouton: "Entrer dans l'enquête"
     lien: "/thrillers/#les-disparues-de-la-crypte"
+  - livre: l-enfant-du-canal
+    badge: "Avril 2027"
+    badge_style: bientot
+    texte:
+      - "Un enfant disparaît au milieu de la foule, à la Foire de Sens. Alors que les recherches s'organisent, le passé semble refaire surface le long des canaux de l'Yonne."
+      - "L'Enfant du canal, la troisième enquête d'Anna Blanchard et Julien Vautrin."
+    texte_court: "Un enfant disparaît au milieu de la foule, à la Foire de Sens. Le passé semble refaire surface le long des canaux de l'Yonne."
+    bouton: "Être informé de sa sortie"
+    lien: "newsletter"

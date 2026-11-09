@@ -13,3 +13,5 @@
 [data-univers="thriller"] blockquote p { font-family: var(--thr-texte); }
 [data-univers="thriller"] .site-footer, [data-univers="thriller"] .site-header { border-color: color-mix(in srgb, var(--thr-accent) 30%, transparent); }
 [data-univers="thriller"] .extrait-texte { font-size: 1.2rem; }
+
+.note-enquetes { font-style: italic; margin: -.2rem 0 1.2rem; }

@@ -21,6 +21,7 @@ permalink: /thrillers/
 
 <section class="container section" id="enquetes">
   <h2>{{ r.thriller.enquetes }}</h2>
+  {% if r.thriller.enquetes_note %}<p class="note-enquetes">{{ r.thriller.enquetes_note }}</p>{% endif %}
   <div class="liste-grands">
     {% for l in enquetes %}{% include carte-livre.html livre=l %}{% endfor %}
   </div>
