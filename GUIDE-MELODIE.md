@@ -44,7 +44,7 @@ Menu **Livres** > *Un chum pour Noël* et menu **Nouveautés (accueil)** : le ch
 Menu **Conférences** > Quelques rencontres > Rencontres > Ajouter : la **date exacte** (AAAA-MM-JJ, ou le dernier jour du mois si elle n'est pas fixée), la date affichée (ex. « Mars 2027 »), le lieu et le sujet. Les rencontres à venir apparaissent d'abord ; une fois la date passée, elles passent seules dans « Passées ».
 
 ## Prix, agences et Instagram (page À propos)
-Menu **À propos** > Distinctions, agences et Instagram.
+Menu **À propos** > Distinctions, agences et Instagram.  Pour ajouter une distinction (prix, jury…), cliquez sur « + » dans la liste « Prix et distinctions ».
 
 ## Changer une photo
 Dans le menu **Photos**, envoyez la nouvelle image, puis écrivez son nom de fichier dans la page concernée (accueil, à propos, rencontres, conférences).

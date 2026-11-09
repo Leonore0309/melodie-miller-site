@@ -33,10 +33,6 @@
 {% if page.carrousel %}<link rel="stylesheet" href="{{ '/assets/css/carrousel.css' | relative_url }}">{% endif %}
 {% if page.audio %}<link rel="stylesheet" href="{{ '/assets/css/audio.css' | relative_url }}">{% endif %}
 {% if page.ecran %}<link rel="stylesheet" href="{{ '/assets/css/ecran.css' | relative_url }}">{% endif %}
-{% if site.maquette %}
-<link rel="stylesheet" href="{{ '/assets/css/variantes.css' | relative_url }}">
-<script src="{{ '/assets/js/variantes.js' | relative_url }}"></script>
-{% endif %}
 </head>
 <body data-univers="{{ page.univers | default: 'portail' }}"{% if page.accueil %} data-accueil="{{ page.accueil }}"{% endif %}>
 <a class="skip" href="#main">Aller au contenu</a>

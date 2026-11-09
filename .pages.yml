@@ -89,7 +89,7 @@ content:
           - { name: style, label: "Style festif (noel = rouge et doré, à vider après les fêtes)", type: string }
           - { name: badge, label: "Étiquette (ex. Nouveauté)", type: string }
           - { name: texte, label: "Texte complet (un paragraphe par ligne)", type: string, list: true }
-          - { name: texte_court, label: "Version courte (une phrase)", type: text }
+          - { name: texte_court, label: "Texte (une phrase)", type: text }
           - { name: badge_style, label: "Style de l'étiquette (bientot = corail)", type: string }
           - { name: bouton, label: "Texte du bouton", type: string }
           - { name: lien, label: "Lien (ex. /thrillers/#mon-livre)", type: string }

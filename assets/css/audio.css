@@ -1,5 +1,4 @@
-/* Page « En audio » : ambiance studio, ondes animées, playlist.
-   2 mises en page (panneau Variantes) : html[data-audio] = playlist (défaut) | salles */
+/* Page « En audio » : ambiance studio, ondes animées, playlist. */
 
 .audio-hero { position: relative; overflow: hidden; background: radial-gradient(ellipse at 50% 0%, #1b3a3d, #070f10 70%); padding-block: 3.5rem 2.5rem; }
 .audio-hero h1 { text-transform: uppercase; letter-spacing: .04em; font-weight: 400; }
@@ -45,11 +44,6 @@
   .pochette .boutons { grid-column: 1; grid-row: auto; }
 }
 
-/* Variante « deux salles » : romances et thrillers côte à côte (panneau Variantes) */
-html[data-audio="salles"] .audio-corps { display: grid; grid-template-columns: 1fr 1fr; }
-html[data-audio="salles"] .audio-groupe { padding-block: 3rem; }
-html[data-audio="salles"] .audio-groupe .container { width: min(560px, 100% - 2.5rem); }
-@media (max-width: 900px) { html[data-audio="salles"] .audio-corps { grid-template-columns: 1fr; } }
 /* Voix : collaboration mère-fille */
 .voix-grille { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; }
 .voix-photos { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; }

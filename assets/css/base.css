@@ -154,12 +154,9 @@ blockquote footer { font-size: .85rem; opacity: .85; }
 .dist-insta { display: inline-flex; vertical-align: middle; margin-left: .3rem; font-size: 1.15rem; }
 .dist-reseau { margin: 0; }
 .dist-reseau .btn { gap: .5rem; }
-.distinctions-encart { background: var(--soft); padding: 1.1rem 1.2rem; border-radius: 8px; }
-.distinctions-bande { display: none; margin-top: 2rem; padding: 1.5rem 2rem; background: var(--soft); border-radius: 10px; }
+.distinctions-bande { margin-top: 2rem; padding: 1.5rem 2rem; background: var(--soft); border-radius: 10px; }
 .distinctions-bande .dist-liste { grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.2rem; }
 .distinctions-bande .dist-liste li { flex-direction: column; gap: .2rem; align-items: flex-start; }
-html[data-apropos="bande"] .distinctions-encart { display: none; }
-html[data-apropos="bande"] .distinctions-bande { display: block; }
 .apropos-fin { margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid color-mix(in srgb, var(--fg) 20%, transparent); }
 .hero-univers { padding-block: 3.5rem 1.5rem; }
 .surtitre { text-transform: uppercase; letter-spacing: .12em; font-size: .85rem; font-weight: 600; color: var(--accent); }

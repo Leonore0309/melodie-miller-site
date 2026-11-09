@@ -10,10 +10,6 @@ noindex: true
 lang: fr
 author: "Mélodie Miller"
 
-# Maquette : affiche le panneau "Variantes" (choix de la page d'accueil A ou B).
-# Passer à false une fois les choix faits.
-maquette: true
-
 plugins:
   - jekyll-seo-tag
   - jekyll-sitemap

@@ -13,7 +13,7 @@ Le `Gemfile` utilise `jekyll` seul (pas `github-pages`) pour éviter la compilat
 ## Maquette à envoyer à un autre ordinateur
 `python outils/maquette.py` construit le site et crée `dist/maquette-melodie-miller.zip`. Il suffit de décompresser et de double-cliquer sur `index.html`. Le script réécrit les adresses pour qu'elles marchent sans serveur, puis vérifie tous les liens.
 
-Le panneau « Variantes » (réglage maquette: true) propose : textes des nouveautés sur l'accueil (?nouv=complet|court), mise en page de En audio (?audio=playlist|salles), prix et agences sur À propos (?apropos=encart|bande). Une fois les choix faits : maquette: false dans _config.yml, puis supprimer les variantes non retenues (CSS html[data-…] et HTML correspondant).
+Les choix de Mélodie sont fixés : nouveautés en une phrase, En audio en playlist, bandeau de distinctions sur À propos.
 
 ## Où est quoi
 | Pour modifier… | Fichier |
@@ -48,7 +48,6 @@ Le panneau « Variantes » (réglage maquette: true) propose : textes des nouvea
 - **Mise en ligne** : créer un dépôt GitHub, pousser ce dossier, activer Settings > Pages (branche main).
 - **Domaine** : fichier `CNAME` contenant `melodiemiller.fr`, puis les enregistrements DNS chez le registrar.
 - **Mélodie** : lui transférer le dépôt ou l'ajouter comme collaboratrice, puis connecter https://app.pagescms.org. Le fichier `.pages.yml` définit les formulaires (toutes ses clés ont été vérifiées contre `_data`, mais le test réel n'est possible qu'une fois le dépôt en ligne).
-- Passer `maquette: false` avant la mise en ligne.
 - Mentions légales et confidentialité : textes provisoires à compléter.
 
 Un bouton dont le lien est vide n'est pas affiché (Kobo, précommande, Audible…). Les articles de presse sont des reproductions : vérifier les droits de reproduction avant la mise en ligne réelle.

@@ -32,8 +32,6 @@ LISEZ_MOI = """MAQUETTE DU SITE DE MÉLODIE MILLER
 2. Double-cliquez sur « index.html » : le site s'ouvre dans votre navigateur.
 
 - Les polices (Google Fonts) se chargent si vous êtes connecté à Internet.
-- Le bouton « Variantes » en bas à droite permet de passer de l'accueil version A à
-  l'accueil version B (inspirée de harlancoben.com) et de comparer la largeur des textes.
 - Le menu « À l'écran » présente les adaptations possibles (droits : Literary Image).
 - Les cadres pointillés « couverture à venir » attendent les fichiers manquants.
 - Les textes marqués « provisoire » sont à confirmer.

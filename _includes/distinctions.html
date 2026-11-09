@@ -1,8 +1,10 @@
-{%- comment -%} Prix, agences et Instagram (page À propos). Affiché deux fois (encart / bandeau), le panneau Variantes en montre une. {%- endcomment -%}
+{%- comment -%} Prix, agences et Instagram (page À propos). Affiché dans le bandeau après la bio. {%- endcomment -%}
 {% assign d = site.data.a_propos.distinctions %}
 <ul class="dist-liste">
-  <li><span class="dist-emoji" aria-hidden="true">{{ d.prix.emoji }}</span>
-    <span>{% if d.prix.url and d.prix.url != "" %}<a href="{{ d.prix.url }}" target="_blank" rel="noopener">{{ d.prix.texte }}</a>{% else %}{{ d.prix.texte }}{% endif %}</span></li>
+  {% for p in d.prix %}
+  <li><span class="dist-emoji" aria-hidden="true">{{ p.emoji }}</span>
+    <span>{% if p.url and p.url != "" %}<a href="{{ p.url }}" target="_blank" rel="noopener">{{ p.texte }}</a>{% else %}{{ p.texte }}{% endif %}</span></li>
+  {% endfor %}
   {% for a in d.agences %}
   <li><span class="dist-emoji" aria-hidden="true">{{ a.emoji }}</span>
     <span>{{ a.role }} : <a href="{{ a.site }}" target="_blank" rel="noopener"><strong>{{ a.nom }}</strong></a>{% if a.instagram and a.instagram != "" %}

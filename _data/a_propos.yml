@@ -19,9 +19,12 @@ distinctions:
     texte: "@melodie.miller.autrice"
     url: "https://www.instagram.com/melodie.miller.autrice/"
   prix:
-    emoji: "🥈"
-    texte: "2ᵉ place, Prix Entraide A&E 2026, pour La mariée de la fosse"
-    url: "https://www.instagram.com/entraide.a.e/"
+    - emoji: "🥈"
+      texte: "2ᵉ place, Prix Entraide A&E 2026, pour La mariée de la fosse"
+      url: "https://www.instagram.com/entraide.a.e/"
+    - emoji: "📣"
+      texte: "Membre du jury du Prix du roman feel-good 2026"
+      url: ""
   agences:
     - emoji: "🎬"
       role: "Droits audiovisuels"
