@@ -4,7 +4,6 @@ Stack : Jekyll + GitHub Pages, HTML statique, CSS modulaire, JS vanilla. Pas de 
 
 ## Règles
 - Aucun texte « métier » dans les gabarits ni dans les pages : tout ce que Mélodie modifie vit dans `_data/*.yml` ou `_extraits/`.
-- Si une clé de `_data` change, mettre à jour `.pages.yml` (sinon le CMS casse).
 - Les listes dans `_data` sont sous une clé (`livres:`, `nouveautes:`, `temoignages:`), pas à la racine.
 - Couleurs et polices uniquement via les variables de `assets/css/base.css`. Les univers se choisissent avec `data-univers` (portail, conference, thriller, feelgood), sur la page ou sur une carte.
 - En Liquid, tester un champ facultatif avec `{% if x and x != "" %}` (jamais `!= blank`, qui ne fonctionne pas).

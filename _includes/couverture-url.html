@@ -1,2 +1,0 @@
-{%- comment -%} Adresse d'une couverture. Paramètre : f = nom du fichier (manon-1.jpg) ou chemin complet choisi dans le CMS (/assets/img/livres/manon-1.jpg) {%- endcomment -%}
-{%- if include.f contains '/' -%}{{ include.f | relative_url }}{%- else -%}{{ '/assets/img/livres/' | append: include.f | relative_url }}{%- endif -%}

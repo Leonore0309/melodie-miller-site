@@ -11,7 +11,7 @@
       <div class="car-item" id="{{ l.id }}" data-index="{{ forloop.index0 }}">
         <div class="couv">
           {% if l.image and l.image != "" %}
-          <img src="{% include couverture-url.html f=l.image %}" alt="Couverture de {{ l.titre }}" loading="lazy" draggable="false">
+          <img src="{{ '/assets/img/livres/' | append: l.image | relative_url }}" alt="Couverture de {{ l.titre }}" loading="lazy" draggable="false">
           {% else %}
           <div class="couverture-vide" role="img" aria-label="Couverture à venir de {{ l.titre }}"><span>{{ l.titre }}</span></div>
           {% endif %}

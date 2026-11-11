@@ -4,7 +4,7 @@
 <article id="{{ l.id }}" class="livre {% if include.compact %}livre-compact{% else %}livre-grand{% endif %}{% if l.statut == 'a-paraitre' %} a-paraitre{% endif %}{% if l.style == 'noel' %} livre-noel{% endif %}">
   <div class="couv">
     {% if l.image and l.image != "" %}
-    <img src="{% include couverture-url.html f=l.image %}" alt="Couverture de {{ l.titre }}" loading="lazy">
+    <img src="{{ '/assets/img/livres/' | append: l.image | relative_url }}" alt="Couverture de {{ l.titre }}" loading="lazy">
     {% else %}
     <div class="couverture-vide" role="img" aria-label="Couverture à venir de {{ l.titre }}"><span>{{ l.titre }}</span></div>
     {% endif %}

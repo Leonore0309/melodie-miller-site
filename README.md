@@ -47,7 +47,6 @@ Les choix de Mélodie sont fixés : nouveautés en une phrase, En audio en playl
 ## À faire plus tard
 - **Mise en ligne** : créer un dépôt GitHub, pousser ce dossier, activer Settings > Pages (branche main).
 - **Domaine** : fichier `CNAME` contenant `melodiemiller.fr`, puis les enregistrements DNS chez le registrar.
-- **Mélodie** : lui transférer le dépôt ou l'ajouter comme collaboratrice, puis connecter https://app.pagescms.org. Le fichier `.pages.yml` définit les formulaires (toutes ses clés ont été vérifiées contre `_data`, mais le test réel n'est possible qu'une fois le dépôt en ligne).
 - Mentions légales et confidentialité : textes provisoires à compléter.
 
 Un bouton dont le lien est vide n'est pas affiché (Kobo, précommande, Audible…). Les articles de presse sont des reproductions : vérifier les droits de reproduction avant la mise en ligne réelle.
