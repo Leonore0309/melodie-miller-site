@@ -130,6 +130,6 @@ Pour revenir à la version d'avant : ouvrez le fichier, cliquez sur **« History
 
 Dans le doute, contactez Arthur.
 
-## À ne pas faire
+## À ne pas faire 
 
 Ne modifiez que les fichiers de `_data`, `_extraits`, `assets/img` et `assets/chapitres`. Les autres fichiers sont la mécanique du site.
