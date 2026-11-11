@@ -2,7 +2,7 @@
 # Les passages entre crochets [à compléter : …] sont à remplacer avant la mise en ligne.
 # provisoire : true affiche le bandeau « Texte provisoire » sur les deux pages. Passer à false une fois les textes validés.
 # Dans les paragraphes : *mot* pour l'italique, [texte](adresse) pour un lien.
-provisoire: true
+provisoire: false
 provisoire_texte: "Texte provisoire, à compléter avant la mise en ligne."
 contact_intro: "Pour toute question :"
 
