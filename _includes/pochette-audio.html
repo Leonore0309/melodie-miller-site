@@ -4,7 +4,7 @@
 {% assign au = l.audio %}
 <article class="pochette" data-univers="{{ l.univers | escape }}">
   <div class="pochette-visuel">
-    <img src="{{ '/assets/img/audio/' | append: au.visuel | relative_url | escape }}" alt="{{ site.data.audio.visuel_alt | escape }} {{ l.titre | escape }}" loading="lazy">
+    <img src="{{ '/assets/img/audio/' | append: au.visuel | relative_url | escape }}"{% capture f %}audio/{{ au.visuel }}{% endcapture %}{% include dimensions.html f=f %} alt="{{ site.data.audio.visuel_alt | escape }} {{ l.titre | escape }}" loading="lazy">
   </div>
   <div class="pochette-texte">
     {% if au.tome and au.tome != "" %}<p class="pochette-tome">{{ au.tome }}</p>{% endif %}
@@ -12,7 +12,7 @@
     <div class="onde" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
     {% if au.message and au.message != "" %}<p class="pochette-message">{{ au.message }}</p>{% endif %}
     <p class="boutons">
-      {% if au.url and au.url != "" %}<a class="btn" href="{{ au.url | escape }}" rel="noopener">{{ site.data.audio.bouton_ecouter }}</a>
+      {% if au.url and au.url != "" %}<a class="btn" href="{{ au.url | escape }}" target="_blank" rel="noopener">{{ site.data.audio.bouton_ecouter }}{% include nouvel-onglet.html %}</a>
       {% else %}<a class="btn" href="{{ nl | strip | escape }}" rel="noopener">{{ site.data.audio.bouton_prevenir }}</a>{% endif %}
     </p>
   </div>

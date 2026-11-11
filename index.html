@@ -6,6 +6,7 @@ title: "Mélodie Miller | Romances, feel good & thrillers psychologiques"
 description: "Mélodie Miller, autrice de romans feel good, de comédies romantiques et de thrillers psychologiques. Plus de 70 000 lecteurs."
 ---
 {% assign a = site.data.accueil %}
+{% include donnees-personne.html %}
 <section class="hero-accueil">
   <div class="container hero-grille">
     <div class="hero-texte">
@@ -13,7 +14,7 @@ description: "Mélodie Miller, autrice de romans feel good, de comédies romanti
       <p class="accroche">{{ a.heros.accroche }}</p>
       {% for p in a.heros.paragraphes %}<p>{{ p }}</p>{% endfor %}
     </div>
-    {% include photo.html src=a.heros.photo alt=a.heros.photo_alt classe="hero-photo" %}
+    {% include photo.html src=a.heros.photo alt=a.heros.photo_alt classe="hero-photo" prioritaire=true %}
   </div>
 </section>
 
@@ -21,7 +22,7 @@ description: "Mélodie Miller, autrice de romans feel good, de comédies romanti
   <h2 id="deux-univers" class="centre">{{ a.deux_univers.titre }}</h2>
   <div class="duo">
     <article class="carte-univers" data-univers="feelgood">
-      <img src="{{ '/assets/img/livres/' | append: a.deux_univers.lumiere.couverture | relative_url | escape }}" alt="{{ a.deux_univers.lumiere.couverture_alt | escape }}" loading="lazy">
+      <img src="{{ '/assets/img/livres/' | append: a.deux_univers.lumiere.couverture | relative_url | escape }}"{% capture f %}livres/{{ a.deux_univers.lumiere.couverture }}{% endcapture %}{% include dimensions.html f=f %} alt="{{ a.deux_univers.lumiere.couverture_alt | escape }}" loading="lazy">
       <div>
         <h3>{{ a.deux_univers.lumiere.titre }}</h3>
         <p>{{ a.deux_univers.lumiere.texte }}</p>
@@ -29,7 +30,7 @@ description: "Mélodie Miller, autrice de romans feel good, de comédies romanti
       </div>
     </article>
     <article class="carte-univers" data-univers="thriller">
-      <img src="{{ '/assets/img/livres/' | append: a.deux_univers.frissons.couverture | relative_url | escape }}" alt="{{ a.deux_univers.frissons.couverture_alt | escape }}" loading="lazy">
+      <img src="{{ '/assets/img/livres/' | append: a.deux_univers.frissons.couverture | relative_url | escape }}"{% capture f %}livres/{{ a.deux_univers.frissons.couverture }}{% endcapture %}{% include dimensions.html f=f %} alt="{{ a.deux_univers.frissons.couverture_alt | escape }}" loading="lazy">
       <div>
         <h3>{{ a.deux_univers.frissons.titre }}</h3>
         <p>{{ a.deux_univers.frissons.texte }}</p>

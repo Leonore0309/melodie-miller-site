@@ -1,0 +1,2 @@
+{%- comment -%} Attributs width et height d'une image, lus dans _data/images.yml (outils/images.py). Paramètre : f = « dossier/fichier.jpg ». Rien si l'image n'y figure pas. {%- endcomment -%}
+{%- assign d = site.data.images[include.f] -%}{%- if d %} width="{{ d[0] }}" height="{{ d[1] }}"{% endif -%}

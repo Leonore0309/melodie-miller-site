@@ -13,7 +13,7 @@ layout: default
   {% if l.liens.size > 0 %}
   <p class="extrait-fin">{{ tx.suite }}</p>
   <p class="boutons">
-    {% for lien in l.liens %}<a class="btn" href="{{ lien.url | escape }}" rel="noopener">{{ lien.nom }}</a>{% endfor %}
+    {% for lien in l.liens %}<a class="btn" href="{{ lien.url | escape }}" target="_blank" rel="noopener">{{ lien.nom }}{% include nouvel-onglet.html %}</a>{% endfor %}
   </p>
   {% endif %}
 </article>

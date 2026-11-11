@@ -18,7 +18,7 @@ permalink: /contact/
   <h2>{{ c.ailleurs.titre }}</h2>
   <p>{{ c.ailleurs.texte }}</p>
   <p class="boutons">
-    {% for r in site.data.site.reseaux %}<a class="btn btn-ghost" href="{{ r.url | escape }}" rel="noopener">{{ r.nom }}</a>{% endfor %}
+    {% for r in site.data.site.reseaux %}<a class="btn btn-ghost" href="{{ r.url | escape }}" target="_blank" rel="noopener">{{ r.nom }}{% include nouvel-onglet.html %}</a>{% endfor %}
   </p>
   <p>{{ c.ailleurs.newsletter }}</p>
   <p class="boutons"><a class="btn" href="{{ nl | strip | escape }}" rel="noopener">{{ c.ailleurs.bouton_newsletter }}</a></p>

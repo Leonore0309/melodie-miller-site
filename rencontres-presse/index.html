@@ -31,7 +31,7 @@ presse: true
     {% for a in r.presse.articles %}
     <article class="presse-carte">
       <button type="button" class="presse-vignette" data-grand="{{ '/assets/img/presse/' | append: a.image_complete | relative_url | escape }}" data-titre="{{ a.titre | escape }}" aria-label="{{ r.presse.voir_prefixe | escape }} {{ a.titre | escape }}">
-        <img src="{{ '/assets/img/presse/' | append: a.image | relative_url | escape }}" alt="{{ r.presse.coupure_prefixe | escape }} {{ a.titre | escape }}" loading="lazy">
+        <img src="{{ '/assets/img/presse/' | append: a.image | relative_url | escape }}"{% capture f %}presse/{{ a.image }}{% endcapture %}{% include dimensions.html f=f %} alt="{{ r.presse.coupure_prefixe | escape }} {{ a.titre | escape }}" loading="lazy">
       </button>
       <div class="presse-texte">
         <p class="presse-media"><strong>{{ a.media }}</strong>{% if a.date and a.date != "" %} · {{ a.date }}{% endif %}</p>
@@ -39,7 +39,7 @@ presse: true
         {% if a.citation and a.citation != "" %}<p class="presse-citation">{{ a.citation }}</p>{% endif %}
         <p class="boutons">
           <a class="btn" href="{{ '/assets/img/presse/' | append: a.image_complete | relative_url | escape }}" data-ouvrir>{{ r.presse.bouton_voir }}</a>
-          {% if a.lien and a.lien != "" %}<a class="btn btn-ghost" href="{{ a.lien | escape }}" rel="noopener">{{ r.presse.bouton_web }}</a>{% endif %}
+          {% if a.lien and a.lien != "" %}<a class="btn btn-ghost" href="{{ a.lien | escape }}" target="_blank" rel="noopener">{{ r.presse.bouton_web }}{% include nouvel-onglet.html %}</a>{% endif %}
         </p>
       </div>
     </article>

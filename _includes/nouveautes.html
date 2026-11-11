@@ -8,7 +8,7 @@
       <article class="nouveaute{% if n.style == 'noel' %} nouveaute-noel{% endif %}">
         <div class="couv">
           {% if l.image and l.image != "" %}
-          <img src="{{ '/assets/img/livres/' | append: l.image | relative_url | escape }}" alt="{{ site.data.textes.livres.couverture_de | escape }} {{ l.titre | escape }}">
+          <img src="{{ '/assets/img/livres/' | append: l.image | relative_url | escape }}"{% capture f %}livres/{{ l.image }}{% endcapture %}{% include dimensions.html f=f %} alt="{{ site.data.textes.livres.couverture_de | escape }} {{ l.titre | escape }}">
           {% else %}
           <div class="couverture-vide" role="img" aria-label="{{ site.data.textes.livres.couverture_a_venir | escape }} {{ l.titre | escape }}"><span>{{ l.titre }}</span></div>
           {% endif %}

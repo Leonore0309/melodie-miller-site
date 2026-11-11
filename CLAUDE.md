@@ -18,5 +18,7 @@ Stack : Jekyll + GitHub Pages, HTML statique, CSS modulaire, JS vanilla. Pas de 
 - Mentions légales et confidentialité : textes dans `_data/legal.yml`. Image de partage et icône iPhone : `python outils/partage.py`.
 - Séries des pages Feel good et Thrillers : listes `series:` de `_data/romans.yml` (rubriques et sommaire collant, via `_includes/serie.html` et `_includes/sommaire.html`). Les livres s'y rattachent par leur champ `groupe`.
 - Livres audio : partie `audio:` du livre dans `_data/livres.yml` ; `_data/audio.yml` ne garde que les textes de la page.
+- Images : `width`/`height` lus dans `_data/images.yml` via `_includes/dimensions.html`. Après ajout ou remplacement d'images : `python outils/images.py` (`--optimiser` pour réduire les fichiers trop lourds). Image principale en haut de page : `prioritaire=true` dans `_includes/photo.html`.
+- Liens externes : `target="_blank" rel="noopener"` et `{% include nouvel-onglet.html %}` dans le lien (mention lue par les lecteurs d'écran). Liens internes et `mailto:` : même onglet.
 - Boutons d'un livre : un seul endroit, `_includes/boutons-livre.html` (ordre acheter · chapitres · audio).
 - Rencontres des conférences : champ `date` obligatoire (classement À venir / Passées).

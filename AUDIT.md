@@ -14,7 +14,7 @@ The site is sound: small (about 2,700 lines), consistently organised, content se
 
 The main risks are not attacks. They are:
 
-1. **Nothing checks an edit before it goes live.** Every push to `main` deploys. Content is now edited by hand in YAML, where one wrong indent fails the build and the site stays on the old version. The owner chose not to add checks before deploying (see E3); a failed deploy is only signalled by GitHub's failure email and the Actions tab.
+1. **Nothing checks an edit before it goes live.** Mélodie edits the data files by hand in GitHub's web editor (`GUIDE-MELODIE.md` explains the syntax and what to do when a deploy fails). Every push to `main` deploys. One wrong indent fails the build and the site stays on the old version. The owner chose not to add checks before deploying (see E3); a failed deploy is only signalled by GitHub's failure email and the Actions tab.
 2. **Launch blockers**: the code side is done (Phase 1). The legal gaps, the newsletter address, the image rights and the launch switch remain with the owner.
 
 After those, the biggest gain for scalability is giving each book its own page, and the biggest gain for polish is in accessibility and image loading.
@@ -31,22 +31,22 @@ Numbers are stable: the gaps (E1, E2, E4, E6, E9) are the CMS-only findings that
 |---|---|---|---|---|
 | E3 | No validation and no preview. A wrong value either fails the build (the site stays on the old version) or publishes a broken page. The owner chose on 11 November 2026 not to add checks before pushing or deploying. Mitigation: keep GitHub's "failed workflow" email notifications on for whoever edits | `.github/workflows/pages.yml` | High | Accepted risk |
 | E5 | Dates, styles and book identifiers are typed by hand. A typo fails silently (a misspelt book id in Nouveautés gives a card with no title and no cover) | `_data/*.yml`, `_includes/nouveautes.html` | Medium | Accepted risk (checks cancelled) |
-| E7 | Text still hard-coded in pages, against the project rule: menu labels, section-menu labels, "Cinéma & télévision", "Livres audio", "Romances", "Thrillers", "Les premiers chapitres", "Contacter Mélodie", both legal pages | `_includes/header.html`, `*/index.html`, `_layouts/extrait.html` | Low | To do (Phase 3) |
+| E7 | Text still hard-coded in pages, against the project rule: menu labels, section-menu labels, "Cinéma & télévision", "Livres audio", "Romances", "Thrillers", "Les premiers chapitres", "Contacter Mélodie", both legal pages | `_includes/header.html`, `*/index.html`, `_layouts/extrait.html` | Low | **Done** (Phase 3) |
 | E8 | The festive style must be switched on, then off, by hand in two places | `_data/livres.yml`, `_data/nouveautes.yml` | Low | Removed from plan |
-| E10 | With the CMS gone there is no editing guide, and no no-code way for the owner to change content. Who edits, and how, is undecided | — | Medium | To do (Phase 3) |
+| E10 | With the CMS gone there is no editing guide, and no no-code way for the owner to change content. Who edits, and how, is undecided | — | Medium | **Done** (Phase 3): `GUIDE-MELODIE.md` |
 
 ### 2.2 Architecture and scalability
 
 | # | Finding | Where | Severity | Status |
 |---|---|---|---|---|
 | A1 | All 17 books live in one 233-line list and exist only as anchors inside carousels and cards. There is no page per book: nothing to share, to index, or to link from a newsletter | `_data/livres.yml` | Medium | Removed from plan |
-| A2 | Series are hard-coded in two places: the page templates and the sticky section menu. A new saga needs template work | `romances-feel-good/index.html`, `thrillers/index.html` | Medium | To do (Phase 4) |
-| A3 | Audio editions repeat the book's identity (id, title, volume) in a second file | `_data/audio.yml` | Low | To do (Phase 4) |
+| A2 | Series are hard-coded in two places: the page templates and the sticky section menu. A new saga needs template work | `romances-feel-good/index.html`, `thrillers/index.html` | Medium | **Done** (Phase 4) |
+| A3 | Audio editions repeat the book's identity (id, title, volume) in a second file | `_data/audio.yml` | Low | **Done** (Phase 4) |
 | A4 | `Gemfile.lock` is git-ignored, so each deploy resolves gem versions afresh: builds are not reproducible | `.gitignore`, `Gemfile` | Medium | **Done** (Phase 2) |
 | A5 | No automated check of any kind. A link verifier already exists but only runs by hand when building the zip mock-up | `outils/maquette.py` (`verifier`) | Medium | Cancelled |
-| A6 | 29 colour literals outside `base.css`, mostly the festive red and gold and the "bientôt" coral, against the variables rule | `assets/css/portail.css` and others | Low | To do (Phase 4) |
-| A7 | Documentation drift: the README still says to create the repo and that GitHub Pages uses its own Jekyll (the workflow builds with Bundler); `.texte-flux` is "2 colonnes" in `CLAUDE.md` and "1 colonne" in `base.css`; leftover `accueil: a` variant flag; empty folder `assets/img/portrait/`; `_config.yml` still excludes the deleted `GUIDE-MELODIE.md` | `README.md`, `CLAUDE.md`, `index.html`, `_config.yml` | Low | To do (Phase 4) |
-| A8 | Excerpt pages have no date, so each build stamps them with the build time and declares them as blog posts in their metadata | `_layouts/extrait.html` | Low | To do (Phase 4) |
+| A6 | 29 colour literals outside `base.css`, mostly the festive red and gold and the "bientôt" coral, against the variables rule | `assets/css/portail.css` and others | Low | **Done** (Phase 4) |
+| A7 | Documentation drift: the README still says to create the repo and that GitHub Pages uses its own Jekyll (the workflow builds with Bundler); `.texte-flux` is "2 colonnes" in `CLAUDE.md` and "1 colonne" in `base.css`; leftover `accueil: a` variant flag; empty folder `assets/img/portrait/`; `_config.yml` still excludes the deleted `GUIDE-MELODIE.md` | `README.md`, `CLAUDE.md`, `index.html`, `_config.yml` | Low | **Done** (Phase 4) |
+| A8 | Excerpt pages have no date, so each build stamps them with the build time and declares them as blog posts in their metadata | `_layouts/extrait.html` | Low | **Done** (Phase 4) |
 
 ### 2.3 Security and privacy
 
@@ -73,19 +73,19 @@ Checked and fine: no EXIF or GPS data in the 38 images; the four PDFs carry only
 | U2 | For the 13 books without an excerpt, "Lire les 3 premiers chapitres" also opens that email draft: the button promises chapters and delivers a blank email | `_includes/boutons-livre.html` | High | **Done** (Phase 1) |
 | U3 | Carousels advance every 4 s inside an `aria-live="polite"` region, so a screen reader announces each rotation, and there is no pause button (WCAG 2.2.2) | `_includes/carrousel.html`, `assets/js/carrousel.js` | Medium | Removed from plan |
 | U4 | Gold text `#b08d57` on white is about 3.1:1, under the 4.5:1 minimum. Past conference cards at 62% opacity are lower still | `assets/css/univers-conference.css` | Medium | Removed from plan |
-| U5 | Images have no `width`/`height`, so pages shift while loading. No responsive sizes or modern format: 700 px covers are served for 110 px slots. The home-page portrait is lazy-loaded although it is the main image above the fold. One press image weighs 624 KB | `_includes/photo.html`, `_includes/nouveautes.html`, `assets/img/presse/republique-77-succes.jpg` | Medium | To do (Phase 5) |
+| U5 | Images have no `width`/`height`, so pages shift while loading. No responsive sizes or modern format: 700 px covers are served for 110 px slots. The home-page portrait is lazy-loaded although it is the main image above the fold. One press image weighs 624 KB | `_includes/photo.html`, `_includes/nouveautes.html`, `assets/img/presse/republique-77-succes.jpg` | Medium | **Done** (Phase 5), except responsive sizes (see 3.6) |
 | U6 | The home page and the other "portail" pages load all seven font families | `_layouts/default.html` | Medium | **Done** (Phase 1) |
 | U7 | Contact is `mailto:` only: a visitor without a configured mail client cannot write | `contact/index.html` | Medium | Removed from plan |
-| U8 | No favicon, no social sharing image, no 404 page, no structured data (Person, Book, Event) | site-wide | Medium | **Done** (Phase 1): favicon, sharing image, 404. Structured data: to do (Phase 5) |
+| U8 | No favicon, no social sharing image, no 404 page, no structured data (Person, Book, Event) | site-wide | Medium | **Done** (Phases 1 and 5) |
 | U9 | `robots.txt` is a static `Disallow: /`, separate from the `noindex` switch in `_config.yml`: easy to flip one and forget the other at launch | `robots.txt`, `_config.yml` | Medium | **Done** (Phase 1) |
-| U10 | Menu: `aria-haspopup` on a plain link, no `aria-current` on the active page, Escape does not close the mobile menu | `_includes/header.html`, `assets/js/menu.js` | Low | To do (Phase 5) |
-| U11 | Buy links open in the same tab while PDFs open in a new one, with no "(nouvel onglet)" hint | `_includes/boutons-livre.html` | Low | To do (Phase 5) |
+| U10 | Menu: `aria-haspopup` on a plain link, no `aria-current` on the active page, Escape does not close the mobile menu | `_includes/header.html`, `assets/js/menu.js` | Low | **Done** (Phase 5) |
+| U11 | Buy links open in the same tab while PDFs open in a new one, with no "(nouvel onglet)" hint | `_includes/boutons-livre.html` | Low | **Done** (Phase 5) |
 
 ## 3. Improvement plan
 
 Size: **S** = under an hour · **M** = half a day · **L** = a day or more.
 
-"None" in the last column means the built pages are meant to stay identical, and that is verified (see 3.7). Phases 2 and 3 are designed to leave the pages untouched. The visible changes are in phases 1, 4 and 5, and each needs the owner's agreement before it is done.
+"None" in the last column means the built pages are meant to stay identical, and that is verified (see 3.7). Phases 2, 3 and 4 are designed to leave the pages untouched. The visible changes are in phases 1, 4 and 5, and each needs the owner's agreement before it is done.
 
 ### 3.1 Phase 0 — Clean-up
 
@@ -127,26 +127,26 @@ The owner decided on 11 November 2026 not to add checks before pushing or deploy
 
 | Item | Fixes | Size | Visible on the pages | Status |
 |---|---|---|---|---|
-| Editing guide for Mélodie, who edits the data files in GitHub's web editor (owner's decision, 11 November 2026), including "what to do when the site did not update" | E10, E3 | M | None | To do |
-| Move the remaining hard-coded strings to `_data` | E7 | M | None: the same words, stored in data files | To do |
+| Editing guide for Mélodie, who edits the data files in GitHub's web editor (owner's decision, 11 November 2026), including "what to do when the site did not update" | E10, E3 | M | None | **Done**: `GUIDE-MELODIE.md`, not published on the site |
+| Move the remaining hard-coded strings to `_data` | E7 | M | None: the same words, stored in data files | **Done**: common texts in `_data/textes.yml`, page texts in each page's file, countdown labels read by `evenements.js` from the page |
 
 ### 3.5 Phase 4 — Scalability
 
 | Item | Fixes | Size | Visible on the pages | Status |
 |---|---|---|---|---|
-| Series described in `_data/series.yml`, driving the pages and the section menu | A2 | M | None: same sections, same order | To do |
-| Audio edition merged into the book record | A3 | M | None | To do |
-| Move colour literals to variables in `base.css` | A6 | S | None: identical values | To do |
-| Bring the README and `CLAUDE.md` back in sync, remove leftovers | A7, A8 | S | None | To do |
+| Series described in `_data/romans.yml` (`series:` lists), driving the pages and the section menu | A2 | M | None: same sections, same order | **Done** (`_includes/serie.html`, `_includes/sommaire.html`) |
+| Audio edition merged into the book record (`audio:` part in `livres.yml`) | A3 | M | None | **Done** |
+| Move colour literals to variables in `base.css` | A6 | S | None: identical values | **Done**: no colour literal left outside `base.css` |
+| Bring the README and `CLAUDE.md` back in sync, remove leftovers | A7, A8 | S | None | **Done**: `accueil: a` became `newsletter_bande: false`, empty folder removed, excerpts typed as web pages (`_config.yml`) |
 
 ### 3.6 Phase 5 — High-end polish
 
 | Item | Fixes | Size | Visible on the pages | Status |
 |---|---|---|---|---|
-| Image dimensions, responsive sizes, hero loaded eagerly, heavy press image recompressed | U5 | M | Same look. Pages stop shifting while loading and load faster | To do |
-| Menu semantics | U10 | S | Current page marked in the menu (can be kept invisible). Escape closes the mobile menu | To do |
-| Consistent external links | U11 | S | Behaviour change: buy links open in a new tab, like the PDFs | To do |
-| Person and Event structured data | U8 | S | None on the page (search results only) | To do |
+| Image dimensions, responsive sizes, hero loaded eagerly, heavy press image recompressed | U5 | M | Same look. Pages stop shifting while loading and load faster | **Done**, except responsive sizes: `width`/`height` on every image from `_data/images.yml` (`outils/images.py`), home portrait loaded first, 10 images recompressed (about 700 KB saved). Responsive sizes left out: generated copies would go stale when Mélodie replaces an image by hand |
+| Menu semantics | U10 | S | Current page underlined in the menu. Escape closes the mobile menu | **Done** |
+| Consistent external links | U11 | S | Behaviour change: buy links open in a new tab, like the PDFs | **Done**: every external link opens a new tab, with a hidden "(nouvel onglet)" for screen readers. The newsletter link keeps the same tab |
+| Person and Event structured data | U8 | S | None on the page (search results only) | **Done**: Person on the home page, one Event per upcoming date on Rencontres & presse |
 
 ### 3.7 Rule for every "None" item
 

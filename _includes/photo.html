@@ -1,5 +1,6 @@
-{%- comment -%} Paramètres : src (fichier dans assets/img/photos/), alt, legende (facultatif), classe (facultatif) {%- endcomment -%}
+{%- comment -%} Paramètres : src (fichier dans assets/img/photos/), alt, legende (facultatif), classe (facultatif),
+  prioritaire (true = image principale en haut de page : chargée tout de suite, en priorité) {%- endcomment -%}
 <figure class="photo {{ include.classe }}">
-  <img src="{{ '/assets/img/photos/' | append: include.src | relative_url | escape }}" alt="{{ include.alt | escape }}" loading="lazy">
+  <img src="{{ '/assets/img/photos/' | append: include.src | relative_url | escape }}" alt="{{ include.alt | escape }}"{% capture f %}photos/{{ include.src }}{% endcapture %}{% include dimensions.html f=f %}{% if include.prioritaire %} fetchpriority="high"{% else %} loading="lazy"{% endif %}>
   {% if include.legende and include.legende != "" %}<figcaption>{{ include.legende }}</figcaption>{% endif %}
 </figure>

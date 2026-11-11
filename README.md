@@ -38,6 +38,7 @@ Mélodie modifie le contenu elle-même, dans l'éditeur web de GitHub : son mode
 | Email, réseaux, newsletter, page 404 | `_data/site.yml` |
 | Mentions légales, confidentialité | `_data/legal.yml` |
 | Image de partage (aperçu des liens), icône | `python outils/partage.py` (refait `assets/img/partage.jpg`) |
+| Dimensions des images (`_data/images.yml`), poids des images | `python outils/images.py` après un ajout d'images ; `--optimiser` réduit les fichiers trop lourds |
 | Les 3 premiers chapitres | PDF dans `assets/chapitres/`, champ `extrait` du livre (ou pages `_extraits/*.md`) |
 | Couleurs et polices | `assets/css/base.css` (variables en haut) |
 | Photos et couvertures | `assets/img/photos/`, `assets/img/livres/` |
