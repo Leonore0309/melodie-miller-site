@@ -1,9 +1,8 @@
 title: "Mélodie Miller"
 description: "Mélodie Miller, autrice de romans feel good, de comédies romantiques et de thrillers psychologiques."
-# Maquette en ligne sur GitHub Pages (sous-dossier). Le jour du passage sur le vrai domaine :
-#   url: "https://melodiemiller.fr"  et  baseurl: ""  (+ fichier CNAME, voir README)
-url: "https://leonore0309.github.io"
-baseurl: "/melodie-miller-site"
+# Site publié par GitHub Pages sur le domaine melodiemiller.fr (réglé dans GitHub > Settings > Pages, DNS chez Ionos).
+url: "https://melodiemiller.fr"
+baseurl: ""
 
 # Maquette non indexée par les moteurs de recherche (balise noindex). Passer à false à la mise en ligne réelle.
 noindex: true
