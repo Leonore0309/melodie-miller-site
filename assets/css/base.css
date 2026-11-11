@@ -43,6 +43,18 @@
   --fg-script: "Dancing Script", cursive;
   --fg-radius: 999px;
 
+  /* Couleurs ponctuelles (badges, style de Noël, fonds sombres) */
+  --blanc: #fff;
+  --bientot: #b94a33;          /* badge « À paraître », étiquette « bientôt » */
+  --noel-rouge: #b3202a;       /* style festif : badge */
+  --noel-or: #c9a24a;          /* style festif : boutons */
+  --noel-or-survol: #b8902f;
+  --noel-texte: #2a1a0a;
+  --nuit: #070f10;             /* fonds des pages En audio et À l'écran */
+  --nuit-verte: #1b3a3d;
+  --fg-surtitre: #8a4a5a;      /* feel good : petits titres manuscrits */
+  --fg-badge-texte: #10363c;   /* feel good : texte des badges turquoise */
+
   --h-header: 64px;
 }
 
@@ -115,7 +127,7 @@ p { margin: 0 0 1em; }
 .livre:hover .couv img, .nouveaute:hover .couv img, .car-item:hover img { transform: translateY(-6px); box-shadow: 0 16px 32px rgb(0 0 0 / .35); }
 .couverture-vide { aspect-ratio: 2 / 3; display: grid; place-items: center; text-align: center; padding: .6rem; background: var(--bg); border: 2px dashed var(--accent); font-family: var(--titre); font-size: 1rem; line-height: 1.2; }
 .badge-couv { position: absolute; top: .5rem; left: -.4rem; background: var(--accent); color: var(--accent-fg); font-family: var(--texte); font-size: .72rem; font-weight: 600; text-transform: uppercase; letter-spacing: .05em; padding: .2rem .6rem; box-shadow: 0 2px 6px rgb(0 0 0 / .3); }
-.badge-bientot { background: #b94a33; color: #fff; }
+.badge-bientot { background: var(--bientot); color: var(--blanc); }
 .livre-grand .badge-couv { top: auto; bottom: .6rem; }
 
 /* Livres : fiches détaillées (thrillers) */

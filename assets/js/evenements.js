@@ -7,13 +7,16 @@
   var aujourdhui = d.getFullYear() + '-' + pad(d.getMonth() + 1) + '-' + pad(d.getDate());
   var jour = function (iso) { return Date.UTC(+iso.slice(0, 4), +iso.slice(5, 7) - 1, +iso.slice(8, 10)) / 86400000; };
 
+  var liste = document.getElementById('agenda');
+  // Libellés lus sur la liste (textes.yml > agenda), avec des valeurs de secours
+  var lib = function (nom, secours) { return (liste && liste.getAttribute('data-' + nom)) || secours; };
+
   function compte(debut, fin) {
-    if (aujourdhui >= debut && aujourdhui <= fin) return aujourdhui === debut ? "Aujourd'hui" : 'En ce moment';
+    if (aujourdhui >= debut && aujourdhui <= fin) return aujourdhui === debut ? lib('aujourdhui', "Aujourd'hui") : lib('en-ce-moment', 'En ce moment');
     var n = jour(debut) - jour(aujourdhui);
-    return n === 1 ? 'Demain' : 'Dans ' + n + ' jours';
+    return n === 1 ? lib('demain', 'Demain') : lib('dans-jours', 'Dans {n} jours').replace('{n}', n);
   }
 
-  var liste = document.getElementById('agenda');
   if (liste) {
     var items = Array.prototype.slice.call(liste.querySelectorAll('.evt'));
     var a_venir = [];

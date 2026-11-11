@@ -1,0 +1,27 @@
+{%- comment -%}
+  Une rubrique de série (pages Feel good et Thrillers). Paramètres : s (une série de romans.yml),
+  livres (les livres de l'univers). presentation : saga ou duo = carrousel dans un bloc, cartes = fiches détaillées.
+{%- endcomment -%}
+{% assign s = include.s %}
+{% assign livres_serie = include.livres | where: "groupe", s.groupe %}
+<section class="container section" id="{{ s.ancre | escape }}">
+{% if s.presentation == "cartes" %}
+  <h2>{{ s.titre }}</h2>
+  {% if s.note and s.note != "" %}<p class="note-enquetes">{{ s.note }}</p>{% endif %}
+  <div class="liste-grands">
+    {% for l in livres_serie %}{% include carte-livre.html livre=l %}{% endfor %}
+  </div>
+{% else %}
+  <div class="bloc">
+    <h2>{{ s.titre }}</h2>
+    {% if s.accroche and s.accroche != "" %}<p class="accroche accroche-large accroche-ligne">{{ s.accroche }}</p>{% endif %}
+    {% if s.paragraphes %}<div class="texte-flux">{% for p in s.paragraphes %}<p>{{ p }}</p>{% endfor %}</div>{% endif %}
+    {% for p in s.intro %}<p>{{ p }}</p>{% endfor %}
+    {% if s.presentation == "duo" %}
+    {% include carrousel.html livres=livres_serie mode="duo" resume=true label=s.label %}
+    {% else %}
+    {% include carrousel.html livres=livres_serie mode="saga" label=s.label %}
+    {% endif %}
+  </div>
+{% endif %}
+</section>

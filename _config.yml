@@ -25,6 +25,10 @@ defaults:
       type: "extraits"
     values:
       layout: extrait
+      # Page web (et non article de blog) dans les métadonnées. Ajouter « date: AAAA-MM-JJ » dans l'en-tête
+      # d'un extrait, sinon chaque publication lui attribue la date du jour.
+      seo:
+        type: WebPage
   # Image affichée quand une page du site est partagée (réseaux sociaux, messageries). Refaite par outils/partage.py.
   - scope:
       path: ""

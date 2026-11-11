@@ -17,16 +17,19 @@ Mises à jour : Dependabot propose chaque mois, par pull request, les nouvelles 
 
 Les choix de Mélodie sont fixés : nouveautés en une phrase, En audio en playlist, bandeau de distinctions sur À propos.
 
+Mélodie modifie le contenu elle-même, dans l'éditeur web de GitHub : son mode d'emploi est `GUIDE-MELODIE.md` (exclu du site publié).
+
 ## Où est quoi
 | Pour modifier… | Fichier |
 |---|---|
-| Livres (titre, couverture, liens, extrait, statut) | `_data/livres.yml` |
+| Livres (titre, couverture, liens, extrait, statut, version audio) | `_data/livres.yml` |
 | Nouveautés de l'accueil | `_data/nouveautes.yml` |
-| Textes de l'accueil A | `_data/accueil.yml` |
+| Textes de l'accueil | `_data/accueil.yml` |
 | Mes romans à l'écran (adaptations, droits) | `_data/ecran.yml` |
-| Page En audio (livres audio, voix, liens Audible) | `_data/audio.yml` |
+| Page En audio (textes, groupes, voix) | `_data/audio.yml` ; les livres audio sont la partie `audio:` des livres de `_data/livres.yml` |
 | Coupures de presse | `_data/rencontres.yml` (section `presse`), images dans `assets/img/presse/` |
-| Textes des pages romans | `_data/romans.yml` |
+| Textes des pages romans, séries (rubriques et sommaire) | `_data/romans.yml` |
+| Menu, pied de page, textes des boutons, libellés d'accessibilité, mois de l'agenda | `_data/textes.yml` |
 | À propos | `_data/a_propos.yml` |
 | Rencontres, dates, presse | `_data/rencontres.yml` |
 | Conférences | `_data/conferences.yml` |
@@ -41,6 +44,7 @@ Les choix de Mélodie sont fixés : nouveautés en une phrase, En audio en playl
 
 - Un livre « à paraître » (`statut: a-paraitre`) reçoit un badge et un bouton « Être informé de sa sortie ».
 - Les dates passées de `rencontres.yml` disparaissent seules (au build et à l'affichage). La prochaine date est mise en vedette avec un compte à rebours (`debut` et `fin` au format AAAA-MM-JJ).
+- Nouvelle série : l'ajouter à la liste `series:` de la page dans `_data/romans.yml` (groupe, ancre, menu, titre, présentation), puis donner ce `groupe` à ses livres dans `livres.yml`. Rubrique et entrée du sommaire apparaissent seules.
 - Carrousels de couvertures (Manon, Cassandre, comédies) : `_includes/carrousel.html` + `assets/js/carrousel.js`. Défilement toutes les 4 s, pause au survol, désactivé si le visiteur demande moins d'animations.
 - Premiers chapitres : champ `extrait` du livre = `/assets/chapitres/<id>.pdf`, `/extraits/<nom>/` ou un lien externe. Vide : aucun bouton « premiers chapitres » sur ce livre. `extrait_libelle` change le texte du bouton.
 - Bouton « Audio - me prévenir » : `audio_bientot: true` sur le livre (à retirer quand le lien Audible existe).

@@ -3,13 +3,14 @@
   Les dates passées sont masquées au build ET à l'affichage (evenements.js).
 {%- endcomment -%}
 {% assign aujourdhui = 'now' | date: "%Y-%m-%d" %}
-{% assign mois_fr = "JANV,FÉVR,MARS,AVR,MAI,JUIN,JUIL,AOÛT,SEPT,OCT,NOV,DÉC" | split: "," %}
+{% assign ag = site.data.textes.agenda %}
+{% assign mois_fr = ag.mois %}
 {% assign a_venir = "" | split: "" %}
 {% for e in site.data.rencontres.dates.evenements %}
   {% assign fin = e.fin | append: "" %}
   {% if fin >= aujourdhui %}{% assign a_venir = a_venir | push: e %}{% endif %}
 {% endfor %}
-<ul class="agenda-evts" id="agenda">
+<ul class="agenda-evts" id="agenda" data-aujourdhui="{{ ag.aujourdhui | escape }}" data-en-ce-moment="{{ ag.en_ce_moment | escape }}" data-demain="{{ ag.demain | escape }}" data-dans-jours="{{ ag.dans_jours | escape }}">
   {% for e in a_venir %}
   {% assign debut = e.debut | default: e.fin | append: "" %}
   {% assign j1 = debut | date: "%-d" %}

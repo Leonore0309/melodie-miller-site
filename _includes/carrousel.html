@@ -5,22 +5,22 @@
 {% capture nl %}{% include newsletter-lien.html %}{% endcapture %}
 <div class="carrousel" data-mode="{{ include.mode | default: 'saga' | escape }}" data-auto="4000" role="region" aria-roledescription="carrousel" aria-label="{{ include.label | escape }}">
   <div class="car-scene">
-    <button class="car-fleche car-prec" type="button" aria-label="Livre précédent">&#9664;</button>
+    <button class="car-fleche car-prec" type="button" aria-label="{{ site.data.textes.livres.livre_precedent | escape }}">&#9664;</button>
     <div class="car-piste">
       {% for l in include.livres %}
       <div class="car-item" id="{{ l.id }}" data-index="{{ forloop.index0 }}">
         <div class="couv">
           {% if l.image and l.image != "" %}
-          <img src="{{ '/assets/img/livres/' | append: l.image | relative_url | escape }}" alt="Couverture de {{ l.titre | escape }}" loading="lazy" draggable="false">
+          <img src="{{ '/assets/img/livres/' | append: l.image | relative_url | escape }}" alt="{{ site.data.textes.livres.couverture_de | escape }} {{ l.titre | escape }}" loading="lazy" draggable="false">
           {% else %}
-          <div class="couverture-vide" role="img" aria-label="Couverture à venir de {{ l.titre | escape }}"><span>{{ l.titre }}</span></div>
+          <div class="couverture-vide" role="img" aria-label="{{ site.data.textes.livres.couverture_a_venir | escape }} {{ l.titre | escape }}"><span>{{ l.titre }}</span></div>
           {% endif %}
-          {% if l.statut == 'a-paraitre' %}<span class="badge-couv badge-bientot">À paraître</span>{% endif %}
+          {% if l.statut == 'a-paraitre' %}<span class="badge-couv badge-bientot">{{ site.data.textes.livres.a_paraitre }}</span>{% endif %}
         </div>
       </div>
       {% endfor %}
     </div>
-    <button class="car-fleche car-suiv" type="button" aria-label="Livre suivant">&#9654;</button>
+    <button class="car-fleche car-suiv" type="button" aria-label="{{ site.data.textes.livres.livre_suivant | escape }}">&#9654;</button>
   </div>
   <div class="car-points" aria-hidden="true">{% for l in include.livres %}<button type="button" tabindex="-1" data-index="{{ forloop.index0 }}"></button>{% endfor %}</div>
   <div class="car-details" aria-live="polite">

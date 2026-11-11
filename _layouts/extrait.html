@@ -2,15 +2,16 @@
 layout: default
 ---
 {% assign l = site.data.livres.livres | where: "id", page.livre | first %}
+{% assign tx = site.data.textes.extrait %}
 <article class="extrait container-lecture" data-univers="{{ l.univers | escape }}">
-  <p class="fil"><a href="{{ '/' | relative_url }}{% if l.univers == 'thriller' %}thrillers/{% else %}romances-feel-good/{% endif %}#{{ l.id | escape }}">&larr; Retour au livre</a></p>
+  <p class="fil"><a href="{{ '/' | relative_url }}{% if l.univers == 'thriller' %}thrillers/{% else %}romances-feel-good/{% endif %}#{{ l.id | escape }}">{{ tx.retour }}</a></p>
   <h1>{{ l.titre }}</h1>
-  <p class="extrait-sous">Les premiers chapitres</p>
+  <p class="extrait-sous">{{ tx.sous_titre }}</p>
   <div class="extrait-texte">
     {{ content }}
   </div>
   {% if l.liens.size > 0 %}
-  <p class="extrait-fin">Envie de connaître la suite ?</p>
+  <p class="extrait-fin">{{ tx.suite }}</p>
   <p class="boutons">
     {% for lien in l.liens %}<a class="btn" href="{{ lien.url | escape }}" rel="noopener">{{ lien.nom }}</a>{% endfor %}
   </p>

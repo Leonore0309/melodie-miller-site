@@ -17,6 +17,8 @@ newsletter:
   # Collez ici l'adresse du formulaire d'inscription de votre outil d'emailing (Brevo, MailerLite...).
   # Tant qu'elle est vide, le bouton ouvre un email.
   formulaire_url: ""
+  # Objet de l'email tant que le formulaire n'existe pas
+  sujet_email: "Newsletter"
 
 # Page affichée quand une adresse du site n'existe pas (ou plus).
 page_404:

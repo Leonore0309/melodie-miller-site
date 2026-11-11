@@ -18,7 +18,13 @@ sas:
     couverture: "mariee-de-la-fosse.jpg"
     couverture_alt: "Couverture de La mariée de la fosse"
 
+# Pages « Feel good » et « Thrillers ». series : une rubrique par série, dans l'ordre d'affichage.
+#   groupe = valeur « groupe » des livres de la série dans livres.yml ; ancre = adresse de la rubrique (#ancre) ;
+#   menu = texte dans le sommaire collant ; presentation = saga (carrousel à 3 livres), duo (carrousel à 2 livres,
+#   avec résumés) ou cartes (fiches détaillées) ; label = nom du carrousel lu par les lecteurs d'écran ;
+#   accroche, paragraphes, intro, note : facultatifs.
 feelgood:
+  surtitre: "Feel good & romances"
   titre: "Des héroïnes tendres et drôles"
   accroche: "Cassandre, Manon, Charlotte, Adèle… 15, 30, 45 ans."
   paragraphes:
@@ -26,32 +32,55 @@ feelgood:
     - "Elles aiment, elles désaiment, elles essaient, elles se trompent, elles recommencent."
     - "Elles pleurent, elles rient, elles aiment, un peu, beaucoup, passionnément."
     - "Comme vous, comme moi."
-  manon:
-    titre: "La saga Manon"
-    accroche: "Et si votre moi de 10 ans vous demandait où sont passés vos rêves ?"
-    paragraphes:
-      - "De Paris à Ibiza, Buenos Aires et Tahiti, la saga Manon est un voyage. Envolez-vous aux côtés de Manon, l'hypersensible, Mattéo, le pianiste charmeur et Claire, Jeanne, Arturo, Enrique, leurs amis inoubliables."
-      - "Six tomes pour grandir, aimer, réparer et oser. Six tomes qui traitent de l'amour, du couple, des relations familiales, du mariage, du désir ou non d'enfant et de la vie, avec ses joies et ses tristesses."
-      - "Une lecture feel good réconfortante comme un doudou."
-    bouton: "Découvrir la saga Manon"
-  comedies:
-    titre: "Mes comédies romantiques"
-  cassandre:
-    titre: "Les amours de Cassandre"
-    accroche: "Cassandre avait décidé de passer un été tranquille, au grand dam de ses meilleures amies, mais Hugo s'en est mêlé et voilà qu'elle risque de rencontrer l'amour et perdre son pari !"
-    texte: "Une saga romantique pour ados à savourer pour vivre ou revivre ses 15 ans avec humour et émotions !"
-    bouton: "Découvrir la série"
+  series:
+    - groupe: manon
+      ancre: saga-manon
+      menu: "Saga Manon"
+      titre: "La saga Manon"
+      accroche: "Et si votre moi de 10 ans vous demandait où sont passés vos rêves ?"
+      paragraphes:
+        - "De Paris à Ibiza, Buenos Aires et Tahiti, la saga Manon est un voyage. Envolez-vous aux côtés de Manon, l'hypersensible, Mattéo, le pianiste charmeur et Claire, Jeanne, Arturo, Enrique, leurs amis inoubliables."
+        - "Six tomes pour grandir, aimer, réparer et oser. Six tomes qui traitent de l'amour, du couple, des relations familiales, du mariage, du désir ou non d'enfant et de la vie, avec ses joies et ses tristesses."
+        - "Une lecture feel good réconfortante comme un doudou."
+      presentation: saga
+      label: "Les tomes de la saga Manon"
+    - groupe: comedies
+      ancre: comedies
+      menu: "Comédies romantiques"
+      titre: "Mes comédies romantiques"
+      presentation: duo
+      label: "Mes comédies romantiques"
+    - groupe: cassandre
+      ancre: saga-cassandre
+      menu: "Saga Cassandre"
+      titre: "Les amours de Cassandre"
+      intro:
+        - "Cassandre avait décidé de passer un été tranquille, au grand dam de ses meilleures amies, mais Hugo s'en est mêlé et voilà qu'elle risque de rencontrer l'amour et perdre son pari !"
+        - "Une saga romantique pour ados à savourer pour vivre ou revivre ses 15 ans avec humour et émotions !"
+      presentation: saga
+      label: "Les tomes de la saga Cassandre"
 
 thriller:
+  surtitre: "Thrillers psychologiques"
   titre: "Plongez dans mon côté sombre"
   accroche: "Anna, Mathilde, Marjorie, Eloïse… mes héroïnes vont tout risquer pour traquer la vérité."
   paragraphes:
     - "J'ai toujours été fascinée par ce que les êtres humains dissimulent : les secrets de famille, les souvenirs déformés, les blessures de l'enfance et les mensonges que l'on finit par croire soi-même."
     - "Passionnée de psychologie, mes thrillers sont addictifs. Ils naissent souvent d'un lieu, d'une image ou d'une question qui m'obsède. Pourquoi et comment devient-on criminel ?"
-  enquetes: "Les enquêtes d'Anna Blanchard et Julien Vautrin"
-  enquetes_note: "Chaque enquête se lit indépendamment, mais on prend plaisir à suivre l'évolution du duo dans l'ordre."
-  autres: "Mes autres thrillers"
+  series:
+    - groupe: enquetes
+      ancre: enquetes
+      menu: "Enquêtes"
+      titre: "Les enquêtes d'Anna Blanchard et Julien Vautrin"
+      note: "Chaque enquête se lit indépendamment, mais on prend plaisir à suivre l'évolution du duo dans l'ordre."
+      presentation: cartes
+    - groupe: autres-thrillers
+      ancre: autres-thrillers
+      menu: "Autres thrillers"
+      titre: "Mes autres thrillers"
+      presentation: cartes
 
 formats:
+  menu: "Formats"
   titre: "À lire, à écouter, à emporter partout"
   texte: "Mes livres sont disponibles, selon les titres, en broché, en ebook ou en livre audio. Choisissez votre format préféré et laissez-vous emporter."

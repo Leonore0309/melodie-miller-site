@@ -10,7 +10,7 @@ ecran: true
 {% assign tous = site.data.livres.livres %}
 <section class="hero-univers ecran-hero">
   <div class="container">
-    <p class="surtitre">Cinéma &amp; télévision</p>
+    <p class="surtitre">{{ e.surtitre }}</p>
     <h1>{{ e.titre }}</h1>
     <p class="accroche accroche-large">{{ e.intro }}</p>
     {% for p in e.intro_suite %}<p>{{ p }}</p>{% endfor %}
@@ -23,7 +23,7 @@ ecran: true
     <div class="projet-affiches">
       {% for id in p.livres %}
       {% assign l = tous | where: "id", id | first %}
-      <a href="{{ p.lien | relative_url | escape }}"><img src="{{ '/assets/img/livres/' | append: l.image | relative_url | escape }}" alt="Couverture de {{ l.titre | escape }}" loading="lazy"></a>
+      <a href="{{ p.lien | relative_url | escape }}"><img src="{{ '/assets/img/livres/' | append: l.image | relative_url | escape }}" alt="{{ site.data.textes.livres.couverture_de | escape }} {{ l.titre | escape }}" loading="lazy"></a>
       {% endfor %}
     </div>
     <div class="projet-texte">
@@ -43,7 +43,7 @@ ecran: true
   <p>{{ e.droits.texte }}</p>
   <p><strong>{{ e.droits.societe }}</strong>, {{ e.droits.contact_nom }}<br><a href="mailto:{{ e.droits.email | escape }}">{{ e.droits.email }}</a></p>
   <p class="boutons">
-    <a class="btn" href="mailto:{{ e.droits.email | escape }}?subject={{ 'Adaptation audiovisuelle' | url_encode }}">{{ e.droits.bouton }}</a>
-    <a class="btn btn-ghost" href="{{ '/contact/' | relative_url }}">Contacter Mélodie</a>
+    <a class="btn" href="mailto:{{ e.droits.email | escape }}?subject={{ e.droits.sujet_email | url_encode }}">{{ e.droits.bouton }}</a>
+    <a class="btn btn-ghost" href="{{ '/contact/' | relative_url }}">{{ e.droits.bouton_contact }}</a>
   </p>
 </section>

@@ -4,11 +4,11 @@
 <article id="{{ l.id }}" class="livre {% if include.compact %}livre-compact{% else %}livre-grand{% endif %}{% if l.statut == 'a-paraitre' %} a-paraitre{% endif %}{% if l.style == 'noel' %} livre-noel{% endif %}">
   <div class="couv">
     {% if l.image and l.image != "" %}
-    <img src="{{ '/assets/img/livres/' | append: l.image | relative_url | escape }}" alt="Couverture de {{ l.titre | escape }}" loading="lazy">
+    <img src="{{ '/assets/img/livres/' | append: l.image | relative_url | escape }}" alt="{{ site.data.textes.livres.couverture_de | escape }} {{ l.titre | escape }}" loading="lazy">
     {% else %}
-    <div class="couverture-vide" role="img" aria-label="Couverture à venir de {{ l.titre | escape }}"><span>{{ l.titre }}</span></div>
+    <div class="couverture-vide" role="img" aria-label="{{ site.data.textes.livres.couverture_a_venir | escape }} {{ l.titre | escape }}"><span>{{ l.titre }}</span></div>
     {% endif %}
-    {% if l.statut == 'a-paraitre' %}<span class="badge-couv badge-bientot">À paraître</span>{% elsif l.tome and l.tome != "" %}<span class="badge-couv">{{ l.tome }}</span>{% endif %}
+    {% if l.statut == 'a-paraitre' %}<span class="badge-couv badge-bientot">{{ site.data.textes.livres.a_paraitre }}</span>{% elsif l.tome and l.tome != "" %}<span class="badge-couv">{{ l.tome }}</span>{% endif %}
   </div>
   <div class="livre-texte">
     <h3>{{ l.titre }}</h3>

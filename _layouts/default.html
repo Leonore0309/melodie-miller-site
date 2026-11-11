@@ -18,8 +18,8 @@
 {% if page.audio %}<link rel="stylesheet" href="{{ '/assets/css/audio.css' | relative_url }}">{% endif %}
 {% if page.ecran %}<link rel="stylesheet" href="{{ '/assets/css/ecran.css' | relative_url }}">{% endif %}
 </head>
-<body data-univers="{{ page.univers | default: 'portail' | escape }}"{% if page.accueil %} data-accueil="{{ page.accueil | escape }}"{% endif %}>
-<a class="skip" href="#main">Aller au contenu</a>
+<body data-univers="{{ page.univers | default: 'portail' | escape }}">
+<a class="skip" href="#main">{{ site.data.textes.accessibilite.aller_au_contenu }}</a>
 {% include header.html %}
 <main id="main">
 {{ content }}

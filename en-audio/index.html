@@ -7,12 +7,11 @@ permalink: /en-audio/
 audio: true
 ---
 {% assign a = site.data.audio %}
-{% assign romances = a.livres | where: "univers", "feelgood" %}
-{% assign thrillers = a.livres | where: "univers", "thriller" %}
+{% assign avec_audio = site.data.livres.livres | where_exp: "l", "l.audio" %}
 <section class="audio-hero">
   <div class="container">
     <div class="onde onde-grande" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
-    <p class="surtitre">Livres audio</p>
+    <p class="surtitre">{{ a.surtitre }}</p>
     <h1>{{ a.titre }}</h1>
     <p class="accroche accroche-large">{{ a.accroche }}</p>
     {% for p in a.intro %}<p>{{ p }}</p>{% endfor %}
@@ -21,18 +20,15 @@ audio: true
 
 <!-- Mise en page : playlist -->
 <div class="audio-corps">
-  <section class="audio-groupe audio-romances" data-univers="feelgood" aria-label="Romances en audio">
+  {% for g in a.groupes %}
+  {% assign liste = avec_audio | where: "univers", g.univers %}
+  <section class="audio-groupe {{ g.classe | escape }}" data-univers="{{ g.univers | escape }}" aria-label="{{ g.label | escape }}">
     <div class="container">
-      <h2>Romances</h2>
-      <div class="audio-liste">{% for l in romances %}{% include pochette-audio.html l=l %}{% endfor %}</div>
+      <h2>{{ g.titre }}</h2>
+      <div class="audio-liste">{% for l in liste %}{% include pochette-audio.html l=l %}{% endfor %}</div>
     </div>
   </section>
-  <section class="audio-groupe audio-thrillers" data-univers="thriller" aria-label="Thrillers en audio">
-    <div class="container">
-      <h2>Thrillers</h2>
-      <div class="audio-liste">{% for l in thrillers %}{% include pochette-audio.html l=l %}{% endfor %}</div>
-    </div>
-  </section>
+  {% endfor %}
 </div>
 
 <section class="container section voix">

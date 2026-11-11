@@ -23,6 +23,11 @@ presse:
   titre: "Dans les médias"
   texte: "Chroniques littéraires, podcasts, interviews, rencontres avec des libraires et articles de presse… Découvrez les médias qui ont parlé de mes romans et de mon parcours."
   vide: "Les références presse seront ajoutées ici."
+  bouton_voir: "Voir l'article"
+  bouton_web: "Version web"
+  voir_prefixe: "Voir l'article :"
+  coupure_prefixe: "Coupure de presse :"
+  grand_label: "Article en grand"
   # image = vignette, image_complete = coupure en grand (bouton « Voir l'article »), lien = version web (facultatif)
   articles:
     - media: "La République de Seine-et-Marne"

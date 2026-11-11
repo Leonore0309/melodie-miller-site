@@ -7,7 +7,7 @@
 
   function ouvrir(url, titre) {
     grand.src = url;
-    grand.alt = 'Article en grand : ' + (titre || '');
+    grand.alt = (dialogue.getAttribute('aria-label') || '') + ' : ' + (titre || '');
     dialogue.showModal();
   }
 
