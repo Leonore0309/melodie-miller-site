@@ -4,8 +4,8 @@ description: "Mélodie Miller, autrice de romans feel good, de comédies romanti
 url: "https://melodiemiller.fr"
 baseurl: ""
 
-# Maquette non indexée par les moteurs de recherche (balise noindex). Passer à false à la mise en ligne réelle.
-noindex: true
+# true = site caché des moteurs de recherche (balise noindex et robots.txt fermé). false = site visible dans Google.
+noindex: false
 lang: fr
 author: "Mélodie Miller"
 
