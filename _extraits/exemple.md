@@ -1,7 +1,9 @@
 ---
 livre: la-mariee-de-la-fosse
-title: "Extrait d'exemple"
+title: "Modèle (non publié)"
 sitemap: false
+# Modèle : cette page n'est pas mise en ligne. Pour publier un extrait, créez une nouvelle page sans cette ligne.
+published: false
 ---
 ## Chapitre 1
 

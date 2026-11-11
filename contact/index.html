@@ -10,18 +10,18 @@ permalink: /contact/
 <section class="container section contact">
   <h1>{{ c.titre }}</h1>
   {% for p in c.paragraphes %}<p>{{ p }}</p>{% endfor %}
-  <p class="email-grand"><a href="mailto:{{ site.data.site.email }}">{{ site.data.site.email }}</a></p>
+  <p class="email-grand"><a href="mailto:{{ site.data.site.email | escape }}">{{ site.data.site.email }}</a></p>
   <p class="boutons">
-    {% for s in c.sujets %}<a class="btn btn-ghost" href="mailto:{{ site.data.site.email }}?subject={{ s.objet | url_encode }}">{{ s.nom }}</a>{% endfor %}
+    {% for s in c.sujets %}<a class="btn btn-ghost" href="mailto:{{ site.data.site.email | escape }}?subject={{ s.objet | url_encode }}">{{ s.nom }}</a>{% endfor %}
   </p>
 
   <h2>{{ c.ailleurs.titre }}</h2>
   <p>{{ c.ailleurs.texte }}</p>
   <p class="boutons">
-    {% for r in site.data.site.reseaux %}<a class="btn btn-ghost" href="{{ r.url }}" rel="noopener">{{ r.nom }}</a>{% endfor %}
+    {% for r in site.data.site.reseaux %}<a class="btn btn-ghost" href="{{ r.url | escape }}" target="_blank" rel="noopener">{{ r.nom }}{% include nouvel-onglet.html %}</a>{% endfor %}
   </p>
   <p>{{ c.ailleurs.newsletter }}</p>
-  <p class="boutons"><a class="btn" href="{{ nl | strip }}" rel="noopener">{{ c.ailleurs.bouton_newsletter }}</a></p>
+  <p class="boutons"><a class="btn" href="{{ nl | strip | escape }}" rel="noopener">{{ c.ailleurs.bouton_newsletter }}</a></p>
 
   <p class="fin-contact">{{ c.fin }}<br><em>{{ c.signature }}</em></p>
 </section>

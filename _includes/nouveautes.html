@@ -8,16 +8,16 @@
       <article class="nouveaute{% if n.style == 'noel' %} nouveaute-noel{% endif %}">
         <div class="couv">
           {% if l.image and l.image != "" %}
-          <img src="{{ '/assets/img/livres/' | append: l.image | relative_url }}" alt="Couverture de {{ l.titre }}">
+          <img src="{{ '/assets/img/livres/' | append: l.image | relative_url | escape }}"{% capture f %}livres/{{ l.image }}{% endcapture %}{% include dimensions.html f=f %} alt="{{ site.data.textes.livres.couverture_de | escape }} {{ l.titre | escape }}">
           {% else %}
-          <div class="couverture-vide" role="img" aria-label="Couverture à venir de {{ l.titre }}"><span>{{ l.titre }}</span></div>
+          <div class="couverture-vide" role="img" aria-label="{{ site.data.textes.livres.couverture_a_venir | escape }} {{ l.titre | escape }}"><span>{{ l.titre }}</span></div>
           {% endif %}
         </div>
         <div class="nouveaute-texte">
           <p class="badge{% if n.badge_style == 'bientot' %} badge-bientot{% endif %}">{% if n.style == 'noel' %}<span aria-hidden="true">❄ </span>{% endif %}{{ n.badge }}</p>
           <h3>{{ l.titre }}</h3>
           <p>{{ n.texte_court }}</p>
-          <p class="boutons"><a class="btn" href="{% if n.lien == 'newsletter' %}{{ nl | strip }}{% else %}{{ n.lien | relative_url }}{% endif %}">{{ n.bouton }}</a></p>
+          <p class="boutons"><a class="btn" href="{% if n.lien == 'newsletter' %}{{ nl | strip | escape }}{% else %}{{ n.lien | relative_url | escape }}{% endif %}">{{ n.bouton }}</a></p>
         </div>
       </article>
       {% endfor %}

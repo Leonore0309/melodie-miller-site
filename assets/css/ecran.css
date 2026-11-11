@@ -1,5 +1,5 @@
 /* Page « À l'écran » (chargée uniquement sur cette page) */
-.ecran-hero { background: linear-gradient(180deg, #070f10, var(--thr-bg)); }
+.ecran-hero { background: linear-gradient(180deg, var(--nuit), var(--thr-bg)); }
 .projet-grille { display: grid; grid-template-columns: 360px 1fr; gap: 3rem; align-items: center; padding: 2rem; border-radius: 12px; }
 .projet-grille.inverse { grid-template-columns: 1fr 360px; }
 .projet-grille.inverse .projet-affiches { order: 2; }

@@ -17,7 +17,7 @@ permalink: /a-propos/
       {% include photo.html src=a.photo2 alt=a.photo2_alt legende=a.photo2_legende %}
     </div>
   </div>
-  <aside class="distinctions distinctions-bande" aria-label="{{ a.distinctions.titre }}">
+  <aside class="distinctions distinctions-bande" aria-label="{{ a.distinctions.titre | escape }}">
     <h2>{{ a.distinctions.titre }}</h2>
     {% include distinctions.html %}
   </aside>

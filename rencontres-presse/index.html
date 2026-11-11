@@ -30,23 +30,23 @@ presse: true
   <div class="presse-grille">
     {% for a in r.presse.articles %}
     <article class="presse-carte">
-      <button type="button" class="presse-vignette" data-grand="{{ '/assets/img/presse/' | append: a.image_complete | relative_url }}" data-titre="{{ a.titre | escape }}" aria-label="Voir l'article : {{ a.titre | escape }}">
-        <img src="{{ '/assets/img/presse/' | append: a.image | relative_url }}" alt="Coupure de presse : {{ a.titre | escape }}" loading="lazy">
+      <button type="button" class="presse-vignette" data-grand="{{ '/assets/img/presse/' | append: a.image_complete | relative_url | escape }}" data-titre="{{ a.titre | escape }}" aria-label="{{ r.presse.voir_prefixe | escape }} {{ a.titre | escape }}">
+        <img src="{{ '/assets/img/presse/' | append: a.image | relative_url | escape }}"{% capture f %}presse/{{ a.image }}{% endcapture %}{% include dimensions.html f=f %} alt="{{ r.presse.coupure_prefixe | escape }} {{ a.titre | escape }}" loading="lazy">
       </button>
       <div class="presse-texte">
         <p class="presse-media"><strong>{{ a.media }}</strong>{% if a.date and a.date != "" %} · {{ a.date }}{% endif %}</p>
         <h3>{{ a.titre }}</h3>
         {% if a.citation and a.citation != "" %}<p class="presse-citation">{{ a.citation }}</p>{% endif %}
         <p class="boutons">
-          <a class="btn" href="{{ '/assets/img/presse/' | append: a.image_complete | relative_url }}" data-ouvrir>Voir l'article</a>
-          {% if a.lien and a.lien != "" %}<a class="btn btn-ghost" href="{{ a.lien }}" rel="noopener">Version web</a>{% endif %}
+          <a class="btn" href="{{ '/assets/img/presse/' | append: a.image_complete | relative_url | escape }}" data-ouvrir>{{ r.presse.bouton_voir }}</a>
+          {% if a.lien and a.lien != "" %}<a class="btn btn-ghost" href="{{ a.lien | escape }}" target="_blank" rel="noopener">{{ r.presse.bouton_web }}{% include nouvel-onglet.html %}</a>{% endif %}
         </p>
       </div>
     </article>
     {% endfor %}
   </div>
-  <dialog id="presse-dialog" class="presse-dialog" aria-label="Article en grand">
-    <form method="dialog"><button class="presse-fermer" aria-label="Fermer">&times;</button></form>
+  <dialog id="presse-dialog" class="presse-dialog" aria-label="{{ r.presse.grand_label | escape }}">
+    <form method="dialog"><button class="presse-fermer" aria-label="{{ site.data.textes.accessibilite.fermer | escape }}">&times;</button></form>
     <img id="presse-grand" src="" alt="">
   </dialog>
   {% else %}

@@ -1,6 +1,6 @@
 # « Mes romans à l'écran » : vitrine pour producteurs et diffuseurs.
 # Aucune adaptation n'est annoncée : ce sont des pistes d'adaptation. Textes validés par Mélodie.
-provisoire: false
+surtitre: "Cinéma & télévision"
 titre: "Mes romans à l'écran"
 intro: "Des intrigues à suspense, des personnages attachants et des décors forts : j'écris en images."
 intro_suite:
@@ -44,3 +44,5 @@ droits:
   contact_nom: "Elisabeth Haik"
   email: "contact@literary-image.com"
   bouton: "Écrire à Literary Image"
+  bouton_contact: "Contacter Mélodie"
+  sujet_email: "Adaptation audiovisuelle"

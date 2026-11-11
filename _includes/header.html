@@ -1,22 +1,16 @@
+{% assign m = site.data.textes.menu %}
 <header class="site-header">
   <div class="container header-inner">
     <a class="logo" href="{{ '/' | relative_url }}">{{ site.data.site.nom }}</a>
-    <button class="menu-toggle" aria-expanded="false" aria-controls="menu">Menu</button>
-    <nav id="menu" class="menu" aria-label="Navigation principale">
-      <a href="{{ '/' | relative_url }}">Accueil</a>
-      <a href="{{ '/a-propos/' | relative_url }}">À propos</a>
-      <div class="menu-groupe">
-        <a href="{{ '/mes-romans/' | relative_url }}" aria-haspopup="true">Mes romans <span class="caret" aria-hidden="true">▾</span></a>
+    <button class="menu-toggle" aria-expanded="false" aria-controls="menu">{{ m.bouton }}</button>
+    <nav id="menu" class="menu" aria-label="{{ m.label | escape }}">
+      {% for e in m.liens %}{% if e.sous_menu %}<div class="menu-groupe">
+        <a href="{{ e.lien | relative_url | escape }}"{% if page.url == e.lien %} aria-current="page"{% endif %}>{{ e.texte }} <span class="caret" aria-hidden="true">▾</span></a>
         <div class="sous-menu">
-          <a href="{{ '/romances-feel-good/' | relative_url }}">Feel good &amp; romances</a>
-          <a href="{{ '/thrillers/' | relative_url }}">Thrillers</a>
-        </div>
+          {% for s in e.sous_menu %}<a href="{{ s.lien | relative_url | escape }}"{% if page.url == s.lien %} aria-current="page"{% endif %}>{{ s.texte }}</a>
+          {% endfor %}</div>
       </div>
-      <a href="{{ '/en-audio/' | relative_url }}">En audio</a>
-      <a href="{{ '/a-l-ecran/' | relative_url }}">À l'écran</a>
-      <a href="{{ '/rencontres-presse/' | relative_url }}">Rencontres &amp; presse</a>
-      <a href="{{ '/conferences/' | relative_url }}">Conférences</a>
-      <a href="{{ '/contact/' | relative_url }}">Contact</a>
-    </nav>
+      {% else %}<a href="{{ e.lien | relative_url | escape }}"{% if page.url == e.lien %} aria-current="page"{% endif %}>{{ e.texte }}</a>
+      {% endif %}{% endfor %}</nav>
   </div>
 </header>

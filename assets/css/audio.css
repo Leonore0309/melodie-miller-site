@@ -1,6 +1,6 @@
 /* Page « En audio » : ambiance studio, ondes animées, playlist. */
 
-.audio-hero { position: relative; overflow: hidden; background: radial-gradient(ellipse at 50% 0%, #1b3a3d, #070f10 70%); padding-block: 3.5rem 2.5rem; }
+.audio-hero { position: relative; overflow: hidden; background: radial-gradient(ellipse at 50% 0%, var(--nuit-verte), var(--nuit) 70%); padding-block: 3.5rem 2.5rem; }
 .audio-hero h1 { text-transform: uppercase; letter-spacing: .04em; font-weight: 400; }
 .audio-hero .container { position: relative; z-index: 1; }
 

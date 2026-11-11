@@ -40,7 +40,7 @@
 .nouveaute-texte p { font-size: .95rem; margin-bottom: .7em; }
 .nouveaute-texte .boutons { margin-top: auto; padding-top: .4rem; }
 .nouveaute .btn { padding: .5rem 1rem; font-size: .88rem; }
-.badge.badge-bientot { background: #b94a33; color: #fff; }
+.badge.badge-bientot { background: var(--bientot); color: var(--blanc); }
 .badge { display: inline-block; background: var(--portail-fg); color: var(--portail-bg); padding: .15rem .7rem; font-size: .8rem; font-weight: 600; text-transform: uppercase; letter-spacing: .06em; border-radius: 3px; }
 @media (max-width: 520px) {
   .nouveaute { flex-direction: column; align-items: center; text-align: center; }
@@ -75,10 +75,10 @@
 .nouveaute-texte .badge { align-self: flex-start; }
 
 /* Style festif (champ « style: noel ») : badge rouge, boutons dorés */
-.nouveaute-noel .badge { background: #b3202a; color: #fff; }
-.livre-noel .btn:not(.btn-ghost), .nouveaute-noel .btn { background: #c9a24a; border-color: #c9a24a; color: #2a1a0a; box-shadow: none; }
-.livre-noel .btn:not(.btn-ghost):hover, .nouveaute-noel .btn:hover { background: #b8902f; border-color: #b8902f; }
-.livre-noel .badge-couv { background: #b3202a; color: #fff; }
+.nouveaute-noel .badge { background: var(--noel-rouge); color: var(--blanc); }
+.livre-noel .btn:not(.btn-ghost), .nouveaute-noel .btn { background: var(--noel-or); border-color: var(--noel-or); color: var(--noel-texte); box-shadow: none; }
+.livre-noel .btn:not(.btn-ghost):hover, .nouveaute-noel .btn:hover { background: var(--noel-or-survol); border-color: var(--noel-or-survol); }
+.livre-noel .badge-couv { background: var(--noel-rouge); color: var(--blanc); }
 
 /* Mention de prix et petit lien « premiers chapitres » (vignettes de saga) */
 .distinction { font-weight: 600; font-size: .95rem; margin: -.2rem 0 .6rem; }

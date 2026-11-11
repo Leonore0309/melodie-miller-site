@@ -4,7 +4,6 @@ univers: conference
 title: "Valérie Pierson & Mélodie Miller | Conférences"
 description: "Conférences de Valérie Pierson pour les entreprises et dirigeants, et de Mélodie Miller pour les rencontres littéraires : créativité, audace, réinvention."
 permalink: /conferences/
-polices: conference
 ---
 {% assign c = site.data.conferences %}
 <section class="hero-univers">
@@ -63,5 +62,5 @@ polices: conference
 <section class="container section cta">
   <h2>{{ c.cta.titre }}</h2>
   <p>{{ c.cta.texte }}</p>
-  <p class="boutons"><a class="btn" href="mailto:{{ site.data.site.email }}?subject={{ 'Conférence' | url_encode }}">{{ c.cta.bouton }}</a></p>
+  <p class="boutons"><a class="btn" href="mailto:{{ site.data.site.email | escape }}?subject={{ c.cta.sujet_email | url_encode }}">{{ c.cta.bouton }}</a></p>
 </section>

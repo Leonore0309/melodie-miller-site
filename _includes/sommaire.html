@@ -1,0 +1,2 @@
+{%- comment -%} Sommaire collant des pages Feel good et Thrillers : une entrée par série, puis « Formats ». Paramètre : series {%- endcomment -%}
+<nav class="sommaire" aria-label="{{ site.data.textes.accessibilite.rubriques | escape }}"><div class="container">{% for s in include.series %}<a href="#{{ s.ancre | escape }}">{{ s.menu }}</a>{% endfor %}<a href="#formats">{{ site.data.romans.formats.menu }}</a></div></nav>

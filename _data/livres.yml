@@ -5,9 +5,11 @@
 # image : fichier dans assets/img/livres/ (vide = cadre « couverture à venir »)
 # liens : un bouton par lien. Un bouton dont l'adresse (url) est vide n'est pas affiché : collez-la plus tard.
 # extrait : PDF déposé dans assets/chapitres/ (/assets/chapitres/mon-livre.pdf), page d'extrait du site (/extraits/xxx/) ou lien externe.
-#   Vide = le bouton « Lire les 3 premiers chapitres » mène à la newsletter en attendant.
+#   Vide = aucun bouton « premiers chapitres » sur ce livre.
 # extrait_libelle : texte du bouton si ce n'est pas « Lire les 3 premiers chapitres » (facultatif).
 # audio_bientot : true = bouton « Audio - me prévenir » (newsletter). À retirer quand le lien Audible existe.
+# audio : version audio, affichée sur la page « En audio » (tome = texte au-dessus du titre, visuel = fichier dans
+#   assets/img/audio/, message = phrase sous le titre, url = lien d'écoute Audible ; vide = bouton « Me prévenir de la sortie »).
 # style : noel = badge et boutons rouge et doré (à vider après les fêtes).
 # distinction : petite mention sous le titre (prix, etc.).
 
@@ -26,6 +28,11 @@ livres:
       - { nom: "Audible", url: "https://www.audible.fr/pd/Il-nest-jamais-trop-tard-pour-liberer-les-licornes-Livre-Audio/B0FH2BVS5N" }
     extrait: "/assets/chapitres/manon-1.pdf"
     extrait_libelle: "Lire les premiers chapitres"
+    audio:
+      tome: "Saga Manon, tome 1"
+      visuel: "manon-1-audio.jpg"
+      message: ""
+      url: "https://www.audible.fr/pd/Il-nest-jamais-trop-tard-pour-liberer-les-licornes-Livre-Audio/B0FH2BVS5N"
   - id: manon-2
     titre: "Là où ronronnent les pumas"
     univers: feelgood
@@ -108,6 +115,11 @@ livres:
     liens:
       - { nom: "Amazon", url: "https://www.amazon.fr/dp/B0H7X4YPTZ" }
     extrait: ""
+    audio:
+      tome: ""
+      visuel: "un-chum-audio.jpg"
+      message: "Disponible dès décembre 2026"
+      url: ""
   - id: ou-vont-les-reves
     titre: "Où vont les rêves au petit matin ?"
     univers: feelgood
@@ -174,6 +186,11 @@ livres:
       - { nom: "Kobo", url: "" }   # À fournir
       - { nom: "Écouter l'extrait", url: "https://www.audible.fr/pd/La-mariee-de-la-fosse-Un-thriller-psychologique-inspire-de-faits-reels-Livre-Audio/B0GRX36BLP" }
     extrait: "/assets/chapitres/la-mariee-de-la-fosse.pdf"
+    audio:
+      tome: "Enquêtes d'Anna Blanchard & Julien Vautrin, tome 1"
+      visuel: "mariee-audio.jpg"
+      message: ""
+      url: "https://www.audible.fr/pd/La-mariee-de-la-fosse-Un-thriller-psychologique-inspire-de-faits-reels-Livre-Audio/B0GRX36BLP"
   - id: les-disparues-de-la-crypte
     titre: "Les disparues de la crypte"
     univers: thriller
@@ -188,6 +205,11 @@ livres:
       - { nom: "Kobo", url: "" }   # À fournir
       - { nom: "Écouter l'extrait", url: "https://www.audible.fr/pd/Les-disparues-de-la-crypte-Un-thriller-psychologique-sombre-et-addictif-au-cur-de-la-Bourgogne-Les-enquetes-dAnna-Blanchard-Julien-Vautrin-t-2-French-Edition-Livre-Audio/B0HNHT8XD7" }
     extrait: ""
+    audio:
+      tome: "Enquêtes d'Anna Blanchard & Julien Vautrin, tome 2"
+      visuel: "disparues-audio.jpg"
+      message: ""
+      url: "https://www.audible.fr/pd/Les-disparues-de-la-crypte-Un-thriller-psychologique-sombre-et-addictif-au-cur-de-la-Bourgogne-Les-enquetes-dAnna-Blanchard-Julien-Vautrin-t-2-French-Edition-Livre-Audio/B0HNHT8XD7"
   - id: l-enfant-du-canal
     titre: "L'Enfant du canal"
     univers: thriller
@@ -201,6 +223,11 @@ livres:
     liens:
       - { nom: "Précommander sur Amazon", url: "" }   # À fournir
     extrait: ""
+    audio:
+      tome: "Enquêtes d'Anna Blanchard & Julien Vautrin, tome 3"
+      visuel: "enfant-canal-audio.jpg"
+      message: "À venir"
+      url: ""
 
   # ---------- Autres thrillers ----------
   - id: le-serment

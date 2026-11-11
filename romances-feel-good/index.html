@@ -5,51 +5,24 @@ title: "Romans feel good et comédies romantiques | Mélodie Miller"
 description: "Saga Manon, saga Cassandre, Un chum pour Noël, Où vont les rêves au petit matin ? : les romans feel good de Mélodie Miller."
 permalink: /romances-feel-good/
 carrousel: true
-polices: feelgood
 ---
-{% assign r = site.data.romans %}
+{% assign r = site.data.romans.feelgood %}
 {% assign tous = site.data.livres.livres | where: "univers", "feelgood" %}
-{% assign manon = tous | where: "groupe", "manon" %}
-{% assign comedies = tous | where: "groupe", "comedies" %}
-{% assign cassandre = tous | where: "groupe", "cassandre" %}
-<nav class="sommaire" aria-label="Rubriques de la page"><div class="container"><a href="#saga-manon">Saga Manon</a><a href="#comedies">Comédies romantiques</a><a href="#saga-cassandre">Saga Cassandre</a><a href="#formats">Formats</a></div></nav>
+{% include sommaire.html series=r.series %}
 <section class="hero-univers">
   <div class="container">
-    <p class="surtitre">Feel good &amp; romances</p>
-    <h1>{{ r.feelgood.titre }}</h1>
-    <p class="accroche">{{ r.feelgood.accroche }}</p>
-    <div class="texte-flux">{% for p in r.feelgood.paragraphes %}<p>{{ p }}</p>{% endfor %}</div>
+    <p class="surtitre">{{ r.surtitre }}</p>
+    <h1>{{ r.titre }}</h1>
+    <p class="accroche">{{ r.accroche }}</p>
+    <div class="texte-flux">{% for p in r.paragraphes %}<p>{{ p }}</p>{% endfor %}</div>
   </div>
 </section>
 
-<section class="container section" id="saga-manon">
-  <div class="bloc">
-    <h2>{{ r.feelgood.manon.titre }}</h2>
-    <p class="accroche accroche-large accroche-ligne">{{ r.feelgood.manon.accroche }}</p>
-    <div class="texte-flux">{% for p in r.feelgood.manon.paragraphes %}<p>{{ p }}</p>{% endfor %}</div>
-    {% include carrousel.html livres=manon mode="saga" label="Les tomes de la saga Manon" %}
-  </div>
-</section>
-
-<section class="container section" id="comedies">
-  <div class="bloc">
-    <h2>{{ r.feelgood.comedies.titre }}</h2>
-    {% include carrousel.html livres=comedies mode="duo" resume=true label="Mes comédies romantiques" %}
-  </div>
-</section>
-
-<section class="container section" id="saga-cassandre">
-  <div class="bloc">
-    <h2>{{ r.feelgood.cassandre.titre }}</h2>
-    <p>{{ r.feelgood.cassandre.accroche }}</p>
-    <p>{{ r.feelgood.cassandre.texte }}</p>
-    {% include carrousel.html livres=cassandre mode="saga" label="Les tomes de la saga Cassandre" %}
-  </div>
-</section>
+{% for s in r.series %}{% include serie.html s=s livres=tous %}{% endfor %}
 
 <section class="container section formats" id="formats">
-  <h2>{{ r.formats.titre }}</h2>
-  <p>{{ r.formats.texte }}</p>
+  <h2>{{ site.data.romans.formats.titre }}</h2>
+  <p>{{ site.data.romans.formats.texte }}</p>
 </section>
 
 {% include temoignages.html univers="feelgood" %}

@@ -1,0 +1,64 @@
+# Textes communs à tout le site : menu, pied de page, boutons des livres, libellés d'accessibilité.
+# Les textes propres à une page sont dans le fichier de cette page (accueil.yml, romans.yml, audio.yml…).
+
+menu:
+  bouton: "Menu"
+  label: "Navigation principale"
+  # lien : adresse de la page sur le site. sous_menu : liens affichés sous l'entrée.
+  liens:
+    - { texte: "Accueil", lien: "/" }
+    - { texte: "À propos", lien: "/a-propos/" }
+    - texte: "Mes romans"
+      lien: "/mes-romans/"
+      sous_menu:
+        - { texte: "Feel good & romances", lien: "/romances-feel-good/" }
+        - { texte: "Thrillers", lien: "/thrillers/" }
+    - { texte: "En audio", lien: "/en-audio/" }
+    - { texte: "À l'écran", lien: "/a-l-ecran/" }
+    - { texte: "Rencontres & presse", lien: "/rencontres-presse/" }
+    - { texte: "Conférences", lien: "/conferences/" }
+    - { texte: "Contact", lien: "/contact/" }
+
+pied:
+  newsletter_label: "Newsletter"
+  newsletter: "Newsletter"
+  # Liens du bas de page, après les réseaux et la newsletter
+  liens:
+    - { texte: "Contact", lien: "/contact/" }
+    - { texte: "Mentions légales", lien: "/mentions-legales/" }
+    - { texte: "Politique de confidentialité", lien: "/confidentialite/" }
+
+livres:
+  a_paraitre: "À paraître"
+  chapitres: "Lire les 3 premiers chapitres"
+  informer_sortie: "Être informé de sa sortie"
+  audio_prevenir: "Audio - me prévenir"
+  achat_a_venir: "Lien d'achat à venir"
+  couverture_de: "Couverture de"
+  couverture_a_venir: "Couverture à venir de"
+  livre_precedent: "Livre précédent"
+  livre_suivant: "Livre suivant"
+
+extrait:
+  retour: "← Retour au livre"
+  sous_titre: "Les premiers chapitres"
+  suite: "Envie de connaître la suite ?"
+
+temoignages:
+  titre: "Les lectrices en parlent"
+
+agenda:
+  # Mois abrégés des tuiles de date, de janvier à décembre
+  mois: ["JANV", "FÉVR", "MARS", "AVR", "MAI", "JUIN", "JUIL", "AOÛT", "SEPT", "OCT", "NOV", "DÉC"]
+  aujourdhui: "Aujourd'hui"
+  en_ce_moment: "En ce moment"
+  demain: "Demain"
+  # {n} est remplacé par le nombre de jours
+  dans_jours: "Dans {n} jours"
+
+accessibilite:
+  aller_au_contenu: "Aller au contenu"
+  rubriques: "Rubriques de la page"
+  nouvel_onglet: "(nouvel onglet)"
+  instagram_de: "Instagram de"
+  fermer: "Fermer"
