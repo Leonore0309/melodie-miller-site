@@ -1,4 +1,4 @@
-# Page « En audio ». statut : disponible (lien Audible), bientot (« Disponible dès… »), a-venir.
+# Page « En audio ». message : texte affiché sous le titre (ex. « Disponible dès décembre 2026 »).
 # Un livre sans lien (url vide) reçoit un bouton « Me prévenir de la sortie » vers la newsletter.
 titre: "En audio"
 accroche: "Laissez-vous raconter mes histoires."
@@ -9,47 +9,37 @@ intro:
 livres:
   - id: manon-1
     univers: feelgood
-    genre: "Romances"
     titre: "Il n'est jamais trop tard pour libérer les licornes"
     tome: "Saga Manon, tome 1"
     visuel: "manon-1-audio.jpg"
-    statut: disponible
     message: ""
     url: "https://www.audible.fr/pd/Il-nest-jamais-trop-tard-pour-liberer-les-licornes-Livre-Audio/B0FH2BVS5N"
   - id: un-chum-pour-noel
     univers: feelgood
-    genre: "Romances"
     titre: "Un chum pour Noël"
     tome: ""
     visuel: "un-chum-audio.jpg"
-    statut: bientot
     message: "Disponible dès décembre 2026"
     url: ""
   - id: la-mariee-de-la-fosse
     univers: thriller
-    genre: "Thrillers"
     titre: "La mariée de la fosse"
     tome: "Enquêtes d'Anna Blanchard & Julien Vautrin, tome 1"
     visuel: "mariee-audio.jpg"
-    statut: disponible
     message: ""
     url: "https://www.audible.fr/pd/La-mariee-de-la-fosse-Un-thriller-psychologique-inspire-de-faits-reels-Livre-Audio/B0GRX36BLP"
   - id: les-disparues-de-la-crypte
     univers: thriller
-    genre: "Thrillers"
     titre: "Les disparues de la crypte"
     tome: "Enquêtes d'Anna Blanchard & Julien Vautrin, tome 2"
     visuel: "disparues-audio.jpg"
-    statut: disponible
     message: ""
     url: "https://www.audible.fr/pd/Les-disparues-de-la-crypte-Un-thriller-psychologique-sombre-et-addictif-au-cur-de-la-Bourgogne-Les-enquetes-dAnna-Blanchard-Julien-Vautrin-t-2-French-Edition-Livre-Audio/B0HNHT8XD7"
   - id: l-enfant-du-canal
     univers: thriller
-    genre: "Thrillers"
     titre: "L'Enfant du canal"
     tome: "Enquêtes d'Anna Blanchard & Julien Vautrin, tome 3"
     visuel: "enfant-canal-audio.jpg"
-    statut: a-venir
     message: "À venir"
     url: ""
 

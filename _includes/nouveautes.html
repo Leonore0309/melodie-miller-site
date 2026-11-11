@@ -8,7 +8,7 @@
       <article class="nouveaute{% if n.style == 'noel' %} nouveaute-noel{% endif %}">
         <div class="couv">
           {% if l.image and l.image != "" %}
-          <img src="{{ '/assets/img/livres/' | append: l.image | relative_url }}" alt="Couverture de {{ l.titre }}">
+          <img src="{% include couverture-url.html f=l.image %}" alt="Couverture de {{ l.titre }}">
           {% else %}
           <div class="couverture-vide" role="img" aria-label="Couverture à venir de {{ l.titre }}"><span>{{ l.titre }}</span></div>
           {% endif %}

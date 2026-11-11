@@ -31,7 +31,7 @@ Menu **Livres** > le livre > Boutons d'achat. Un bouton dont l'adresse est vide 
 
 ## Publier les 3 premiers chapitres
 1. Menu **Premiers chapitres (PDF)** (médias) : envoyez le PDF du livre.
-2. Menu **Livres** > le livre > « Premiers chapitres » : choisissez ce PDF.
+2. Menu **Livres** > le livre > « Premiers chapitres » : écrivez l'adresse du PDF, par exemple `/assets/chapitres/mon-livre.pdf` (remplacez `mon-livre.pdf` par le nom exact du fichier envoyé).
 Le bouton « Lire les 3 premiers chapitres » ouvre alors le PDF dans un nouvel onglet. Tant que ce champ est vide, le bouton mène à l'inscription à la newsletter. Si le PDF contient plus de trois chapitres, changez le texte du bouton dans « Texte du bouton des chapitres ».
 
 ## Bouton « Audio - me prévenir »

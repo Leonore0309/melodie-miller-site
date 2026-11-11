@@ -88,7 +88,6 @@ content:
           - { name: livre, label: "Identifiant du livre (voir « Livres »)", type: string }
           - { name: style, label: "Style festif (noel = rouge et doré, à vider après les fêtes)", type: string }
           - { name: badge, label: "Étiquette (ex. Nouveauté)", type: string }
-          - { name: texte, label: "Texte complet (un paragraphe par ligne)", type: string, list: true }
           - { name: texte_court, label: "Texte (une phrase)", type: text }
           - { name: badge_style, label: "Style de l'étiquette (bientot = corail)", type: string }
           - { name: bouton, label: "Texte du bouton", type: string }
@@ -128,7 +127,6 @@ content:
         fields:
           - { name: titre, label: Titre, type: string }
           - { name: texte, label: Texte, type: text }
-          - { name: provisoire, label: "Afficher « provisoire »", type: boolean }
           - { name: vide, label: "Message s'il n'y a aucun article", type: string }
           - name: articles
             label: Articles
@@ -283,8 +281,9 @@ content:
               - { name: texte, label: "Texte du bouton", type: string }
               - { name: url, label: Adresse, type: string }
           - name: prix
-            label: Prix
+            label: "Prix et distinctions"
             type: object
+            list: true
             fields:
               - { name: emoji, label: Emoji, type: string }
               - { name: texte, label: Texte, type: string }
@@ -411,7 +410,6 @@ content:
     type: file
     path: _data/ecran.yml
     fields:
-      - { name: provisoire, label: "Afficher « textes proposés, à valider »", type: boolean }
       - { name: titre, label: Titre, type: string }
       - { name: intro, label: "Introduction (1re phrase)", type: text }
       - { name: intro_suite, label: "Introduction (suite)", type: text, list: true }
@@ -468,18 +466,9 @@ content:
               values:
                 - { value: feelgood, label: "Romances" }
                 - { value: thriller, label: Thrillers }
-          - { name: genre, label: "Titre du groupe", type: string }
           - { name: titre, label: Titre, type: string }
           - { name: tome, label: "Série et tome", type: string }
           - { name: visuel, label: "Visuel audio (nom du fichier)", type: string }
-          - name: statut
-            label: Statut
-            type: select
-            options:
-              values:
-                - { value: disponible, label: Disponible }
-                - { value: bientot, label: "Bientôt" }
-                - { value: a-venir, label: "À venir" }
           - { name: message, label: "Message (ex. Disponible dès décembre 2026)", type: string }
           - { name: url, label: "Lien d'écoute Audible (vide = bouton « Me prévenir »)", type: string }
       - name: voix

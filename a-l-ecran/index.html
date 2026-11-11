@@ -23,7 +23,7 @@ ecran: true
     <div class="projet-affiches">
       {% for id in p.livres %}
       {% assign l = tous | where: "id", id | first %}
-      <a href="{{ p.lien | relative_url }}"><img src="{{ '/assets/img/livres/' | append: l.image | relative_url }}" alt="Couverture de {{ l.titre }}" loading="lazy"></a>
+      <a href="{{ p.lien | relative_url }}"><img src="{% include couverture-url.html f=l.image %}" alt="Couverture de {{ l.titre }}" loading="lazy"></a>
       {% endfor %}
     </div>
     <div class="projet-texte">

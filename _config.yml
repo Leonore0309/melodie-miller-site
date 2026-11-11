@@ -30,6 +30,7 @@ exclude:
   - README.md
   - GUIDE-MELODIE.md
   - CLAUDE.md
+  - AUDIT.md
   - Gemfile
   - Gemfile.lock
   - vendor/
