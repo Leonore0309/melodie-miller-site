@@ -55,6 +55,9 @@ Un champ vide s'écrit `""`. Exemple : `lien: ""`.
 ### Ajouter une dédicace ou un salon
 `rencontres.yml`, partie `evenements:`. Copiez une ligne existante, collez-la en dessous et changez : `quand` (la date affichée, ex. « 20-21 mars 2027 »), `debut` et `fin` (premier et dernier jour, `"AAAA-MM-JJ"`), `titre`, `lieu`, et `lien` (site de l'organisateur, ou `""`). La prochaine date s'affiche en grand avec « Dans X jours ». Une fois le dernier jour passé, elle disparaît toute seule.
 
+### Ajouter ou changer un témoignage (page Rencontres et presse)
+`rencontres.yml`, partie `temoignages:`. Copiez un bloc de 3 lignes dans `citations:` et changez `texte`, `auteur` et `compte` (pseudo Instagram, ou `""`). `style:` vaut `bulles` (bulles de dialogue) ou `notes` (notes épinglées) : changez ce mot pour changer l'aspect. Pensez à garder 2 témoignages : la mise en page est prévue pour deux.
+
 ### Ajouter une rencontre à la page Conférences
 `conferences.yml`, partie `liste:`. Copiez une ligne et changez `date` (date exacte `"AAAA-MM-JJ"`, ou le dernier jour du mois si elle n'est pas fixée), `quand` (ex. « Mars 2027 »), `lieu` et `sujet`. Elle passe seule de « À venir » à « Passées ».
 

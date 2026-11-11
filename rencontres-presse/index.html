@@ -9,11 +9,20 @@ presse: true
 {% assign r = site.data.rencontres %}
 <section class="container section">
   <h1>{{ r.titre }}</h1>
-  <div class="texte-photo">
+  <div class="texte-photo avec-temoignages">
     <div class="texte-long">
       {% for p in r.paragraphes %}<p>{{ p }}</p>{% endfor %}
     </div>
     {% include photo.html src=r.photo alt=r.photo_alt legende=r.photo_legende %}
+    {% assign vt = r.temoignages %}
+    {% if vt.citations.size > 0 %}
+    <div class="vos-temoignages vt-{{ vt.style | default: 'bulles' }}">
+      <h2 class="vt-titre">{{ vt.titre }}</h2>
+      {% for t in vt.citations %}
+      <blockquote class="vt-item"><p>« {{ t.texte }} »</p><footer>{{ t.auteur }}{% if t.compte and t.compte != "" %} <span class="vt-compte">{{ t.compte }}</span>{% endif %}</footer></blockquote>
+      {% endfor %}
+    </div>
+    {% endif %}
   </div>
 </section>
 
