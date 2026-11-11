@@ -15,7 +15,7 @@ The site is sound: small (about 2,700 lines), consistently organised, content se
 The main risks are not attacks. They are:
 
 1. **Nothing checks an edit before it goes live.** Every push to `main` deploys. Content is now edited by hand in YAML, where one wrong indent fails the build and the site stays on the old version. The owner chose not to add checks before deploying (see E3); a failed deploy is only signalled by GitHub's failure email and the Actions tab.
-2. **Launch blockers remain**: legal pages, newsletter sign-up, indexing switches, third-party fonts.
+2. **Launch blockers**: the code side is done (Phase 1). The legal gaps, the newsletter address, the image rights and the launch switch remain with the owner.
 
 After those, the biggest gain for scalability is giving each book its own page, and the biggest gain for polish is in accessibility and image loading.
 
@@ -23,63 +23,63 @@ After those, the biggest gain for scalability is giving each book its own page, 
 
 Severity: **High** = breaks a page or blocks launch · **Medium** = real cost or risk, not urgent · **Low** = tidy-up.
 
-Numbers are stable: the gaps (E1, E2, E4, E6, E9) are the CMS-only findings that were dropped. Findings describe the site as audited; section 3 says what has been fixed since.
+Numbers are stable: the gaps (E1, E2, E4, E6, E9) are the CMS-only findings that were dropped. Findings describe the site as audited; the Status column says what has happened since.
 
 ### 2.1 Content editing
 
-| # | Finding | Where | Severity |
-|---|---|---|---|
-| E3 | No validation and no preview. A wrong value either fails the build (the site stays on the old version) or publishes a broken page. **Accepted risk**: the owner chose on 11 November 2026 not to add checks before pushing or deploying. Mitigation: keep GitHub's "failed workflow" email notifications on for whoever edits | `.github/workflows/pages.yml` | High |
-| E5 | Dates, styles and book identifiers are typed by hand. A typo fails silently (a misspelt book id in Nouveautés gives a card with no title and no cover) | `_data/*.yml`, `_includes/nouveautes.html` | Medium |
-| E7 | Text still hard-coded in pages, against the project rule: menu labels, section-menu labels, "Cinéma & télévision", "Livres audio", "Romances", "Thrillers", "Les premiers chapitres", "Contacter Mélodie", both legal pages | `_includes/header.html`, `*/index.html`, `_layouts/extrait.html` | Low |
-| E8 | The festive style must be switched on, then off, by hand in two places | `_data/livres.yml`, `_data/nouveautes.yml` | Low |
-| E10 | With the CMS gone there is no editing guide, and no no-code way for the owner to change content. Who edits, and how, is undecided | — | Medium |
+| # | Finding | Where | Severity | Status |
+|---|---|---|---|---|
+| E3 | No validation and no preview. A wrong value either fails the build (the site stays on the old version) or publishes a broken page. The owner chose on 11 November 2026 not to add checks before pushing or deploying. Mitigation: keep GitHub's "failed workflow" email notifications on for whoever edits | `.github/workflows/pages.yml` | High | Accepted risk |
+| E5 | Dates, styles and book identifiers are typed by hand. A typo fails silently (a misspelt book id in Nouveautés gives a card with no title and no cover) | `_data/*.yml`, `_includes/nouveautes.html` | Medium | Accepted risk (checks cancelled) |
+| E7 | Text still hard-coded in pages, against the project rule: menu labels, section-menu labels, "Cinéma & télévision", "Livres audio", "Romances", "Thrillers", "Les premiers chapitres", "Contacter Mélodie", both legal pages | `_includes/header.html`, `*/index.html`, `_layouts/extrait.html` | Low | To do (Phase 3) |
+| E8 | The festive style must be switched on, then off, by hand in two places | `_data/livres.yml`, `_data/nouveautes.yml` | Low | Removed from plan |
+| E10 | With the CMS gone there is no editing guide, and no no-code way for the owner to change content. Who edits, and how, is undecided | — | Medium | To do (Phase 3) |
 
 ### 2.2 Architecture and scalability
 
-| # | Finding | Where | Severity |
-|---|---|---|---|
-| A1 | All 17 books live in one 233-line list and exist only as anchors inside carousels and cards. There is no page per book: nothing to share, to index, or to link from a newsletter | `_data/livres.yml` | Medium |
-| A2 | Series are hard-coded in two places: the page templates and the sticky section menu. A new saga needs template work | `romances-feel-good/index.html`, `thrillers/index.html` | Medium |
-| A3 | Audio editions repeat the book's identity (id, title, volume) in a second file | `_data/audio.yml` | Low |
-| A4 | `Gemfile.lock` is git-ignored, so each deploy resolves gem versions afresh: builds are not reproducible | `.gitignore`, `Gemfile` | Medium |
-| A5 | No automated check of any kind. A link verifier already exists but only runs by hand when building the zip mock-up | `outils/maquette.py` (`verifier`) | Medium |
-| A6 | 29 colour literals outside `base.css`, mostly the festive red and gold and the "bientôt" coral, against the variables rule | `assets/css/portail.css` and others | Low |
-| A7 | Documentation drift: the README still says to create the repo and that GitHub Pages uses its own Jekyll (the workflow builds with Bundler); `.texte-flux` is "2 colonnes" in `CLAUDE.md` and "1 colonne" in `base.css`; leftover `accueil: a` variant flag; empty folder `assets/img/portrait/`; `_config.yml` still excludes the deleted `GUIDE-MELODIE.md` | `README.md`, `CLAUDE.md`, `index.html`, `_config.yml` | Low |
-| A8 | Excerpt pages have no date, so each build stamps them with the build time and declares them as blog posts in their metadata | `_layouts/extrait.html` | Low |
+| # | Finding | Where | Severity | Status |
+|---|---|---|---|---|
+| A1 | All 17 books live in one 233-line list and exist only as anchors inside carousels and cards. There is no page per book: nothing to share, to index, or to link from a newsletter | `_data/livres.yml` | Medium | Removed from plan |
+| A2 | Series are hard-coded in two places: the page templates and the sticky section menu. A new saga needs template work | `romances-feel-good/index.html`, `thrillers/index.html` | Medium | To do (Phase 4) |
+| A3 | Audio editions repeat the book's identity (id, title, volume) in a second file | `_data/audio.yml` | Low | To do (Phase 4) |
+| A4 | `Gemfile.lock` is git-ignored, so each deploy resolves gem versions afresh: builds are not reproducible | `.gitignore`, `Gemfile` | Medium | **Done** (Phase 2) |
+| A5 | No automated check of any kind. A link verifier already exists but only runs by hand when building the zip mock-up | `outils/maquette.py` (`verifier`) | Medium | Cancelled |
+| A6 | 29 colour literals outside `base.css`, mostly the festive red and gold and the "bientôt" coral, against the variables rule | `assets/css/portail.css` and others | Low | To do (Phase 4) |
+| A7 | Documentation drift: the README still says to create the repo and that GitHub Pages uses its own Jekyll (the workflow builds with Bundler); `.texte-flux` is "2 colonnes" in `CLAUDE.md` and "1 colonne" in `base.css`; leftover `accueil: a` variant flag; empty folder `assets/img/portrait/`; `_config.yml` still excludes the deleted `GUIDE-MELODIE.md` | `README.md`, `CLAUDE.md`, `index.html`, `_config.yml` | Low | To do (Phase 4) |
+| A8 | Excerpt pages have no date, so each build stamps them with the build time and declares them as blog posts in their metadata | `_layouts/extrait.html` | Low | To do (Phase 4) |
 
 ### 2.3 Security and privacy
 
 The attack surface is low: static files only, no form, no cookie, no third-party script, deploy permissions already minimal. Removing the CMS also removes a third party with write access to the repository.
 
-| # | Finding | Where | Severity |
-|---|---|---|---|
-| S1 | Fonts are loaded from Google on every page, which sends each visitor's IP address to Google. The privacy page itself lists this as unresolved | `_layouts/default.html` | High (launch) |
-| S2 | Legal notice and privacy policy are placeholders. Both are mandatory in France before launch | `mentions-legales/index.html`, `confidentialite/index.html` | High (launch) |
-| S3 | Account-level items (two-factor authentication, revoking old Pages CMS access, long-term ownership of the repository and the domain). **Removed from the plan** by the owner on 11 November 2026 | GitHub settings | Medium |
-| S4 | Data values are written into HTML attributes unescaped (`alt`, `aria-label`, `href`), except on the press page. A double quote in a title breaks the markup | `_includes/*.html` | Low |
-| S5 | No Content-Security-Policy and no referrer policy. A strict policy is feasible because there are no inline scripts and no `style` attributes | `_layouts/default.html` | Low |
-| S6 | GitHub Actions are pinned by tag, not by commit; no Dependabot | `.github/workflows/pages.yml` | Low |
-| S7 | The contact address is in clear text on every page (spam harvesting) and is a personal Gmail address | `_data/site.yml` | Low |
-| S8 | Press clippings are reproductions and one photo shows third parties: reproduction and image rights to secure (already noted in the README) | `assets/img/presse/`, `assets/img/photos/atelier-kobo.jpg` | Medium |
+| # | Finding | Where | Severity | Status |
+|---|---|---|---|---|
+| S1 | Fonts are loaded from Google on every page, which sends each visitor's IP address to Google. The privacy page itself lists this as unresolved | `_layouts/default.html` | High (launch) | **Done** (Phase 1) |
+| S2 | Legal notice and privacy policy are placeholders. Both are mandatory in France before launch | `mentions-legales/index.html`, `confidentialite/index.html` | High (launch) | **Done** (Phase 1); owner to fill the gaps |
+| S3 | Account-level items (two-factor authentication, revoking old Pages CMS access, long-term ownership of the repository and the domain). Removed from the plan by the owner on 11 November 2026 | GitHub settings | Medium | Removed from plan |
+| S4 | Data values are written into HTML attributes unescaped (`alt`, `aria-label`, `href`), except on the press page. A double quote in a title breaks the markup | `_includes/*.html` | Low | **Done** (Phase 2) |
+| S5 | No Content-Security-Policy and no referrer policy. A strict policy is feasible because there are no inline scripts and no `style` attributes | `_layouts/default.html` | Low | Removed from plan |
+| S6 | GitHub Actions are pinned by tag, not by commit; no Dependabot | `.github/workflows/pages.yml` | Low | **Done** (Phase 2) |
+| S7 | The contact address is in clear text on every page (spam harvesting) and is a personal Gmail address | `_data/site.yml` | Low | Open, no action planned |
+| S8 | Press clippings are reproductions and one photo shows third parties: reproduction and image rights to secure (already noted in the README) | `assets/img/presse/`, `assets/img/photos/atelier-kobo.jpg` | Medium | Owner action |
 
 Checked and fine: no EXIF or GPS data in the 38 images; the four PDFs carry only the author's pen name as metadata; external links opened in a new tab all carry `rel="noopener"`; no secret in the repository.
 
 ### 2.4 Visitor experience, accessibility, performance, SEO
 
-| # | Finding | Where | Severity |
-|---|---|---|---|
-| U1 | The newsletter has no sign-up form (`formulaire_url` is empty). Every "Je m'inscris" and "Me prévenir" opens an email draft | `_data/site.yml`, `_includes/newsletter-lien.html` | High (launch) |
-| U2 | For the 13 books without an excerpt, "Lire les 3 premiers chapitres" also opens that email draft: the button promises chapters and delivers a blank email | `_includes/boutons-livre.html` | High |
-| U3 | Carousels advance every 4 s inside an `aria-live="polite"` region, so a screen reader announces each rotation, and there is no pause button (WCAG 2.2.2) | `_includes/carrousel.html`, `assets/js/carrousel.js` | Medium |
-| U4 | Gold text `#b08d57` on white is about 3.1:1, under the 4.5:1 minimum. Past conference cards at 62% opacity are lower still | `assets/css/univers-conference.css` | Medium |
-| U5 | Images have no `width`/`height`, so pages shift while loading. No responsive sizes or modern format: 700 px covers are served for 110 px slots. The home-page portrait is lazy-loaded although it is the main image above the fold. One press image weighs 624 KB | `_includes/photo.html`, `_includes/nouveautes.html`, `assets/img/presse/republique-77-succes.jpg` | Medium |
-| U6 | The home page and the other "portail" pages load all seven font families | `_layouts/default.html` | Medium |
-| U7 | Contact is `mailto:` only: a visitor without a configured mail client cannot write | `contact/index.html` | Medium |
-| U8 | No favicon, no social sharing image, no 404 page, no structured data (Person, Book, Event) | site-wide | Medium |
-| U9 | `robots.txt` is a static `Disallow: /`, separate from the `noindex` switch in `_config.yml`: easy to flip one and forget the other at launch | `robots.txt`, `_config.yml` | Medium |
-| U10 | Menu: `aria-haspopup` on a plain link, no `aria-current` on the active page, Escape does not close the mobile menu | `_includes/header.html`, `assets/js/menu.js` | Low |
-| U11 | Buy links open in the same tab while PDFs open in a new one, with no "(nouvel onglet)" hint | `_includes/boutons-livre.html` | Low |
+| # | Finding | Where | Severity | Status |
+|---|---|---|---|---|
+| U1 | The newsletter has no sign-up form (`formulaire_url` is empty). Every "Je m'inscris" and "Me prévenir" opens an email draft | `_data/site.yml`, `_includes/newsletter-lien.html` | High (launch) | Owner action |
+| U2 | For the 13 books without an excerpt, "Lire les 3 premiers chapitres" also opens that email draft: the button promises chapters and delivers a blank email | `_includes/boutons-livre.html` | High | **Done** (Phase 1) |
+| U3 | Carousels advance every 4 s inside an `aria-live="polite"` region, so a screen reader announces each rotation, and there is no pause button (WCAG 2.2.2) | `_includes/carrousel.html`, `assets/js/carrousel.js` | Medium | Removed from plan |
+| U4 | Gold text `#b08d57` on white is about 3.1:1, under the 4.5:1 minimum. Past conference cards at 62% opacity are lower still | `assets/css/univers-conference.css` | Medium | Removed from plan |
+| U5 | Images have no `width`/`height`, so pages shift while loading. No responsive sizes or modern format: 700 px covers are served for 110 px slots. The home-page portrait is lazy-loaded although it is the main image above the fold. One press image weighs 624 KB | `_includes/photo.html`, `_includes/nouveautes.html`, `assets/img/presse/republique-77-succes.jpg` | Medium | To do (Phase 5) |
+| U6 | The home page and the other "portail" pages load all seven font families | `_layouts/default.html` | Medium | **Done** (Phase 1) |
+| U7 | Contact is `mailto:` only: a visitor without a configured mail client cannot write | `contact/index.html` | Medium | Removed from plan |
+| U8 | No favicon, no social sharing image, no 404 page, no structured data (Person, Book, Event) | site-wide | Medium | **Done** (Phase 1): favicon, sharing image, 404. Structured data: to do (Phase 5) |
+| U9 | `robots.txt` is a static `Disallow: /`, separate from the `noindex` switch in `_config.yml`: easy to flip one and forget the other at launch | `robots.txt`, `_config.yml` | Medium | **Done** (Phase 1) |
+| U10 | Menu: `aria-haspopup` on a plain link, no `aria-current` on the active page, Escape does not close the mobile menu | `_includes/header.html`, `assets/js/menu.js` | Low | To do (Phase 5) |
+| U11 | Buy links open in the same tab while PDFs open in a new one, with no "(nouvel onglet)" hint | `_includes/boutons-livre.html` | Low | To do (Phase 5) |
 
 ## 3. Improvement plan
 
@@ -87,87 +87,79 @@ Size: **S** = under an hour · **M** = half a day · **L** = a day or more.
 
 "None" in the last column means the built pages are meant to stay identical, and that is verified (see 3.7). Phases 2 and 3 are designed to leave the pages untouched. The visible changes are in phases 1, 4 and 5, and each needs the owner's agreement before it is done.
 
-### 3.1 Phase 0 — Clean-up (done, 11 November 2026)
+### 3.1 Phase 0 — Clean-up
 
-- Five data values that no template reads were removed: `nouveautes.texte`, `presse.provisoire`, `ecran.provisoire`, `audio.genre`, `audio.statut`.
-- The example excerpt has `published: false`, so `/extraits/exemple/` is no longer online.
-- The CMS was removed: `.pages.yml` and `GUIDE-MELODIE.md` deleted, the CMS rule dropped from `CLAUDE.md`, the Pages CMS step dropped from the README.
-- A before/after build comparison showed every page byte-identical, except `/extraits/exemple/`, which is gone.
+| Item | Status |
+|---|---|
+| Remove five data values no template reads (`nouveautes.texte`, `presse.provisoire`, `ecran.provisoire`, `audio.genre`, `audio.statut`) | **Done** |
+| Unpublish the example excerpt (`published: false`, `/extraits/exemple/` no longer online) | **Done** |
+| Remove the CMS: `.pages.yml` and `GUIDE-MELODIE.md` deleted, CMS rule dropped from `CLAUDE.md`, Pages CMS step dropped from the README | **Done** |
+
+Verified: every page byte-identical before and after, except `/extraits/exemple/`, which is gone.
 
 ### 3.2 Phase 1 — Launch blockers
 
-**Done on 11 November 2026:**
-- Legal notice and privacy policy written, stored in `_data/legal.yml`. The facts only the owner knows are marked `[à compléter : …]`, and the "Texte provisoire" label shows until `provisoire: false`.
-- "Lire les 3 premiers chapitres" is hidden on the 13 books without an excerpt (owner's choice).
-- Fonts are hosted in `assets/polices/` (22 files, 648 KB, Latin and extended Latin). No call to Google remains. The per-page `polices:` setting is gone: a browser only downloads the fonts a page uses, which also settles U6.
-- Favicon, iPhone icon, and a sharing image (portrait and name) set as the default for every page in `_config.yml`. `outils/partage.py` regenerates the two images.
-- 404 page, with its text in `_data/site.yml`.
-- `robots.txt` follows `site.noindex`. While it is `true`, the file is byte-identical to the previous one.
-- Launch checklist written in the README.
-
-Remaining, all on the owner's side:
-
-| Item | Fixes | Size | Visible on the pages |
+| Item | Fixes | Visible on the pages | Status |
 |---|---|---|---|
-| Fill in the `[à compléter : …]` gaps of `_data/legal.yml`, then set `provisoire: false` | S2 | S | The gaps and the "Texte provisoire" label disappear from the two legal pages |
-| Choose the newsletter tool and fill in `newsletter.formulaire_url` | U1 | S | Same buttons, same look. They open the sign-up form instead of an email draft |
-| Secure press and photo rights | S8 | — | A clipping or photo is removed only if rights are refused |
-| Launch switch, following the README checklist (touches `_config.yml`) | U9 | S | The site address changes. Pages identical |
+| Legal notice and privacy policy written in `_data/legal.yml`, with `[à compléter : …]` gaps and a "Texte provisoire" label while `provisoire: true` | S2 | Text of the two legal pages | **Done** |
+| Hide "Lire les 3 premiers chapitres" on the 13 books without an excerpt (owner's choice) | U2 | The button disappears from those books | **Done** |
+| Fonts hosted in `assets/polices/` (22 files, 648 KB); no call to Google; per-page `polices:` setting removed | S1, U6 | None intended | **Done** (not checked in a browser: screenshots skipped by the owner) |
+| Favicon, iPhone icon, default sharing image (portrait and name), regenerated by `outils/partage.py` | U8 | Tab icon and link previews | **Done** |
+| 404 page, text in `_data/site.yml` | U8 | New page on wrong addresses | **Done** |
+| `robots.txt` driven by `site.noindex` | U9 | None (byte-identical while `noindex: true`) | **Done** |
+| Launch checklist in the README | U9 | None | **Done** |
+| Fill in the `[à compléter : …]` gaps of `_data/legal.yml`, then `provisoire: false` | S2 | Gaps and label disappear | Owner action |
+| Choose the newsletter tool, fill in `newsletter.formulaire_url` | U1 | Buttons open the sign-up form | Owner action |
+| Secure press and photo rights | S8 | A clipping or photo removed only if refused | Owner action |
+| Launch switch, following the README checklist (touches `_config.yml`) | U9 | The site address changes | Owner action, last |
 
 ### 3.3 Phase 2 — Hardening
 
-**Done on 11 November 2026:**
-- `Gemfile.lock` is committed, with the Windows and Linux platforms, so the online build uses the same gem versions as the local one.
-- Data values in HTML attributes go through `escape` (72 places). Fixed internal addresses are left as they are. Once HTML entities are decoded, the built pages are identical to before.
-- The five actions of the deploy workflow are pinned to exact commits. `.github/dependabot.yml` proposes gem and action updates once a month, as pull requests.
-- The security headers (S5) were removed from the plan by the owner.
+The owner decided on 11 November 2026 not to add checks before pushing or deploying, and removed the account-settings item and the security headers. The data check, build check and link check (E3, E5, A5) are cancelled, and so is branch protection, which only helps with checks before merging.
 
-The owner decided on 11 November 2026 not to add checks before pushing or deploying, and removed the account-settings item. The data check, build check and link check (E3, E5, A5) are cancelled, and so is branch protection, which only helps with checks before merging.
-
-| Item | Fixes | Size | Visible on the pages |
+| Item | Fixes | Visible on the pages | Status |
 |---|---|---|---|
-| Commit `Gemfile.lock` | A4 | S | None |
-| Escape data in HTML attributes | S4 | S | None for the current content |
-| Pin Actions by commit, add Dependabot (update proposals as pull requests, nothing runs on pushes or deploys) | S6 | S | None |
+| Commit `Gemfile.lock`, with the Windows and Linux platforms | A4 | None | **Done** (first online build not yet run) |
+| Escape data in HTML attributes (72 places) | S4 | None: pages identical once entities are decoded | **Done** |
+| Pin the five Actions by commit, add Dependabot (monthly update proposals as pull requests) | S6 | None | **Done** |
 
 ### 3.4 Phase 3 — Content editing without a CMS
 
-| Item | Fixes | Size | Visible on the pages |
-|---|---|---|---|
-| Decide who edits content (see section 4). If the owner edits: a short guide for editing the data files in GitHub's web editor, including "what to do when the site did not update" | E10, E3 | M | None |
-| Festive style driven by a start and an end date | E8 | M | Same look as today. It switches on and off on the dates instead of by hand |
-| Move the remaining hard-coded strings to `_data` | E7 | M | None: the same words, stored in data files |
+| Item | Fixes | Size | Visible on the pages | Status |
+|---|---|---|---|---|
+| Editing guide for Mélodie, who edits the data files in GitHub's web editor (owner's decision, 11 November 2026), including "what to do when the site did not update" | E10, E3 | M | None | To do |
+| Move the remaining hard-coded strings to `_data` | E7 | M | None: the same words, stored in data files | To do |
 
 ### 3.5 Phase 4 — Scalability
 
-| Item | Fixes | Size | Visible on the pages |
-|---|---|---|---|
-| Books as a Jekyll collection: one file and one page per book (buy buttons, excerpt, audio edition, Book structured data, sharing image) | A1, U8 | L | **Visible**: new pages, one per book. Existing pages keep their layout and their `#id` anchors. The only change on them would be the title and cover becoming links to the book page. Design to be validated on a mock-up first |
-| Series described in `_data/series.yml`, driving the pages and the section menu | A2 | M | None: same sections, same order |
-| Audio edition merged into the book record | A3 | M | None |
-| Move colour literals to variables in `base.css` | A6 | S | None: identical values |
-| Bring the README and `CLAUDE.md` back in sync, remove leftovers | A7, A8 | S | None |
+| Item | Fixes | Size | Visible on the pages | Status |
+|---|---|---|---|---|
+| Series described in `_data/series.yml`, driving the pages and the section menu | A2 | M | None: same sections, same order | To do |
+| Audio edition merged into the book record | A3 | M | None | To do |
+| Move colour literals to variables in `base.css` | A6 | S | None: identical values | To do |
+| Bring the README and `CLAUDE.md` back in sync, remove leftovers | A7, A8 | S | None | To do |
 
-### 3.6 Phase 5 — High-end polish (all visible, each optional)
+### 3.6 Phase 5 — High-end polish
 
-| Item | Fixes | Size | Visible on the pages |
-|---|---|---|---|
-| Carousel pause button, live region silent during auto-advance | U3 | M | A small pause/play button appears on each carousel (feel-good page) |
-| Contrast fixes | U4 | S | Conference page: gold labels slightly darker, past events less faded |
-| Image dimensions, responsive sizes, hero loaded eagerly, heavy press image recompressed | U5 | M | Same look. Pages stop shifting while loading and load faster |
-| Menu semantics | U10 | S | Current page marked in the menu (can be kept invisible). Escape closes the mobile menu |
-| Consistent external links | U11 | S | Behaviour change: buy links open in a new tab, like the PDFs |
-| Contact form through the newsletter tool or a form service | U7 | M | New block on the contact page. The email link stays. Adds a third-party processor to declare in the privacy policy |
-| Person and Event structured data | U8 | S | None on the page (search results only) |
+| Item | Fixes | Size | Visible on the pages | Status |
+|---|---|---|---|---|
+| Image dimensions, responsive sizes, hero loaded eagerly, heavy press image recompressed | U5 | M | Same look. Pages stop shifting while loading and load faster | To do |
+| Menu semantics | U10 | S | Current page marked in the menu (can be kept invisible). Escape closes the mobile menu | To do |
+| Consistent external links | U11 | S | Behaviour change: buy links open in a new tab, like the PDFs | To do |
+| Person and Event structured data | U8 | S | None on the page (search results only) | To do |
 
 ### 3.7 Rule for every "None" item
 
 Build the site before and after the change and compare the two output folders. Differences must be limited to what the item states, ideally nothing. Add screenshots of each page at 320, 768 and 1280 px, as `CLAUDE.md` already requires for CSS. Anything unexpected is treated as a visible change and goes back to the owner before merge.
 
-## 4. Decisions needed from the owner
+## 4. Decisions
 
-1. Who edits content now that there is no CMS: the owner in GitHub's web editor (then a guide is needed), or the developer only.
-2. Which newsletter tool (Brevo, MailerLite or other). It unblocks U1 and possibly U7.
-3. Whether a contact form is wanted, knowing it adds a third-party processor.
-4. Who owns the GitHub repository and the domain in the long run.
-5. Whether per-book pages are wanted before launch or after.
+Taken on 11 November 2026:
+- No CMS; content is edited by Mélodie, directly in GitHub's web editor.
+- No checks before pushing or deploying.
+- Hide the chapters button on books without an excerpt; sharing image made of the portrait and the name.
+- Removed from the plan: account settings, security headers, per-book pages, festive dates, carousel pause button, contrast fixes, contact form.
+
+Still open:
+1. Which newsletter tool (Brevo, MailerLite or other). It unblocks U1.
+2. Who owns the GitHub repository and the domain in the long run.
