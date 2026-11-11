@@ -1,23 +1,21 @@
 {%- comment -%}
   Boutons d'un livre. Paramètres : l (un livre de livres.yml), nl (lien newsletter),
   discret (true = petit lien « premiers chapitres » pour les vignettes de saga).
+  Sans extrait (champ « extrait » vide), aucun bouton ni lien « premiers chapitres ».
   Ordre : acheter · chapitres · audio.
 {%- endcomment -%}
 {% assign l = include.l %}
 {% assign utiles = l.liens | where_exp: "x", "x.url and x.url != ''" %}
 {% assign libelle = l.extrait_libelle | default: "Lire les 3 premiers chapitres" %}
+{% assign chap_url = "" %}
 {% if l.extrait and l.extrait != "" %}
   {% if l.extrait contains '://' %}{% capture chap_url %}{{ l.extrait }}{% endcapture %}{% else %}{% capture chap_url %}{{ l.extrait | relative_url }}{% endcapture %}{% endif %}
-  {% assign chap_externe = true %}
-{% else %}
-  {% assign chap_url = include.nl | strip %}
-  {% assign chap_externe = false %}
 {% endif %}
 <p class="boutons">
   {% for lien in l.liens %}{% if lien.url and lien.url != "" %}<a class="btn" href="{{ lien.url }}" rel="noopener">{{ lien.nom }}</a>{% endif %}{% endfor %}
   {% if l.statut == 'a-paraitre' and utiles.size == 0 %}<a class="btn" href="{{ include.nl | strip }}" rel="noopener">Être informé de sa sortie</a>{% endif %}
-  {% unless include.discret %}<a class="btn btn-ghost" href="{{ chap_url | strip }}"{% if chap_externe %} target="_blank"{% endif %} rel="noopener">{{ libelle }}</a>{% endunless %}
+  {% if chap_url != "" %}{% unless include.discret %}<a class="btn btn-ghost" href="{{ chap_url | strip }}" target="_blank" rel="noopener">{{ libelle }}</a>{% endunless %}{% endif %}
   {% if l.audio_bientot %}<a class="btn btn-ghost" href="{{ include.nl | strip }}" rel="noopener">Audio - me prévenir</a>{% endif %}
   {% if utiles.size == 0 and l.statut != 'a-paraitre' %}<span class="a-venir">Lien d'achat à venir</span>{% endif %}
 </p>
-{% if include.discret %}<p class="lien-chapitres"><a href="{{ chap_url | strip }}"{% if chap_externe %} target="_blank"{% endif %} rel="noopener">{{ libelle | remove: "Lire les " | remove: "Lire " }} &rsaquo;</a></p>{% endif %}
+{% if include.discret and chap_url != "" %}<p class="lien-chapitres"><a href="{{ chap_url | strip }}" target="_blank" rel="noopener">{{ libelle | remove: "Lire les " | remove: "Lire " }} &rsaquo;</a></p>{% endif %}

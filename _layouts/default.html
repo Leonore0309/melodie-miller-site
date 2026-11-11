@@ -5,26 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 {% seo %}
 {% if site.noindex %}<meta name="robots" content="noindex, nofollow">{% endif %}
-{%- comment -%}
-  Polices : chaque page ne charge que les siennes. Réglage « polices » dans l'en-tête de la page
-  (feelgood, thriller, conference ; vide = toutes, pour les pages qui mélangent les univers).
-{%- endcomment -%}
-{% assign f_bebas = "family=Bebas+Neue" %}
-{% assign f_cormorant = "family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600" %}
-{% assign f_dancing = "family=Dancing+Script:wght@600" %}
-{% assign f_inter = "family=Inter:wght@400;500;600" %}
-{% assign f_lora = "family=Lora:ital,wght@0,400;0,500;1,400" %}
-{% assign f_playfair = "family=Playfair+Display:ital,wght@0,500;1,500;1,600" %}
-{% assign f_source = "family=Source+Serif+4:ital,wght@0,400;0,600;1,400" %}
-{% case page.polices %}
-  {% when "feelgood" %}{% assign polices = f_dancing | append: "&" | append: f_lora | append: "&" | append: f_playfair %}
-  {% when "thriller" %}{% assign polices = f_bebas | append: "&" | append: f_source %}
-  {% when "conference" %}{% assign polices = f_cormorant | append: "&" | append: f_dancing | append: "&" | append: f_inter %}
-  {% else %}{% assign polices = f_bebas | append: "&" | append: f_cormorant | append: "&" | append: f_dancing | append: "&" | append: f_inter | append: "&" | append: f_lora | append: "&" | append: f_playfair | append: "&" | append: f_source %}
-{% endcase %}
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?{{ polices }}&display=swap">
+<link rel="icon" href="{{ '/assets/img/favicon.svg' | relative_url }}" type="image/svg+xml">
+<link rel="apple-touch-icon" href="{{ '/assets/img/apple-touch-icon.png' | relative_url }}">
+{%- comment -%} Polices hébergées sur le site : le navigateur ne télécharge que celles que la page utilise. {%- endcomment -%}
+<link rel="stylesheet" href="{{ '/assets/polices/polices.css' | relative_url }}">
 <link rel="stylesheet" href="{{ '/assets/css/base.css' | relative_url }}">
 <link rel="stylesheet" href="{{ '/assets/css/portail.css' | relative_url }}">
 <link rel="stylesheet" href="{{ '/assets/css/univers-conference.css' | relative_url }}">

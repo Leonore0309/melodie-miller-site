@@ -25,6 +25,11 @@ defaults:
       type: "extraits"
     values:
       layout: extrait
+  # Image affichée quand une page du site est partagée (réseaux sociaux, messageries). Refaite par outils/partage.py.
+  - scope:
+      path: ""
+    values:
+      image: /assets/img/partage.jpg
 
 exclude:
   - README.md

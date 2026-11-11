@@ -5,7 +5,7 @@
 # image : fichier dans assets/img/livres/ (vide = cadre « couverture à venir »)
 # liens : un bouton par lien. Un bouton dont l'adresse (url) est vide n'est pas affiché : collez-la plus tard.
 # extrait : PDF déposé dans assets/chapitres/ (/assets/chapitres/mon-livre.pdf), page d'extrait du site (/extraits/xxx/) ou lien externe.
-#   Vide = le bouton « Lire les 3 premiers chapitres » mène à la newsletter en attendant.
+#   Vide = aucun bouton « premiers chapitres » sur ce livre.
 # extrait_libelle : texte du bouton si ce n'est pas « Lire les 3 premiers chapitres » (facultatif).
 # audio_bientot : true = bouton « Audio - me prévenir » (newsletter). À retirer quand le lien Audible existe.
 # style : noel = badge et boutons rouge et doré (à vider après les fêtes).

@@ -17,3 +17,11 @@ newsletter:
   # Collez ici l'adresse du formulaire d'inscription de votre outil d'emailing (Brevo, MailerLite...).
   # Tant qu'elle est vide, le bouton ouvre un email.
   formulaire_url: ""
+
+# Page affichée quand une adresse du site n'existe pas (ou plus).
+page_404:
+  titre: "Cette page s'est perdue en chemin…"
+  texte: "L'adresse que vous cherchez n'existe pas ou a changé. Pas d'inquiétude : l'histoire continue par ici."
+  bouton_accueil: "Retour à l'accueil"
+  bouton_romans: "Découvrir mes romans"
+  bouton_contact: "M'écrire"

@@ -23,7 +23,7 @@ After those, the biggest gain for scalability is giving each book its own page, 
 
 Severity: **High** = breaks a page or blocks launch · **Medium** = real cost or risk, not urgent · **Low** = tidy-up.
 
-Numbers are stable: the gaps (E1, E2, E4, E6, E9) are the CMS-only findings that were dropped.
+Numbers are stable: the gaps (E1, E2, E4, E6, E9) are the CMS-only findings that were dropped. Findings describe the site as audited; section 3 says what has been fixed since.
 
 ### 2.1 Content editing
 
@@ -96,17 +96,23 @@ Size: **S** = under an hour · **M** = half a day · **L** = a day or more.
 
 ### 3.2 Phase 1 — Launch blockers
 
+**Done on 11 November 2026:**
+- Legal notice and privacy policy written, stored in `_data/legal.yml`. The facts only the owner knows are marked `[à compléter : …]`, and the "Texte provisoire" label shows until `provisoire: false`.
+- "Lire les 3 premiers chapitres" is hidden on the 13 books without an excerpt (owner's choice).
+- Fonts are hosted in `assets/polices/` (22 files, 648 KB, Latin and extended Latin). No call to Google remains. The per-page `polices:` setting is gone: a browser only downloads the fonts a page uses, which also settles U6.
+- Favicon, iPhone icon, and a sharing image (portrait and name) set as the default for every page in `_config.yml`. `outils/partage.py` regenerates the two images.
+- 404 page, with its text in `_data/site.yml`.
+- `robots.txt` follows `site.noindex`. While it is `true`, the file is byte-identical to the previous one.
+- Launch checklist written in the README.
+
+Remaining, all on the owner's side:
+
 | Item | Fixes | Size | Visible on the pages |
 |---|---|---|---|
-| Write the legal notice and privacy policy | S2 | M | Text of those two pages replaced. Layout unchanged |
-| Choose the newsletter tool and fill in the sign-up address | U1 | S | Same buttons, same look. They open the sign-up form instead of an email draft |
-| Hide "Lire les 3 premiers chapitres" on a book without an excerpt (owner's choice, 11 November 2026) | U2 | S | **Visible**: the button disappears from the thriller cards and the carousels for the 13 books without an excerpt |
-| Host the fonts on the site | S1, U6 | M | Same fonts and weights, no intended change. Checked by before/after screenshots |
-| Favicon, and a sharing image made of the portrait and the name (owner's choice) | U8 | S | Browser tab icon and link previews only. Page content unchanged |
-| 404 page | U8 | S | New page, shown only on a wrong address |
-| Generate `robots.txt` from `site.noindex` | U9 | S | None |
-| Launch switch: `url`, `baseurl`, custom domain, `noindex` (touches `_config.yml`) | U9 | S | The site address changes. Pages identical |
+| Fill in the `[à compléter : …]` gaps of `_data/legal.yml`, then set `provisoire: false` | S2 | S | The gaps and the "Texte provisoire" label disappear from the two legal pages |
+| Choose the newsletter tool and fill in `newsletter.formulaire_url` | U1 | S | Same buttons, same look. They open the sign-up form instead of an email draft |
 | Secure press and photo rights | S8 | — | A clipping or photo is removed only if rights are refused |
+| Launch switch, following the README checklist (touches `_config.yml`) | U9 | S | The site address changes. Pages identical |
 
 ### 3.3 Phase 2 — Safety net (now the first priority after launch blockers)
 

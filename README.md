@@ -30,7 +30,9 @@ Les choix de Mélodie sont fixés : nouveautés en une phrase, En audio en playl
 | Conférences | `_data/conferences.yml` |
 | Contact | `_data/contact.yml` |
 | Témoignages | `_data/temoignages.yml` |
-| Email, réseaux, newsletter | `_data/site.yml` |
+| Email, réseaux, newsletter, page 404 | `_data/site.yml` |
+| Mentions légales, confidentialité | `_data/legal.yml` |
+| Image de partage (aperçu des liens), icône | `python outils/partage.py` (refait `assets/img/partage.jpg`) |
 | Les 3 premiers chapitres | PDF dans `assets/chapitres/`, champ `extrait` du livre (ou pages `_extraits/*.md`) |
 | Couleurs et polices | `assets/css/base.css` (variables en haut) |
 | Photos et couvertures | `assets/img/photos/`, `assets/img/livres/` |
@@ -38,16 +40,20 @@ Les choix de Mélodie sont fixés : nouveautés en une phrase, En audio en playl
 - Un livre « à paraître » (`statut: a-paraitre`) reçoit un badge et un bouton « Être informé de sa sortie ».
 - Les dates passées de `rencontres.yml` disparaissent seules (au build et à l'affichage). La prochaine date est mise en vedette avec un compte à rebours (`debut` et `fin` au format AAAA-MM-JJ).
 - Carrousels de couvertures (Manon, Cassandre, comédies) : `_includes/carrousel.html` + `assets/js/carrousel.js`. Défilement toutes les 4 s, pause au survol, désactivé si le visiteur demande moins d'animations.
-- Premiers chapitres : champ `extrait` du livre = `/assets/chapitres/<id>.pdf`, `/extraits/<nom>/` ou un lien externe. Vide : le bouton « Lire les 3 premiers chapitres » mène à la newsletter. `extrait_libelle` change le texte du bouton.
+- Premiers chapitres : champ `extrait` du livre = `/assets/chapitres/<id>.pdf`, `/extraits/<nom>/` ou un lien externe. Vide : aucun bouton « premiers chapitres » sur ce livre. `extrait_libelle` change le texte du bouton.
 - Bouton « Audio - me prévenir » : `audio_bientot: true` sur le livre (à retirer quand le lien Audible existe).
 - Style de Noël : `style: noel` dans `livres.yml` et `nouveautes.yml` (badge rouge, boutons dorés), à vider après les fêtes.
 - Conférences : chaque rencontre a une `date` (AAAA-MM-JJ) ; « À venir » en premier, puis « Passées » atténuées.
-- Chargement par page (performances) : réglages `carrousel`, `audio`, `ecran`, `presse`, `polices` dans l'en-tête de chaque page (voir `_layouts/default.html`).
+- Chargement par page (performances) : réglages `carrousel`, `audio`, `ecran`, `presse` dans l'en-tête de chaque page (voir `_layouts/default.html`).
+- Polices : hébergées sur le site dans `assets/polices/` (aucun appel à Google). Le navigateur ne télécharge que celles que la page utilise.
 
-## À faire plus tard
-- **Mise en ligne** : créer un dépôt GitHub, pousser ce dossier, activer Settings > Pages (branche main).
-- **Domaine** : fichier `CNAME` contenant `melodiemiller.fr`, puis les enregistrements DNS chez le registrar.
-- Mentions légales et confidentialité : textes provisoires à compléter.
+## Mise en ligne sur le vrai domaine (liste de contrôle)
+1. `_data/legal.yml` : remplacer tous les `[à compléter : …]`, puis `provisoire: false`.
+2. `_data/site.yml` : renseigner `newsletter.formulaire_url` (adresse du formulaire d'inscription).
+3. Droits : accord des titres de presse pour les coupures, accord des personnes sur la photo de l'atelier Kobo.
+4. GitHub > Settings > Pages > Custom domain : saisir `melodiemiller.fr`, puis créer les enregistrements DNS chez le registrar et cocher « Enforce HTTPS ». Le site est publié par GitHub Actions : un fichier `CNAME` dans le dépôt serait ignoré.
+5. `_config.yml` : `url: "https://melodiemiller.fr"`, `baseurl: ""`, `noindex: false`. Ce seul réglage `noindex` retire la balise noindex et ouvre `robots.txt` (avec l'adresse du sitemap).
+6. Après publication : vérifier `https://melodiemiller.fr/robots.txt`, `/sitemap.xml`, une adresse inexistante (page 404) et l'aperçu d'un lien partagé.
 
 Un bouton dont le lien est vide n'est pas affiché (Kobo, précommande, Audible…). Les articles de presse sont des reproductions : vérifier les droits de reproduction avant la mise en ligne réelle.
 

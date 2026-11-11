@@ -5,11 +5,14 @@ title: "Politique de confidentialité | Mélodie Miller"
 permalink: /confidentialite/
 sitemap: false
 ---
+{% assign g = site.data.legal %}
+{% assign t = g.confidentialite %}
 <section class="container section contact">
-  <h1>Politique de confidentialité</h1>
-  <p class="provisoire">Texte provisoire, à compléter avant la mise en ligne.</p>
-  <p>Ce site ne dépose pas de cookie de suivi et ne collecte aucune donnée par formulaire : les messages passent par votre messagerie.</p>
-  <p>Si vous vous inscrivez à la newsletter, votre adresse email est traitée par l'outil d'emailing de Mélodie Miller [nom de l'outil à confirmer], uniquement pour vous envoyer ses nouvelles. Vous pouvez vous désinscrire à tout moment depuis chaque message.</p>
-  <p>Pour toute demande sur vos données : <a href="mailto:{{ site.data.site.email }}">{{ site.data.site.email }}</a>.</p>
-  <p>[Polices Google Fonts : à confirmer, une version hébergée localement évite tout transfert de données]</p>
+  <h1>{{ t.titre }}</h1>
+  {% if g.provisoire %}<p class="provisoire">{{ g.provisoire_texte }}</p>{% endif %}
+  {% for s in t.sections %}
+  <h2>{{ s.titre }}</h2>
+  {% for p in s.paragraphes %}{{ p | markdownify }}{% endfor %}
+  {% endfor %}
+  <p class="fin-contact">{{ g.contact_intro }} <a href="mailto:{{ site.data.site.email }}">{{ site.data.site.email }}</a></p>
 </section>

@@ -31,7 +31,6 @@ LISEZ_MOI = """MAQUETTE DU SITE DE MÉLODIE MILLER
 1. Décompressez ce dossier (clic droit > Extraire tout).
 2. Double-cliquez sur « index.html » : le site s'ouvre dans votre navigateur.
 
-- Les polices (Google Fonts) se chargent si vous êtes connecté à Internet.
 - Le menu « À l'écran » présente les adaptations possibles (droits : Literary Image).
 - Les cadres pointillés « couverture à venir » attendent les fichiers manquants.
 - Les textes marqués « provisoire » sont à confirmer.

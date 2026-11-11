@@ -1,0 +1,17 @@
+---
+layout: default
+univers: portail
+title: "Page introuvable | Mélodie Miller"
+permalink: /404.html
+sitemap: false
+---
+{% assign e = site.data.site.page_404 %}
+<section class="container section contact centre">
+  <h1>{{ e.titre }}</h1>
+  <p>{{ e.texte }}</p>
+  <p class="boutons page-404-boutons">
+    <a class="btn" href="{{ '/' | relative_url }}">{{ e.bouton_accueil }}</a>
+    <a class="btn btn-ghost" href="{{ '/mes-romans/' | relative_url }}">{{ e.bouton_romans }}</a>
+    <a class="btn btn-ghost" href="{{ '/contact/' | relative_url }}">{{ e.bouton_contact }}</a>
+  </p>
+</section>
