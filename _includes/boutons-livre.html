@@ -12,10 +12,10 @@
   {% if l.extrait contains '://' %}{% capture chap_url %}{{ l.extrait }}{% endcapture %}{% else %}{% capture chap_url %}{{ l.extrait | relative_url }}{% endcapture %}{% endif %}
 {% endif %}
 <p class="boutons">
-  {% for lien in l.liens %}{% if lien.url and lien.url != "" %}<a class="btn" href="{{ lien.url }}" rel="noopener">{{ lien.nom }}</a>{% endif %}{% endfor %}
-  {% if l.statut == 'a-paraitre' and utiles.size == 0 %}<a class="btn" href="{{ include.nl | strip }}" rel="noopener">Être informé de sa sortie</a>{% endif %}
-  {% if chap_url != "" %}{% unless include.discret %}<a class="btn btn-ghost" href="{{ chap_url | strip }}" target="_blank" rel="noopener">{{ libelle }}</a>{% endunless %}{% endif %}
-  {% if l.audio_bientot %}<a class="btn btn-ghost" href="{{ include.nl | strip }}" rel="noopener">Audio - me prévenir</a>{% endif %}
+  {% for lien in l.liens %}{% if lien.url and lien.url != "" %}<a class="btn" href="{{ lien.url | escape }}" rel="noopener">{{ lien.nom }}</a>{% endif %}{% endfor %}
+  {% if l.statut == 'a-paraitre' and utiles.size == 0 %}<a class="btn" href="{{ include.nl | strip | escape }}" rel="noopener">Être informé de sa sortie</a>{% endif %}
+  {% if chap_url != "" %}{% unless include.discret %}<a class="btn btn-ghost" href="{{ chap_url | strip | escape }}" target="_blank" rel="noopener">{{ libelle }}</a>{% endunless %}{% endif %}
+  {% if l.audio_bientot %}<a class="btn btn-ghost" href="{{ include.nl | strip | escape }}" rel="noopener">Audio - me prévenir</a>{% endif %}
   {% if utiles.size == 0 and l.statut != 'a-paraitre' %}<span class="a-venir">Lien d'achat à venir</span>{% endif %}
 </p>
-{% if include.discret and chap_url != "" %}<p class="lien-chapitres"><a href="{{ chap_url | strip }}" target="_blank" rel="noopener">{{ libelle | remove: "Lire les " | remove: "Lire " }} &rsaquo;</a></p>{% endif %}
+{% if include.discret and chap_url != "" %}<p class="lien-chapitres"><a href="{{ chap_url | strip | escape }}" target="_blank" rel="noopener">{{ libelle | remove: "Lire les " | remove: "Lire " }} &rsaquo;</a></p>{% endif %}

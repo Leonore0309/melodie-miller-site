@@ -21,7 +21,7 @@ description: "Mélodie Miller, autrice de romans feel good, de comédies romanti
   <h2 id="deux-univers" class="centre">{{ a.deux_univers.titre }}</h2>
   <div class="duo">
     <article class="carte-univers" data-univers="feelgood">
-      <img src="{{ '/assets/img/livres/' | append: a.deux_univers.lumiere.couverture | relative_url }}" alt="{{ a.deux_univers.lumiere.couverture_alt }}" loading="lazy">
+      <img src="{{ '/assets/img/livres/' | append: a.deux_univers.lumiere.couverture | relative_url | escape }}" alt="{{ a.deux_univers.lumiere.couverture_alt | escape }}" loading="lazy">
       <div>
         <h3>{{ a.deux_univers.lumiere.titre }}</h3>
         <p>{{ a.deux_univers.lumiere.texte }}</p>
@@ -29,7 +29,7 @@ description: "Mélodie Miller, autrice de romans feel good, de comédies romanti
       </div>
     </article>
     <article class="carte-univers" data-univers="thriller">
-      <img src="{{ '/assets/img/livres/' | append: a.deux_univers.frissons.couverture | relative_url }}" alt="{{ a.deux_univers.frissons.couverture_alt }}" loading="lazy">
+      <img src="{{ '/assets/img/livres/' | append: a.deux_univers.frissons.couverture | relative_url | escape }}" alt="{{ a.deux_univers.frissons.couverture_alt | escape }}" loading="lazy">
       <div>
         <h3>{{ a.deux_univers.frissons.titre }}</h3>
         <p>{{ a.deux_univers.frissons.texte }}</p>
@@ -49,7 +49,7 @@ description: "Mélodie Miller, autrice de romans feel good, de comédies romanti
       <h2>{{ a.lettre.titre }}</h2>
       <p>{{ a.lettre.texte }}</p>
       {% capture nl %}{% include newsletter-lien.html %}{% endcapture %}
-      <p class="boutons"><a class="btn" href="{{ nl | strip }}" rel="noopener">{{ a.lettre.bouton }}</a></p>
+      <p class="boutons"><a class="btn" href="{{ nl | strip | escape }}" rel="noopener">{{ a.lettre.bouton }}</a></p>
     </div>
     {% include photo.html src=a.lettre.photo alt=a.lettre.photo_alt %}
   </div>

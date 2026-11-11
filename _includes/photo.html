@@ -1,5 +1,5 @@
 {%- comment -%} Paramètres : src (fichier dans assets/img/photos/), alt, legende (facultatif), classe (facultatif) {%- endcomment -%}
 <figure class="photo {{ include.classe }}">
-  <img src="{{ '/assets/img/photos/' | append: include.src | relative_url }}" alt="{{ include.alt }}" loading="lazy">
+  <img src="{{ '/assets/img/photos/' | append: include.src | relative_url | escape }}" alt="{{ include.alt | escape }}" loading="lazy">
   {% if include.legende and include.legende != "" %}<figcaption>{{ include.legende }}</figcaption>{% endif %}
 </figure>

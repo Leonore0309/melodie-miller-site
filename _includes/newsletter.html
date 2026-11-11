@@ -2,5 +2,5 @@
 <section class="newsletter">
   <h2>{{ site.data.site.newsletter.titre }}</h2>
   <p>{{ site.data.site.newsletter.texte }}</p>
-  <a class="btn" href="{{ nl | strip }}" rel="noopener">{{ site.data.site.newsletter.bouton }}</a>
+  <a class="btn" href="{{ nl | strip | escape }}" rel="noopener">{{ site.data.site.newsletter.bouton }}</a>
 </section>

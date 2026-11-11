@@ -1,9 +1,9 @@
 {%- comment -%} Une pochette audio. Paramètre : l (un livre de audio.yml) {%- endcomment -%}
 {% capture nl %}{% include newsletter-lien.html %}{% endcapture %}
 {% assign l = include.l %}
-<article class="pochette" data-univers="{{ l.univers }}">
+<article class="pochette" data-univers="{{ l.univers | escape }}">
   <div class="pochette-visuel">
-    <img src="{{ '/assets/img/audio/' | append: l.visuel | relative_url }}" alt="Version audio de {{ l.titre }}" loading="lazy">
+    <img src="{{ '/assets/img/audio/' | append: l.visuel | relative_url | escape }}" alt="Version audio de {{ l.titre | escape }}" loading="lazy">
   </div>
   <div class="pochette-texte">
     {% if l.tome and l.tome != "" %}<p class="pochette-tome">{{ l.tome }}</p>{% endif %}
@@ -11,8 +11,8 @@
     <div class="onde" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
     {% if l.message and l.message != "" %}<p class="pochette-message">{{ l.message }}</p>{% endif %}
     <p class="boutons">
-      {% if l.url and l.url != "" %}<a class="btn" href="{{ l.url }}" rel="noopener">&#9654; Écouter</a>
-      {% else %}<a class="btn" href="{{ nl | strip }}" rel="noopener">Me prévenir de la sortie</a>{% endif %}
+      {% if l.url and l.url != "" %}<a class="btn" href="{{ l.url | escape }}" rel="noopener">&#9654; Écouter</a>
+      {% else %}<a class="btn" href="{{ nl | strip | escape }}" rel="noopener">Me prévenir de la sortie</a>{% endif %}
     </p>
   </div>
 </article>

@@ -15,11 +15,11 @@
   {% assign j1 = debut | date: "%-d" %}
   {% assign j2 = e.fin | append: "" | date: "%-d" %}
   {% assign m = debut | date: "%-m" | minus: 1 %}
-  <li class="evt{% if forloop.first %} vedette{% endif %}" data-debut="{{ debut }}" data-fin="{{ e.fin }}">
+  <li class="evt{% if forloop.first %} vedette{% endif %}" data-debut="{{ debut | escape }}" data-fin="{{ e.fin | escape }}">
     <div class="evt-cal"><span class="evt-jour">{{ j1 }}{% if j1 != j2 %}-{{ j2 }}{% endif %}</span><span class="evt-mois">{{ mois_fr[m] }}</span></div>
     <div class="evt-corps">
       <span class="evt-compte" hidden></span>
-      <h3 class="evt-titre">{% if e.lien and e.lien != "" %}<a href="{{ e.lien }}" rel="noopener">{{ e.titre }}</a>{% else %}{{ e.titre }}{% endif %}</h3>
+      <h3 class="evt-titre">{% if e.lien and e.lien != "" %}<a href="{{ e.lien | escape }}" rel="noopener">{{ e.titre }}</a>{% else %}{{ e.titre }}{% endif %}</h3>
       <span class="evt-lieu">{{ e.quand }} · {{ e.lieu }}</span>
     </div>
   </li>

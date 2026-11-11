@@ -14,7 +14,7 @@ The site is sound: small (about 2,700 lines), consistently organised, content se
 
 The main risks are not attacks. They are:
 
-1. **Nothing checks an edit before it goes live.** Every push to `main` deploys. Content is now edited by hand in YAML, where one wrong indent fails the build and the site silently stays on the old version.
+1. **Nothing checks an edit before it goes live.** Every push to `main` deploys. Content is now edited by hand in YAML, where one wrong indent fails the build and the site stays on the old version. The owner chose not to add checks before deploying (see E3); a failed deploy is only signalled by GitHub's failure email and the Actions tab.
 2. **Launch blockers remain**: legal pages, newsletter sign-up, indexing switches, third-party fonts.
 
 After those, the biggest gain for scalability is giving each book its own page, and the biggest gain for polish is in accessibility and image loading.
@@ -29,7 +29,7 @@ Numbers are stable: the gaps (E1, E2, E4, E6, E9) are the CMS-only findings that
 
 | # | Finding | Where | Severity |
 |---|---|---|---|
-| E3 | No validation and no preview. A wrong value either fails the build (the site silently stays on the old version) or publishes a broken page | `.github/workflows/pages.yml` | High |
+| E3 | No validation and no preview. A wrong value either fails the build (the site stays on the old version) or publishes a broken page. **Accepted risk**: the owner chose on 11 November 2026 not to add checks before pushing or deploying. Mitigation: keep GitHub's "failed workflow" email notifications on for whoever edits | `.github/workflows/pages.yml` | High |
 | E5 | Dates, styles and book identifiers are typed by hand. A typo fails silently (a misspelt book id in Nouveautés gives a card with no title and no cover) | `_data/*.yml`, `_includes/nouveautes.html` | Medium |
 | E7 | Text still hard-coded in pages, against the project rule: menu labels, section-menu labels, "Cinéma & télévision", "Livres audio", "Romances", "Thrillers", "Les premiers chapitres", "Contacter Mélodie", both legal pages | `_includes/header.html`, `*/index.html`, `_layouts/extrait.html` | Low |
 | E8 | The festive style must be switched on, then off, by hand in two places | `_data/livres.yml`, `_data/nouveautes.yml` | Low |
@@ -56,7 +56,7 @@ The attack surface is low: static files only, no form, no cookie, no third-party
 |---|---|---|---|
 | S1 | Fonts are loaded from Google on every page, which sends each visitor's IP address to Google. The privacy page itself lists this as unresolved | `_layouts/default.html` | High (launch) |
 | S2 | Legal notice and privacy policy are placeholders. Both are mandatory in France before launch | `mentions-legales/index.html`, `confidentialite/index.html` | High (launch) |
-| S3 | Account-level items to confirm: two-factor authentication on the GitHub accounts, branch protection on `main`, Pages CMS access revoked on GitHub if it was ever authorised, and who owns the repository and the domain in the long run (the repository is under a third-party account) | GitHub settings | Medium |
+| S3 | Account-level items (two-factor authentication, revoking old Pages CMS access, long-term ownership of the repository and the domain). **Removed from the plan** by the owner on 11 November 2026 | GitHub settings | Medium |
 | S4 | Data values are written into HTML attributes unescaped (`alt`, `aria-label`, `href`), except on the press page. A double quote in a title breaks the markup | `_includes/*.html` | Low |
 | S5 | No Content-Security-Policy and no referrer policy. A strict policy is feasible because there are no inline scripts and no `style` attributes | `_layouts/default.html` | Low |
 | S6 | GitHub Actions are pinned by tag, not by commit; no Dependabot | `.github/workflows/pages.yml` | Low |
@@ -114,16 +114,21 @@ Remaining, all on the owner's side:
 | Secure press and photo rights | S8 | — | A clipping or photo is removed only if rights are refused |
 | Launch switch, following the README checklist (touches `_config.yml`) | U9 | S | The site address changes. Pages identical |
 
-### 3.3 Phase 2 — Safety net (now the first priority after launch blockers)
+### 3.3 Phase 2 — Hardening
+
+**Done on 11 November 2026:**
+- `Gemfile.lock` is committed, with the Windows and Linux platforms, so the online build uses the same gem versions as the local one.
+- Data values in HTML attributes go through `escape` (72 places). Fixed internal addresses are left as they are. Once HTML entities are decoded, the built pages are identical to before.
+- The five actions of the deploy workflow are pinned to exact commits. `.github/dependabot.yml` proposes gem and action updates once a month, as pull requests.
+- The security headers (S5) were removed from the plan by the owner.
+
+The owner decided on 11 November 2026 not to add checks before pushing or deploying, and removed the account-settings item. The data check, build check and link check (E3, E5, A5) are cancelled, and so is branch protection, which only helps with checks before merging.
 
 | Item | Fixes | Size | Visible on the pages |
 |---|---|---|---|
 | Commit `Gemfile.lock` | A4 | S | None |
-| Check job on every push, blocking the deploy on failure, with error messages a non-developer can act on: data check (valid YAML, unique ids, referenced books and files exist, dates valid, addresses are https or mailto), Jekyll build, link check reusing `verifier` from `outils/maquette.py` | E3, E5, A5 | L | None. A faulty edit no longer goes online: the previous version stays |
 | Escape data in HTML attributes | S4 | S | None for the current content |
-| Content-Security-Policy and referrer policy | S5 | M | None if correct. Risk: a wrong rule blocks fonts or styles, so every page is checked before merge. Do after fonts are self-hosted |
-| Pin Actions by commit, add Dependabot | S6 | S | None |
-| Confirm two-factor authentication, branch protection, revoked CMS access, repository and domain ownership | S3 | S | None |
+| Pin Actions by commit, add Dependabot (update proposals as pull requests, nothing runs on pushes or deploys) | S6 | S | None |
 
 ### 3.4 Phase 3 — Content editing without a CMS
 

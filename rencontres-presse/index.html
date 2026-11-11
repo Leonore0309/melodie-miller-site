@@ -30,16 +30,16 @@ presse: true
   <div class="presse-grille">
     {% for a in r.presse.articles %}
     <article class="presse-carte">
-      <button type="button" class="presse-vignette" data-grand="{{ '/assets/img/presse/' | append: a.image_complete | relative_url }}" data-titre="{{ a.titre | escape }}" aria-label="Voir l'article : {{ a.titre | escape }}">
-        <img src="{{ '/assets/img/presse/' | append: a.image | relative_url }}" alt="Coupure de presse : {{ a.titre | escape }}" loading="lazy">
+      <button type="button" class="presse-vignette" data-grand="{{ '/assets/img/presse/' | append: a.image_complete | relative_url | escape }}" data-titre="{{ a.titre | escape }}" aria-label="Voir l'article : {{ a.titre | escape }}">
+        <img src="{{ '/assets/img/presse/' | append: a.image | relative_url | escape }}" alt="Coupure de presse : {{ a.titre | escape }}" loading="lazy">
       </button>
       <div class="presse-texte">
         <p class="presse-media"><strong>{{ a.media }}</strong>{% if a.date and a.date != "" %} · {{ a.date }}{% endif %}</p>
         <h3>{{ a.titre }}</h3>
         {% if a.citation and a.citation != "" %}<p class="presse-citation">{{ a.citation }}</p>{% endif %}
         <p class="boutons">
-          <a class="btn" href="{{ '/assets/img/presse/' | append: a.image_complete | relative_url }}" data-ouvrir>Voir l'article</a>
-          {% if a.lien and a.lien != "" %}<a class="btn btn-ghost" href="{{ a.lien }}" rel="noopener">Version web</a>{% endif %}
+          <a class="btn" href="{{ '/assets/img/presse/' | append: a.image_complete | relative_url | escape }}" data-ouvrir>Voir l'article</a>
+          {% if a.lien and a.lien != "" %}<a class="btn btn-ghost" href="{{ a.lien | escape }}" rel="noopener">Version web</a>{% endif %}
         </p>
       </div>
     </article>

@@ -40,7 +40,7 @@ audio: true
     <div>
       <h2>{{ a.voix.titre }}</h2>
       {% for p in a.voix.texte %}<p>{{ p }}</p>{% endfor %}
-      <p class="boutons"><a class="btn" href="{{ a.voix.lien }}" rel="noopener">{{ a.voix.lien_texte }}</a></p>
+      <p class="boutons"><a class="btn" href="{{ a.voix.lien | escape }}" rel="noopener">{{ a.voix.lien_texte }}</a></p>
     </div>
     <div class="voix-photos">
       {% include photo.html src=a.voix.photo alt=a.voix.photo_alt legende=a.voix.photo_legende %}

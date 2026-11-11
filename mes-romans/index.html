@@ -13,7 +13,7 @@ permalink: /mes-romans/
   </div>
   <div class="duo">
     <article class="carte-univers carte-grande" data-univers="feelgood">
-      <img src="{{ '/assets/img/livres/' | append: s.feelgood.couverture | relative_url }}" alt="{{ s.feelgood.couverture_alt }}">
+      <img src="{{ '/assets/img/livres/' | append: s.feelgood.couverture | relative_url | escape }}" alt="{{ s.feelgood.couverture_alt | escape }}">
       <div>
         <h2>{{ s.feelgood.titre }}</h2>
         <p>{{ s.feelgood.texte }}</p>
@@ -21,7 +21,7 @@ permalink: /mes-romans/
       </div>
     </article>
     <article class="carte-univers carte-grande" data-univers="thriller">
-      <img src="{{ '/assets/img/livres/' | append: s.thriller.couverture | relative_url }}" alt="{{ s.thriller.couverture_alt }}">
+      <img src="{{ '/assets/img/livres/' | append: s.thriller.couverture | relative_url | escape }}" alt="{{ s.thriller.couverture_alt | escape }}">
       <div>
         <h2>{{ s.thriller.titre }}</h2>
         <p>{{ s.thriller.texte }}</p>

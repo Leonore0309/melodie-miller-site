@@ -14,5 +14,5 @@ sitemap: false
   <h2>{{ s.titre }}</h2>
   {% for p in s.paragraphes %}{{ p | markdownify }}{% endfor %}
   {% endfor %}
-  <p class="fin-contact">{{ g.contact_intro }} <a href="mailto:{{ site.data.site.email }}">{{ site.data.site.email }}</a></p>
+  <p class="fin-contact">{{ g.contact_intro }} <a href="mailto:{{ site.data.site.email | escape }}">{{ site.data.site.email }}</a></p>
 </section>

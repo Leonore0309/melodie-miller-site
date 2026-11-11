@@ -3,12 +3,12 @@
 <ul class="dist-liste">
   {% for p in d.prix %}
   <li><span class="dist-emoji" aria-hidden="true">{{ p.emoji }}</span>
-    <span>{% if p.url and p.url != "" %}<a href="{{ p.url }}" target="_blank" rel="noopener">{{ p.texte }}</a>{% else %}{{ p.texte }}{% endif %}</span></li>
+    <span>{% if p.url and p.url != "" %}<a href="{{ p.url | escape }}" target="_blank" rel="noopener">{{ p.texte }}</a>{% else %}{{ p.texte }}{% endif %}</span></li>
   {% endfor %}
   {% for a in d.agences %}
   <li><span class="dist-emoji" aria-hidden="true">{{ a.emoji }}</span>
-    <span>{{ a.role }} : <a href="{{ a.site }}" target="_blank" rel="noopener"><strong>{{ a.nom }}</strong></a>{% if a.instagram and a.instagram != "" %}
-      <a class="dist-insta" href="{{ a.instagram }}" target="_blank" rel="noopener" aria-label="Instagram de {{ a.nom }} (nouvel onglet)">{% include icone.html nom="instagram" %}</a>{% endif %}</span></li>
+    <span>{{ a.role }} : <a href="{{ a.site | escape }}" target="_blank" rel="noopener"><strong>{{ a.nom }}</strong></a>{% if a.instagram and a.instagram != "" %}
+      <a class="dist-insta" href="{{ a.instagram | escape }}" target="_blank" rel="noopener" aria-label="Instagram de {{ a.nom | escape }} (nouvel onglet)">{% include icone.html nom="instagram" %}</a>{% endif %}</span></li>
   {% endfor %}
 </ul>
-<p class="dist-reseau"><a class="btn btn-ghost" href="{{ d.instagram.url }}" target="_blank" rel="noopener">{% include icone.html nom="instagram" %}<span>{{ d.instagram.texte }}</span></a></p>
+<p class="dist-reseau"><a class="btn btn-ghost" href="{{ d.instagram.url | escape }}" target="_blank" rel="noopener">{% include icone.html nom="instagram" %}<span>{{ d.instagram.texte }}</span></a></p>

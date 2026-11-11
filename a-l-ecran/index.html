@@ -19,11 +19,11 @@ ecran: true
 
 {% for p in e.projets %}
 <section class="container section projet" id="{{ p.id }}">
-  <div class="projet-grille{% cycle '', ' inverse' %}" data-univers="{{ p.univers }}">
+  <div class="projet-grille{% cycle '', ' inverse' %}" data-univers="{{ p.univers | escape }}">
     <div class="projet-affiches">
       {% for id in p.livres %}
       {% assign l = tous | where: "id", id | first %}
-      <a href="{{ p.lien | relative_url }}"><img src="{{ '/assets/img/livres/' | append: l.image | relative_url }}" alt="Couverture de {{ l.titre }}" loading="lazy"></a>
+      <a href="{{ p.lien | relative_url | escape }}"><img src="{{ '/assets/img/livres/' | append: l.image | relative_url | escape }}" alt="Couverture de {{ l.titre | escape }}" loading="lazy"></a>
       {% endfor %}
     </div>
     <div class="projet-texte">
@@ -32,7 +32,7 @@ ecran: true
       <p class="pitch">{{ p.pitch }}</p>
       {% for para in p.paragraphes %}<p>{{ para }}</p>{% endfor %}
       <ul class="projet-points">{% for pt in p.points %}<li>{{ pt }}</li>{% endfor %}</ul>
-      <p class="boutons"><a class="btn" href="{{ p.lien | relative_url }}">{{ p.bouton }}</a></p>
+      <p class="boutons"><a class="btn" href="{{ p.lien | relative_url | escape }}">{{ p.bouton }}</a></p>
     </div>
   </div>
 </section>
@@ -41,9 +41,9 @@ ecran: true
 <section class="container section droits">
   <h2>{{ e.droits.titre }}</h2>
   <p>{{ e.droits.texte }}</p>
-  <p><strong>{{ e.droits.societe }}</strong>, {{ e.droits.contact_nom }}<br><a href="mailto:{{ e.droits.email }}">{{ e.droits.email }}</a></p>
+  <p><strong>{{ e.droits.societe }}</strong>, {{ e.droits.contact_nom }}<br><a href="mailto:{{ e.droits.email | escape }}">{{ e.droits.email }}</a></p>
   <p class="boutons">
-    <a class="btn" href="mailto:{{ e.droits.email }}?subject={{ 'Adaptation audiovisuelle' | url_encode }}">{{ e.droits.bouton }}</a>
+    <a class="btn" href="mailto:{{ e.droits.email | escape }}?subject={{ 'Adaptation audiovisuelle' | url_encode }}">{{ e.droits.bouton }}</a>
     <a class="btn btn-ghost" href="{{ '/contact/' | relative_url }}">Contacter Mélodie</a>
   </p>
 </section>

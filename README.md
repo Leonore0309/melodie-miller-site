@@ -8,7 +8,9 @@ Site statique Jekyll, publié par GitHub Pages. Deux univers de romans (feel goo
 
 Si un antivirus (Avast…) bloque `bundle install` avec une erreur de certificat SSL, exporter le certificat racine de l'antivirus au format PEM, l'ajouter à une copie du fichier `cert.pem` de Ruby, puis définir `SSL_CERT_FILE` vers ce fichier pour la session. Ne pas désactiver la vérification SSL.
 
-Le `Gemfile` utilise `jekyll` seul (pas `github-pages`) pour éviter la compilation de gems natifs. En ligne, GitHub Pages utilise sa propre version : le site n'emploie que des fonctions de base.
+Le `Gemfile` utilise `jekyll` seul (pas `github-pages`) pour éviter la compilation de gems natifs. Le fichier `Gemfile.lock` fixe les versions exactes : la publication en ligne (GitHub Actions, sous Linux) utilise les mêmes que l'ordinateur. Après un `bundle update`, garder la plateforme Linux dans ce fichier (`bundle lock --add-platform x86_64-linux`), sinon la publication échoue.
+
+Mises à jour : Dependabot propose chaque mois, par pull request, les nouvelles versions des gems et des actions GitHub (`.github/dependabot.yml`). Les actions du fichier `.github/workflows/pages.yml` sont fixées à un commit précis : ne les modifier que par ces propositions.
 
 ## Maquette à envoyer à un autre ordinateur
 `python outils/maquette.py` construit le site et crée `dist/maquette-melodie-miller.zip`. Il suffit de décompresser et de double-cliquer sur `index.html`. Le script réécrit les adresses pour qu'elles marchent sans serveur, puis vérifie tous les liens.

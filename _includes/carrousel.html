@@ -3,7 +3,7 @@
   resume (true = afficher l'accroche et le résumé du livre central), label (nom du carrousel)
 {%- endcomment -%}
 {% capture nl %}{% include newsletter-lien.html %}{% endcapture %}
-<div class="carrousel" data-mode="{{ include.mode | default: 'saga' }}" data-auto="4000" role="region" aria-roledescription="carrousel" aria-label="{{ include.label }}">
+<div class="carrousel" data-mode="{{ include.mode | default: 'saga' | escape }}" data-auto="4000" role="region" aria-roledescription="carrousel" aria-label="{{ include.label | escape }}">
   <div class="car-scene">
     <button class="car-fleche car-prec" type="button" aria-label="Livre précédent">&#9664;</button>
     <div class="car-piste">
@@ -11,9 +11,9 @@
       <div class="car-item" id="{{ l.id }}" data-index="{{ forloop.index0 }}">
         <div class="couv">
           {% if l.image and l.image != "" %}
-          <img src="{{ '/assets/img/livres/' | append: l.image | relative_url }}" alt="Couverture de {{ l.titre }}" loading="lazy" draggable="false">
+          <img src="{{ '/assets/img/livres/' | append: l.image | relative_url | escape }}" alt="Couverture de {{ l.titre | escape }}" loading="lazy" draggable="false">
           {% else %}
-          <div class="couverture-vide" role="img" aria-label="Couverture à venir de {{ l.titre }}"><span>{{ l.titre }}</span></div>
+          <div class="couverture-vide" role="img" aria-label="Couverture à venir de {{ l.titre | escape }}"><span>{{ l.titre }}</span></div>
           {% endif %}
           {% if l.statut == 'a-paraitre' %}<span class="badge-couv badge-bientot">À paraître</span>{% endif %}
         </div>

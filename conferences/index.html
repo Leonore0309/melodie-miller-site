@@ -62,5 +62,5 @@ permalink: /conferences/
 <section class="container section cta">
   <h2>{{ c.cta.titre }}</h2>
   <p>{{ c.cta.texte }}</p>
-  <p class="boutons"><a class="btn" href="mailto:{{ site.data.site.email }}?subject={{ 'Conférence' | url_encode }}">{{ c.cta.bouton }}</a></p>
+  <p class="boutons"><a class="btn" href="mailto:{{ site.data.site.email | escape }}?subject={{ 'Conférence' | url_encode }}">{{ c.cta.bouton }}</a></p>
 </section>
