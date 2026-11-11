@@ -11,12 +11,8 @@ mentions:
   sections:
     - titre: "Éditeur du site"
       paragraphes:
-        - "Ce site est édité par [à compléter : nom et prénom, ou dénomination de la société], qui publie sous le nom de plume Mélodie Miller."
-        - "Adresse : [à compléter]. SIRET : [à compléter]."
-        - "Directrice de la publication : [à compléter : nom et prénom]."
-    - titre: "Hébergement"
-      paragraphes:
-        - "Le site est hébergé par GitHub Pages, un service de GitHub, Inc., 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, États-Unis ([pages.github.com](https://pages.github.com))."
+        - "Ce site a été crée par Léonore Vanier pour Mélodie Miller."
+        - "Directrice de la publication : Mélodie Miller."
     - titre: "Propriété intellectuelle"
       paragraphes:
         - "Les textes, les extraits de romans et les photographies de ce site sont protégés par le droit d'auteur. Toute reproduction, même partielle, nécessite un accord écrit préalable."
@@ -31,22 +27,10 @@ confidentialite:
     - titre: "En résumé"
       paragraphes:
         - "Ce site ne dépose aucun cookie, n'utilise aucun outil de mesure d'audience et ne contient aucun formulaire. Les polices de caractères sont hébergées sur le site : aucune donnée n'est transmise à un service tiers pour les afficher."
-    - titre: "Responsable du traitement"
+   - titre: "Quand vous m'écrivez"
       paragraphes:
-        - "[à compléter : nom et prénom, ou dénomination de la société], qui publie sous le nom de plume Mélodie Miller."
-    - titre: "Quand vous m'écrivez"
-      paragraphes:
-        - "Les boutons de contact ouvrent votre propre messagerie. Votre adresse email et le contenu de votre message me servent uniquement à vous répondre. Ils sont conservés le temps de notre échange, puis au plus [à compléter : durée, par exemple trois ans]."
-    - titre: "Newsletter"
-      paragraphes:
-        - "Si vous vous inscrivez à la newsletter, votre adresse email est traitée par [à compléter : nom de l'outil d'emailing], uniquement pour vous envoyer mes nouvelles. L'inscription repose sur votre consentement : vous pouvez vous désinscrire à tout moment grâce au lien présent dans chaque message."
-    - titre: "Hébergement"
-      paragraphes:
-        - "Le site est hébergé par GitHub Pages (GitHub, Inc., États-Unis). Comme tout hébergeur, GitHub enregistre des données techniques de connexion, dont l'adresse IP des visiteurs, pour assurer la sécurité du service. Voir la [déclaration de confidentialité de GitHub](https://docs.github.com/fr/site-policy/privacy-policies/github-general-privacy-statement)."
-    - titre: "Liens externes"
+        - "Les boutons de contact ouvrent votre propre messagerie. Votre adresse email et le contenu de votre message me servent uniquement à vous répondre. Ils sont conservés le temps de notre échange."
+  - titre: "Liens externes"
       paragraphes:
         - "Les liens vers Amazon, Kobo, Audible, Instagram, Facebook ou TikTok vous conduisent sur des sites qui appliquent leur propre politique de confidentialité. Aucune donnée ne leur est transmise tant que vous ne cliquez pas."
-    - titre: "Vos droits"
-      paragraphes:
-        - "Vous pouvez demander l'accès à vos données, leur rectification ou leur effacement, et vous opposer à leur utilisation, en m'écrivant à l'adresse ci-dessous."
-        - "Si vous estimez que vos droits ne sont pas respectés, vous pouvez adresser une réclamation à la CNIL ([cnil.fr](https://www.cnil.fr))."
+   
