@@ -5,7 +5,7 @@
   Ordre : acheter · chapitres · audio.
 {%- endcomment -%}
 {% assign l = include.l %}
-{% assign utiles = l.liens | where_exp: "x", "x.url and x.url != ''" %}
+{% assign utiles = l.liens | where_exp: "x", "x.url" | where_exp: "x", "x.url != ''" %}
 {% assign libelle = l.extrait_libelle | default: site.data.textes.livres.chapitres %}
 {% assign chap_url = "" %}
 {% if l.extrait and l.extrait != "" %}
